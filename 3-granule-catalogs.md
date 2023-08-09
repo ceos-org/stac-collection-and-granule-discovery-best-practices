@@ -15,9 +15,14 @@ Explain main alternatives :
 
 ### Granule search request
 
+- endpoint(s): /search and/or /items ?
+- GET and/or OST
+
 #### Search parameters
 
 #### Advertising additional search parameters
+
+- filter + CQL (optional)
 
 #### Other
 
@@ -25,4 +30,8 @@ Explain main alternatives :
 
 ### Granule search response
 
+- result navigation ?
+
 ### TBD
+
+- simplifications ?  /conformance, /api not required (even though mandatory) as not-used by clients - redundant ?
