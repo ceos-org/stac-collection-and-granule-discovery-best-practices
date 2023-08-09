@@ -17,4 +17,8 @@ Explain main alternatives :
 
 ### Advertising additional granule search parameters
 
+### Other
+
+- Asset-level search capability (STFC)
+
 #### TBD
