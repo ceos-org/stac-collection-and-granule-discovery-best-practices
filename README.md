@@ -1,10 +1,10 @@
 # CEOS STAC Best Practices
 
 ## Table of Contents
-- [Introduction](#Introduction)
+- [1. Introduction](1-introduction.md)
    - [Purpose of document]()
    - [Project members]()
-   - [Terminology]()
+   - [1.3 Terms definitions and abbreviated terms](1-introduction.md#13-terms-definitions-and-abbreviated-terms)
    - [Specifications & reference]()
    - [What is STAC?]()
    - [The goal of CEOS STAC usage for interoperability]()
