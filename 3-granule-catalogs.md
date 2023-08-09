@@ -13,12 +13,16 @@ Explain main alternatives :
 
 ## Catalog with search interface
 
-### Granule search parameters
+### Granule search request
 
-### Advertising additional granule search parameters
+#### Search parameters
 
-### Other
+#### Advertising additional search parameters
+
+#### Other
 
 - Asset-level search capability (STFC)
 
-#### TBD
+### Granule search response
+
+### TBD
