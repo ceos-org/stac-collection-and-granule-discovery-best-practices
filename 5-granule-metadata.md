@@ -17,4 +17,6 @@ Explain main parts
 
 - how to encode "offerings" (i.e. links to OGC or other service endpoints in a STAC item) ?
 - how to encode cloud-native access (zarr, COG) in STAC item.
+- how to encode different resource access methods e.g. http download link or S3 location url
+- how/when to use the asset alternate links extension?
 
