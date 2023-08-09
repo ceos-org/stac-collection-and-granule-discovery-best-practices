@@ -1,11 +1,21 @@
 # CEOS STAC Best Practices
 
-## Table of Contents
+## Table of Contents (new)
 - [1. Introduction](1-introduction.md)
    - [1.1 Purpose of the document](1-introduction.md#11-purpose-of-document)
    - [1.2 Document overview](1-introduction.md#12-document-overview)
    - [1.3 Terms definitions and abbreviated terms](1-introduction.md#13-terms-definitions-and-abbreviated-terms)
    - [1.4 References](1-introduction.md#14-references)
+- [2. Objectives and needs](2-objectives-needs.md)
+- [3. Granule Catalog Best Practices](3-granule-catalogs.md)
+- [4. Collection Catalog Best Practices](4-collection-catalogs.md)
+- [5. Granule Metadata Best Practices](5-granule-metadata.md)
+- [6. Collection Metadata Best Practices](6-collection-metadata.md)
+
+
+## Table of Contents (old)
+- [1. Introduction](1-introduction.md)
+ 
    - [What is STAC?]()
    - [The goal of CEOS STAC usage for interoperability]()
       - [Federated discovery]()
@@ -27,11 +37,3 @@
    - [Collections as datasets/collections]()
    - [Items as science data files/granules]()
    - [Services]()
-   - [Extensions]()
-      - [Storage]()
-      - [Federated search results]()
--  [Implementations](#implementations)
-
-## API Best Practices
-## Metadata Best Practices
-## Implementations
