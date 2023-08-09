@@ -3,6 +3,7 @@
 
 ## 1.1 Purpose of document
 
+The STAC ecosystem comprises both API-related and metadata-related specifications.
 This document provides server implementation Best Practices for STAC-based metadata publication and related discovery services allowing for standardized and harmonized access to metadata and data for CEOS agencies.
 
 TBD.
