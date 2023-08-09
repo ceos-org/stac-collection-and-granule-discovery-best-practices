@@ -9,6 +9,9 @@ Explain main parts
 
 ## Properties
 
+- mandatory/recommended properties / extensions
+- refer to mapping between STAC and OS-EO properties. (DLR)
+
 ## Assets and roles
 
 - what names (roles, media types) should be used for quicklooks, bands, ...
@@ -19,4 +22,5 @@ Explain main parts
 - how to encode cloud-native access (zarr, COG) in STAC item.
 - how to encode different resource access methods e.g. http download link or S3 location url
 - how/when to use the asset alternate links extension?
+- Recommendation to properly link to all (raster) assets in an EO product. (VITO)
 
