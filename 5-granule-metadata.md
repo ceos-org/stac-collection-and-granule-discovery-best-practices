@@ -24,3 +24,8 @@ Explain main parts
 - how/when to use the asset alternate links extension?
 - Recommendation to properly link to all (raster) assets in an EO product. (VITO)
 
+
+## CEOS-ARD recommendations
+
+- TBD
+
