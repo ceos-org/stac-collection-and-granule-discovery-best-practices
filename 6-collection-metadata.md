@@ -8,7 +8,12 @@ Explain main parts
 
 ## Properties
 
+- ...
+- summaries  (platform, instrument, science keywords, GCMD)
+
 ## Assets and roles
+
+- what names (roles, media types) should be used for ...
 
 ## Links and relations
 
