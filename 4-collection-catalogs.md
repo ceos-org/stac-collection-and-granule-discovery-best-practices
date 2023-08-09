@@ -13,7 +13,9 @@ Explain main alternatives :
 
 ## Collection catalog with search interface
 
-### Search parameters
+### Collection search parameters
+
+### Advertising additional collection search parameters
 
 #### TBD
 
