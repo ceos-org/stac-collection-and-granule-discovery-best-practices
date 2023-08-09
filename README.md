@@ -3,7 +3,7 @@
 ## Table of Contents
 - [1. Introduction](1-introduction.md)
    - [Purpose of document]()
-   - [Project members]()
+   - [1.2 Document overview](1-introduction.md#12-document-overview)
    - [1.3 Terms definitions and abbreviated terms](1-introduction.md#13-terms-definitions-and-abbreviated-terms)
    - [Specifications & reference]()
    - [What is STAC?]()
