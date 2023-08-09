@@ -6,20 +6,36 @@
 ## Overview
 
 Explain main alternatives :
-- static collection catalog (landing page, ..)
+- static collection catalog (landing page, rel="child", rel="data", ..)
 - collection catalog with search interface
 
 ## Static collection catalog without search interface
 
+- rel="data" or rel="child" ?
+
 ## Collection catalog with search interface
 
-### Collection search parameters
+### Collection search request
 
-### Advertising additional collection search parameters
+- endpoint
+
+#### Search parameters
+
+- mandatory
+- optional (q?)
+
+#### Advertising additional search parameters
+
+- rel="qeuryables", JSON Schema (optional)
+- CQL (optional)
+
+### Collection search response
+
+- result set navigation
 
 #### TBD
 
-## Two-step search
+### Two-step search
 
 One serious hurdle to overcome in searching for data is the great number of data items to account
 for in responses, as well as the expected number of successful “hits” for a query. In ordinary web
