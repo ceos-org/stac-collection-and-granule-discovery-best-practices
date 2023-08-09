@@ -13,6 +13,8 @@ Explain main alternatives :
 
 ## Catalog with search interface
 
-### Search parameters
+### Granule search parameters
+
+### Advertising additional granule search parameters
 
 #### TBD
