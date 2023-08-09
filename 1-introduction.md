@@ -25,6 +25,7 @@ The document is organized as follows:
 
 |  |   |  
 | -------- | --------- | 
+| `Analysis Ready Data` | Satellite data that have been processed to a minimum set of requirements and organized into a form that allows immediate analysis with a minimum of additional user effort and interoperability both through time and with other datasets. |
 | `Granule` | A granule is the finest granularity of data that can be independently managed. A granule usually matches the individual file of EO satellite data.  | 
 | `Collection` | A collection is an aggregation of granules sharing the same product specification. A collection typically corresponds to the series of products derived from data acquired by a sensor on board a satellite and having the same mode of operation.  | 
 | `Interface` | Named set of operations that characterize the 16ehavior of an entity.  | 
@@ -37,6 +38,7 @@ The document is organized as follows:
 |  |   |  
 | -------- | --------- | 
 | `API` | Application Programming Interface |
+| `ARD` | Analysis Ready Data |
 | `CEOS` | Committee on Earth Observation Satellites   |  
 | `DIF-10` | Directory Interchange Format Version 10   |  
 | `GCMD` | Global Change Master Directory   |  
