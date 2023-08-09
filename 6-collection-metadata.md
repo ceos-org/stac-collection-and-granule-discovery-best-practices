@@ -22,3 +22,7 @@ Explain main parts
 ## Facilitating catalog federation
 
 - make available DIF10 metadata record as "asset".
+
+## CEOS-ARD recommendations
+
+- TBD
