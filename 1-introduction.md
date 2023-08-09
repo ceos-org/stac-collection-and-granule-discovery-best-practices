@@ -1,3 +1,4 @@
+[Next](2-objectives-needs.md)
 # 1. Introduction
 
 ## 1.1 Purpose of document
