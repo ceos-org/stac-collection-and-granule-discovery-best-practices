@@ -19,6 +19,11 @@ The document is organized as follows:
 - Chapter 4 ...
 
 
+There are three different levels of obligation for the Best Practices presented in the current document:
+- “Requirements” are mandatory and must be implemented,
+- “Recommendations” are optional, but strongly recommended for interoperability,
+- “Optional” indicates an additional good practice.
+
 ## 1.3 Terms, definitions and abbreviated terms
 
 ### 1.3.1 Terms and Definitions 
