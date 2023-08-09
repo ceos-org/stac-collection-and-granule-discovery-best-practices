@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [1. Introduction](1-introduction.md)
-   - [Purpose of document]()
+   - [1.1 Purpose of the document](1-introduction.md#11-purpose-of-document)
    - [1.2 Document overview](1-introduction.md#12-document-overview)
    - [1.3 Terms definitions and abbreviated terms](1-introduction.md#13-terms-definitions-and-abbreviated-terms)
    - [1.4 References](1-introduction.md#14-references)
@@ -32,7 +32,6 @@
       - [Federated search results]()
 -  [Implementations](#implementations)
 
-## Introduction
 ## API Best Practices
 ## Metadata Best Practices
 ## Implementations
