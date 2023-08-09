@@ -5,7 +5,7 @@
    - [Purpose of document]()
    - [1.2 Document overview](1-introduction.md#12-document-overview)
    - [1.3 Terms definitions and abbreviated terms](1-introduction.md#13-terms-definitions-and-abbreviated-terms)
-   - [Specifications & reference]()
+   - [1.4 References](1-introduction.md#14-references)
    - [What is STAC?]()
    - [The goal of CEOS STAC usage for interoperability]()
       - [Federated discovery]()
