@@ -9,6 +9,10 @@
 | :question: | How much information do we want to provide in the document.  Not say anything about things which are explicit in the specifications (which ones?).  Or we repeat certain info for clarity ? |
 |---------------|:------------------------|
 
+
+| :question: | syntax/structure of Best Practice identifiers is to be agreed. Current identifiers are preliminary.  Obligation (requirement, recommendation) of each best practice is to be agreed as well.  Current levels are "copy/paste" and not representative.  |
+|---------------|:------------------------|
+
 Explain main alternatives :
 - static catalog (landing page, ..)
 - catalog with search interface
