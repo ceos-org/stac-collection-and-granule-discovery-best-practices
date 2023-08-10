@@ -14,7 +14,7 @@ Explain main parts
 
 > **CEOS-STAC-BP-XXX - Granule representation [Requirement]**<a name="BP-TBD"></a>
 >
-> A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the ["STAC Item Specification"](./1-introduction.md#AD03).
+> A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the "STAC Item Specification" [[AD03]](./1-introduction.md#AD03).
 
 > **CEOS-STAC-BP-013B - Temporal extents [Recommended]**<a name="BP-013B"></a>
 >
