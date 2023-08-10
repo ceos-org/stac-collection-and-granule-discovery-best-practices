@@ -74,6 +74,21 @@ There are three different levels of obligation for the Best Practices presented 
 | `AD10` <a name="AD10"></a> | [OGC21-065, Common Query Language (CQL2)](https://docs.ogc.org/DRAFTS/21-065.html)  | 
 | `AD11` <a name="AD11"></a> | [RFC 7946 - The GeoJSON Format](https://datatracker.ietf.org/doc/html/rfc7946) | 
 | `AD12` <a name="AD12"></a>| [JSON Schema: A Media Type for Describing JSON Documents, draft-handrews-json-schema-02](https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02) |
+| `AD13` <a name="AD13"></a>| [STAC Scientific Citation Extension Specification, v1.0.0](https://github.com/stac-extensions/scientific) |
+| `AD14` <a name="AD14"></a>| [STAC Electro-Optical Extension Specification, v1.1.0](https://github.com/stac-extensions/eo) |
+| `AD15` <a name="AD15"></a>| [STAC SAR Extension Specification, v1.0.0](https://github.com/stac-extensions/sar) |
+| `AD16` <a name="AD16"></a>| [STAC Satellite Extension Specification, v1.0.0](https://github.com/stac-extensions/sat) |
+| `AD17` <a name="AD17"></a>| [STAC Versioning Indicators Extension Specification, v1.2.0](https://github.com/stac-extensions/version) |
+| `AD18` <a name="AD18"></a>| [STAC View Geometry Extension Specification, v1.0.0](https://github.com/stac-extensions/view) |
+| `AD19` <a name="AD19"></a>| [STAC Projection Extension Specification, v1.0.0](https://github.com/stac-extensions/projectionw) |
+| `AD20` <a name="AD20"></a>| [STAC Timestamps Extension Specification, v1.0.0](https://github.com/stac-extensions/timestamps) |
+| `AD21` <a name="AD21"></a>| [STAC Processing Extension Specification, v1.1.0](https://github.com/stac-extensions/processing) |
+| `AD22` <a name="AD22"></a>| [STAC Hyperspectral Imagery Extension Specification, draft](https://github.com/stac-extensions/hsi) |
+| `AD23` <a name="AD23"></a>| [STAC Landsat Extension Specification, v1.1.1](https://landsat.usgs.gov/stac/landsat-extension/v1.1.1/schema.json) |
+
+
+
+
 
 ### 1.4.2 Reference documents
 
