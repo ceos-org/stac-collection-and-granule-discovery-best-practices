@@ -14,7 +14,7 @@ Explain main parts
 
 > **CEOS-STAC-BP-XXX - Collection representation [Requirement]**<a name="BP-TBD"></a>
 >
-> A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the ["STAC Collection Specification"](./1-introduction.md#AD02).
+> A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the "STAC Collection Specification" [[AD02]](./1-introduction.md#AD02).
 
 ## Assets and roles
 
