@@ -152,6 +152,13 @@ The table below list some frequently used formats and the corresponding media ty
 
 Note: although some implementations use rel="about" for the same purpose, rel="describedby" is recommended by https://docs.ogc.org/DRAFTS/20-024.html.
 
+## Facilitating catalog federation
+
+> **CEOS-STAC-BP-TBD - Root relation [Recommendation]**<a name="BP-TBD"></a>
+>
+> It is discouraged to use the rel="root" relation in STAC item encodings as the item's original data provider's catalog/collections maybe included in a federated catalog with a different root.
+>
+
 
 ## CEOS-ARD recommendations
 
