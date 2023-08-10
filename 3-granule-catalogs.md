@@ -68,6 +68,23 @@ Explain main alternatives :
 
 - result navigation ?
 
+> **CEOS-STAC-BP-10-2 - Item search response representation [Requirement]**<a name="BP-010-2"></a>
+>
+> An Item search response shall be represented as a GeoJSON FeatureCollection according to version v1.0.0 of the ["STAC API ItemCollection Specification"](https://github.com/radiantearth/stac-api-spec/blob/master/fragments/itemcollection/README.md).
+
+> **CEOS-STAC-BP-011B-2 - Result set navigation granules [Requirement]**<a name="BP-011B-2"></a>
+>
+> The $.features\[\].links array in an item search response shall include Link objects for navigating the search result set when the result set is too large to fit a single response using hyperlinks rel='self', rel='next', rel='prev', rel='first', rel='last' and type=`application/geo+json`. 
+
+
+| **Use case**   | **first** |  **prev** |  **self** | **next** | **last** |
+| --------   | --------- | --------- | --------- | --------- | --------- |
+| First page | Optional |  Not allowed |  Mandatory  | Mandatory  |  Optional |
+| Middle pages | Optional |  Optional | Mandatory  | Mandatory  | Optional  |
+| Last page | Optional |  Optional | Mandatory  |  Not allowed  | Optional  |
+| Empty result set | Not allowed  |  Not allowed |  Mandatory  | Not allowed  |  Not allowed |
+| Single page | Optional |  Not allowed |  Mandatory  | Not allowed  |  Optional |
+
 ### TBD
 
 - simplifications ?  /conformance, /api not required (even though mandatory) as not-used by clients - redundant ?
