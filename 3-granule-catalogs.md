@@ -3,22 +3,54 @@
 
 [//]: # (this is a comment)
 
-## Overview
+## 3.1 Overview
+
+
+| :question: | How much information do we want to provide in the document.  Not say anything about things which are explicit in the specifications (which ones?).  Or we repeat certain info for clarity ? |
+|---------------|:------------------------|
 
 Explain main alternatives :
 - static catalog (landing page, ..)
 - catalog with search interface
 
-## Static catalog without search interface
+## 3.2 Static catalog without search interface
 
-## Catalog with search interface
+## 3.3 Catalog with search interface
 
 ### Granule search request
 
+#### Endpoints
 - endpoint(s): /search and/or /items ?
-- GET and/or OST
+- GET and/or POST
+
+
+| :question: | Do we want to request the existence of 2 different endpoints for search, i.e. at /search and at /items even though just 1 is enough (partial compliance) ? For federation, it would be more scalable to ask for each collection to support search at rel="items". |
+|---------------|:------------------------|
+
+
+| :memo:        | Take note of this       |
+|---------------|:------------------------|
+
+
+| :information_source: | Take note of this       |
+|---------------|:------------------------|
+
+
+| :warning:        | Take note of this       |
+|---------------|:------------------------|
+
+> **CEOS-STAC-BP-002-3 - Granule search endpoints [Recommended]**<a name="BP-002-3"></a>
+>
+> CEOS implementations should advertise an endpoint for granule search which is valid for all the collections in the STAC Catalog (typically the Landing Page) with rel="search" and type="application/geo+json". 
+
+
+> **CEOS-STAC-BP-002-4 - Granule search endpoints [Recommended]**<a name="BP-002-4"></a>
+>
+> CEOS implementations should advertise an endpoint for granule search which is valid for a single collection in the STAC Collection representation as a Link object rel="items" and type="application/geo+json".
 
 #### Search parameters
+
+
 
 #### Advertising additional search parameters
 
