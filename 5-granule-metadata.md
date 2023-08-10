@@ -12,11 +12,13 @@ Explain main parts
 - mandatory/recommended properties / extensions
 - refer to mapping between STAC and OS-EO properties. (DLR)
 
+> **CEOS-STAC-BP-XXX - Granule representation [Requirement]**<a name="BP-TBD"></a>
+>
+> A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the ["STAC Item Specification"](./1-introduction.md#AD03).
 
 > **CEOS-STAC-BP-013B - Temporal extents [Recommended]**<a name="BP-013B"></a>
 >
 > STAC implementations should represent temporal extents in Items with the `start_datetime` and `end_datetime` properties and include the value for `start_datetime` also as `datetime` property.
-
 
 > **CEOS-STAC-BP-014 - Geographical extents [Requirement]**<a name="BP-014"></a>
 >
