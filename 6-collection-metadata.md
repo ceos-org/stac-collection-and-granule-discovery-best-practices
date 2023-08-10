@@ -3,24 +3,36 @@
 
 [//]: # (this is a comment)
 
-## Overview
+## 6.1 Overview
 Explain main parts
 
-## Properties
+## 6.2 Properties
 
 - ...
 - summaries  (platform, instrument, science keywords, GCMD)
+- organisation objects with names/URL from GCMD ?
 
 
 > **CEOS-STAC-BP-XXX - Collection representation [Requirement]**<a name="BP-TBD"></a>
 >
 > A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the "STAC Collection Specification" [[AD02]](./1-introduction.md#AD02).
 
-## Assets and roles
+
+> **CEOS-STAC-BP-XXX - Platform information [Requirement]**<a name="BP-TBD"></a>
+>
+> A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the "STAC Collection Specification" [[AD02]](./1-introduction.md#AD02).
+
+> **CEOS-STAC-BP-XXX - DOI [Requirement]**<a name="BP-TBD"></a>
+>
+> The DOI of a collection, if available, shall be encoded according to the Scientific Citation Extension Specification, i.e. using the `sci:doi` property and a link object with rel="cite-as" [[AD13]](./1-introduction.md#AD13).
+.
+> 
+
+## 6.3 Assets and roles
 
 - what names (roles, media types) should be used for ...
 
-## Links and relations
+## 6.4 Links and relations
 
 - how to encode "offerings" (i.e. links to OGC or other service endpoints in a STAC collection) ?
 
@@ -50,10 +62,15 @@ The table below list some frequently used formats for metadata standards  or doc
 | [Markdown](https://datatracker.ietf.org/doc/html/rfc7763)  | `text/markdown`  |
 | [PDF](https://en.wikipedia.org/wiki/PDF)  | `application/pdf`  |
 
-## Facilitating catalog federation
+## 6.5 Facilitating catalog federation
 
-- make available DIF10 metadata record as "asset".
+- make available DIF10 metadata record as "asset" (for IDN) ?
 
-## CEOS-ARD recommendations
+> **CEOS-STAC-BP-TBD - Root relation [Recommendation]**<a name="BP-TBD"></a>
+>
+> It is discouraged to use the rel="root" relation in STAC collection encoding as the collection's original data provider's catalog/collections maybe included in a federated catalog with a different root.
+>
+
+## 6.6 CEOS-ARD recommendations
 
 - TBD
