@@ -3,30 +3,52 @@
 
 [//]: # (this is a comment)
 
-## Overview
+## 4.1 Overview
 
 Explain main alternatives :
 - static collection catalog (landing page, rel="child", rel="data", ..)
 - collection catalog with search interface
 
-## Static collection catalog without search interface
+## 4.2 Static collection catalog without search interface
 
 - rel="data" or rel="child" ?
 
-## Collection catalog with search interface
+#### Endpoint
+
+> **CEOS-STAC-BP-002-1 - Collections endpoint [Requirement]**<a name="BP-002-1"></a>
+>
+> CEOS implementations shall advertise an endpoint for getting available collections in the landing page rel="data", type="application/json", href="/collections".
+
+The above endpoint is further referred to as the `collection search endpoint`. 
+
+## 4.3 Collection catalog with search interface
 
 ### Collection search request
-
-- endpoint
 
 #### Search parameters
 
 - mandatory
 - optional (q?)
 
+> **CEOS-STAC-BP-005 - Supported search parameters [Requirement]**<a name="BP-005"></a>
+>
+> The STAC-API and OGC API-Features specifications define a list of fundamental search parameters.  From these specifications, a CEOS STAC implementation shall support the following
+minimum set of search parameters for “collection” search at the collection search endpoint:
+- `limit`  
+- `ids`
+- `bbox` 
+- `intersects`
+- `datetime` 
+
+##### Free Text Keyword
+
+> **CEOS-STAC-BP-003 - Free text search [Recommended]**<a name="BP-003"></a>
+>
+> For supporting free text searches, the server shall advertise support for the HTTP query parameter `q` as per .
+
 #### Advertising additional search parameters
 
-- rel="qeuryables", JSON Schema (optional)
+- rel="queryables", JSON Schema (optional)
 - CQL (optional)
 
 ### Collection search response
@@ -77,23 +99,18 @@ The advantages of this approach are as follows:
 - It allows the client to determine what search parameters are available to the user at the
 granule level using the /queryables response.
 
----
-**NOTE/QUESTION 1**
 
-To be clarified what assumptions a STAC client is allowed to make regarding available (granule) search parameters.  Are STAC item-search parameters always all available at /search and /items endpoints, or only at the /search endpoint ?  
 
----
 
----
-**NOTE/QUESTION 2**
+| ❓ | To be clarified what assumptions a STAC client is allowed to make regarding available (granule) search parameters.  Are STAC item-search parameters always all available at /search and /items endpoints, or only at the /search endpoint ?      |
+|---------------|:------------------------|
 
-What STAC collection ìdentifiers can be used to perform searches at the /search endpoint ?  All the ones available at the rel=`data` path, all the ones in the hierachical structure starting from the landing page following the rel=`child` links ?
 
----
 
----
-**NOTE/QUESTION 3**
+| ❓ | What STAC collection ìdentifiers can be used to perform searches at the /search endpoint ?  All the ones available at the rel=`data` path, all the ones in the hierachical structure starting from the landing page following the rel=`child` links ? ?       |
+|---------------|:------------------------|
 
-What is the relation between the collections appearing in the hierarchy rel=`child` and the response from the /collections (rel=`data`) endpoint ?  One is a subset of the other or both can be unrelated ?   /collections to return a flat list ?  and how is it "filtered" when a query is applied ?  Flat list of all matches ?
 
----
+| ❓ | What is the relation between the collections appearing in the hierarchy rel=`child` and the response from the /collections (rel=`data`) endpoint ?  One is a subset of the other or both can be unrelated ?   /collections to return a flat list ?  and how is it "filtered" when a query is applied ?  Flat list of all matches ?       |
+|---------------|:------------------------|
+
