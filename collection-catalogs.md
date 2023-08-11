@@ -67,7 +67,7 @@ The above endpoint is further referred to as the `collections endpoint`.
 > **CEOS-STAC-BP-005 - Supported search parameters [Requirement]**<a name="BP-005"></a>
 >
 > The STAC-API and OGC API-Features specifications define a list of fundamental search parameters.  From these specifications, a CEOS STAC implementation shall support the following
-minimum set of search parameters for “collection” search at the collection endpoint:
+minimum set of search parameters for “collection” search at the collections endpoint:
 - `limit`  
 - `ids`
 - `bbox` 
@@ -75,7 +75,7 @@ minimum set of search parameters for “collection” search at the collection e
 
 > **CEOS-STAC-BP-TBD - Intersects search parameter [Permission]**<a name="BP-TBD"></a>
 >
-> A STAC server implementation may choose to not support the following search parameters for “collection” search at the collection endpoint:
+> A STAC server implementation may choose to not support the following search parameters for “collection” search at the collections endpoint:
 - `intersects`
 
 ##### Free Text Keyword
@@ -88,6 +88,18 @@ minimum set of search parameters for “collection” search at the collection e
 
 - rel="queryables", JSON Schema (optional)
 - CQL (optional)
+
+> **CEOS-STAC-BP-TBD - Additional search parameters [Recommendation]**<a name="BP-TBD"></a>
+>
+> A STAC server implementation supporting additional search parameters for collection search via a filter expression shall support the following additional query parameters and advertise the corresponding conformance classes in the landing page (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06).:
+> - filter
+> - filter-lang
+
+> **CEOS-STAC-BP-TBD - CQL subset [Requirement]**<a name="BP-TBD"></a>
+>
+> A STAC server implementation supporting additional search parameters for collection search via a filter expression shall support at least the following conformance classes of CQL2 (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06) and "OGC21-065, Common Query Language (CQL2)" [[AD10]](./introduction.md#AD10).:
+> - CQL2 Text
+> - Basic CQL2
 
 ### 4.3.2 Collection search response
 
