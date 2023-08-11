@@ -1,4 +1,4 @@
-[Previous](3-granule-catalogs.md) | [Next](5-granule-metadata.md)
+[Previous](granule-catalogs.md) | [Next](granule-metadata.md)
 # 4. Collection Catalog Best Practices
 
 [//]: # (this is a comment)
