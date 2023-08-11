@@ -3,6 +3,8 @@
 # CEOS STAC Best Practices
 
 ## Table of Contents (new)
+
+
 - [1. Introduction](introduction.md)
    - [1.1 Purpose of the document](introduction.md#11-purpose-of-document)
    - [1.2 Document overview](introduction.md#12-document-overview)
@@ -13,5 +15,11 @@
 - [4. Collection Catalog Best Practices](collection-catalogs.md)
 - [5. Granule Metadata Best Practices](granule-metadata.md)
 - [6. Collection Metadata Best Practices](collection-metadata.md)
+
+
+
+
+
+
 
 
