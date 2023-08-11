@@ -10,9 +10,22 @@ Explain main alternatives :
 - static collection catalog (landing page, rel="child", rel="data", ..)
 - collection catalog with search interface
 
+  
+
 ## 4.2 Collection catalog without search interface
 
-- rel="data" or rel="child" ?
+EO collections represented as STAC collections can be made available as a STAC Catalog in different ways as depicted below:
+- Through a hierarchy of catalogs or collections with the rel="child" relation.
+- As a list of collections available via the rel="data" relation.
+
+| ![Hierarchy of catalogs and collections](./figures/objects-collection-catalog-child.png "Nested catalogs and collections") |
+|:--:| 
+| *Hierarchy of catalogs and collections* |
+
+| ![List of collectio](./figures/objects-collection-catalog-data.png "List of collections") |
+|:--:| 
+| *List of collections* |
+
 
 #### Endpoint
 
