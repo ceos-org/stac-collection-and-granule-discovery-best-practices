@@ -1,4 +1,4 @@
-[Previous](4-collection-catalogs.md) | [Next](6-collection-metadata.md)
+[Previous](collection-catalogs.md) | [Next](collection-metadata.md)
 # 5. Granule Metadata Best Practices
 
 [//]: # (this is a comment)
@@ -14,7 +14,7 @@ Explain main parts
 
 > **CEOS-STAC-BP-XXX - Granule representation [Requirement]**<a name="BP-TBD"></a>
 >
-> A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the "STAC Item Specification" [[AD03]](./1-introduction.md#AD03).
+> A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the "STAC Item Specification" [[AD03]](./introduction.md#AD03).
 
 > **CEOS-STAC-BP-013B - Temporal extents [Recommended]**<a name="BP-013B"></a>
 >
@@ -124,7 +124,7 @@ The table below list some frequently used formats and the corresponding media ty
 
 > **CEOS-STAC-BP-TBD - Common band names [Recommendation]**<a name="BP-TBD"></a>
 >
-> If access to individual bands is provided via assets, then [Common Band Names](https://github.com/stac-extensions/eo/blob/main/README.md#common-band-names) should be used, preferably according to the forthcoming OGC Best Practice document [[RD03]](./1-introduction.md#RD03).
+> If access to individual bands is provided via assets, then [Common Band Names](https://github.com/stac-extensions/eo/blob/main/README.md#common-band-names) should be used, preferably according to the forthcoming OGC Best Practice document [[RD03]](./introduction.md#RD03).
 >
 
 > **CEOS-STAC-BP-TBD - Asset roles [Recommendation]**<a name="BP-TBD"></a>
