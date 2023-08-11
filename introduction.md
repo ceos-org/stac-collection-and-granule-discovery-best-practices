@@ -101,6 +101,7 @@ In addition, "Permissions" indicate allowed deviations from one of more of the u
 | `RD01` <a name="RD01"></a> | [CEOS OpenSearch Best Practice Document, Version 1.0, CEOS-OPENSEARCH-BP-V1.3](https://ceos.org/document_management/Working_Groups/WGISS/Documents/WGISS%20Best%20Practices/CEOS%20OpenSearch%20Best%20Practice.pdf)  |
 | `RD02` <a name="RD02"></a> | [ISO 19115-1:2014, Geographic Information – Metadata – Part 1: Fundamentals, First Edition 2014-04-01](https://www.iso.org/standard/53798.html)  |
 | `RD03` <a name="RD03"></a> | [OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors](https://portal.ogc.org/files/?artifact_id=104980&version=1) - Expected but no draft available.  |
+| `RD04` <a name="RD04"></a> | [OGC13-026r9, OpenSearch Extension for Earth Observation](https://docs.ogc.org/is/13-026r9/13-026r9.html) |
 
 
 
