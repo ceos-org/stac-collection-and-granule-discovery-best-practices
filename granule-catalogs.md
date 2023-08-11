@@ -25,6 +25,19 @@ Explain main alternatives :
 
 - rel="item"
 
+EO granules represented as STAC items can be made available as:
+- individual STAC items referenced from a STAC collection
+- the result of a search interface
+
+| ![Static catalog](./figures/objects-granule-catalog-item.png "Nested catalogs and collections") |
+|:--:| 
+| *Method 1: Using rel="item"* |
+
+| ![Search result](./figures/objects-granule-catalog-items.png "List of collections") |
+|:--:| 
+| *Method 2: Via a search interface* |
+
+
 ## 3.3 Catalog with search interface
 
 ### Granule search request
