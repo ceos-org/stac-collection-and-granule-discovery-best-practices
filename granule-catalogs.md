@@ -13,11 +13,17 @@
 | :question: | syntax/structure of Best Practice identifiers is to be agreed. Current identifiers are preliminary.  Obligation (requirement, recommendation) of each best practice is to be agreed as well.  Current levels are "copy/paste" and not representative.  |
 |---------------|:------------------------|
 
+
+| :question: |  What terminology to use consistency in the requirements ?  e.g. "A STAC server", "A CEOS STAC server", "A CEOS STAC [granule/collection] catalog implementation", catalog/catalogue, ...  |
+|---------------|:------------------------|
+
 Explain main alternatives :
 - static catalog (landing page, ..)
 - catalog with search interface
 
 ## 3.2 Static catalog without search interface
+
+- rel="item"
 
 ## 3.3 Catalog with search interface
 
