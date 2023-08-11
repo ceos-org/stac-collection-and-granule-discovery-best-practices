@@ -2,7 +2,6 @@
 # 4. Collection Catalog Best Practices
 
 [//]: # (this is a comment)
-The requirements in the current chapter only apply 
 
 ## 4.1 Overview
 
@@ -10,7 +9,7 @@ Explain main alternatives :
 - static collection catalog (landing page, rel="child", rel="data", ..)
 - collection catalog with search interface
 
-  
+The requirements in the current chapter only apply when TBD.
 
 ## 4.2 Collection catalog without search interface
 
@@ -20,21 +19,20 @@ EO collections represented as STAC collections can be made available as a STAC C
 
 | ![Hierarchy of catalogs and collections](./figures/objects-collection-catalog-child.png "Nested catalogs and collections") |
 |:--:| 
-| *Hierarchy of catalogs and collections* |
+| *Method 1: Using rel="child"* |
 
 | ![List of collectio](./figures/objects-collection-catalog-data.png "List of collections") |
 |:--:| 
-| *List of collections* |
+| *Method 2: Using rel="data* |
 
+Implementations may combine both mechanisms and allow the same EO collection to be found via the collection hierarchy or the collection list.
+Implementations intending to support collection search are to support at least Method 2 and the corresponding endpoint.
 
-#### Endpoint
-
-> **CEOS-STAC-BP-002-1 - Collections endpoint [Requirement]**<a name="BP-002-1"></a>
+> **CEOS-STAC-BP-TBD - Collection access [Requirement]**<a name="BP-TBD"></a>
 >
-> CEOS implementations shall advertise an endpoint for getting/listing available collections in the landing page rel="data", type="application/json".
+> A STAC server shall support access to collection metadata from the catalog landing page using the rel="child" or rel="data" approach depicted above or both approaches combined.
 
-The above endpoint is further referred to as the `collections endpoint`. 
-Applies when granule searches are supported.
+Note: When publishing a single collection, the collection and the landing page may be combined in a single JSON file.
 
 ## 4.3 Collection catalog with search interface
 
@@ -52,7 +50,11 @@ For example, the rel="items" path for a collection is not necessarily the path t
   - Support the /conformance path
   - Support the rel="conformance" from its landing page (root catalog)
 
-TBD: explain the "collections endpoint" may be a "search endpoint" if proper conformance classes are declared in landing page.
+> **CEOS-STAC-BP-002-1 - Collections endpoint [Requirement]**<a name="BP-002-1"></a>
+>
+> STAC servers supporting collection search shall advertise the search endpoint for collections in the landing page with rel="data" (most often `/collections`), type="application/json" and declare the corresponding collection search conformance classes in the landing page.  See "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
+
+The above endpoint is further referred to as the `collections endpoint`. 
 
 ### 4.3.1 Collection search request
 
