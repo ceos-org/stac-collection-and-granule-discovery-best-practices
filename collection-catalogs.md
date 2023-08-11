@@ -56,6 +56,24 @@ For example, the rel="items" path for a collection is not necessarily the path t
 
 The above endpoint is further referred to as the `collections endpoint`. 
 
+.Conformance encoding example
+
+```json
+"conformsTo": [
+
+    "http://www.opengis.net/spec/ogcapi_common-2/1.0/conf/collections",
+    "http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query",
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/cql-filter",
+    "https://api.stacspec.org/v1.0.0-rc.2/collection-search",
+    "https://api.stacspec.org/v1.0.0-rc.2/collection-search#filter",
+    "https://api.stacspec.org/v1.0.0-rc.1/collection-search#free-text",
+    "http://www.opengis.net/spec/cql2/1.0/conf/cql2-text",
+    "http://www.opengis.net/spec/cql2/1.0/conf/basic-cql2"
+  ]
+```
+
+  
+
 ### 4.3.1 Collection search request
 
 > **CEOS-STAC-BP-TBD - Collection search method [Requirement]**<a name="BP-TBD"></a>
@@ -80,7 +98,7 @@ minimum set of search parameters for “collection” search at the collections 
 
 ##### Free Text Keyword
 
-> **CEOS-STAC-BP-003 - Free text search [Recommended]**<a name="BP-003"></a>
+> **CEOS-STAC-BP-003 - Free text search [Recommendation]**<a name="BP-003"></a>
 >
 > For supporting free text searches, the server shall advertise support for the HTTP query parameter `q` as in "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
@@ -123,7 +141,7 @@ user truly wants to use all the data files of a desirable data collection set th
 region at the same time can produce a great many spurious hits, i.e., all the files for data
 collections that are not desired.
 
-> **CEOS-STAC-BP-001 - Support of two step search [Recommended]**<a name="BP-001"></a>
+> **CEOS-STAC-BP-001 - Support of two step search [Recommendation]**<a name="BP-001"></a>
 > 
 > Support for a two-step search consisting of a collection level search followed by a corresponding granule level search is recommended.
 
