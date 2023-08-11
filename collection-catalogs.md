@@ -23,7 +23,7 @@ EO collections represented as STAC collections can be made available as a STAC C
 
 | ![List of collectio](./figures/objects-collection-catalog-data.png "List of collections") |
 |:--:| 
-| *Method 2: Using rel="data* |
+| *Method 2: Using rel="data"* |
 
 Implementations may combine both mechanisms and allow the same EO collection to be found via the collection hierarchy or the collection list.
 Implementations intending to support collection search are to support at least Method 2 and the corresponding endpoint.
@@ -78,7 +78,7 @@ The above endpoint is further referred to as the `collections endpoint`.
 
 > **CEOS-STAC-BP-TBD - Collection search method [Requirement]**<a name="BP-TBD"></a>
 >
-> A STAC server shall support collection searches using the HTTP `GET` method.
+> A STAC server shall support collection searches at the `collections endpoint` using the HTTP `GET` method.
 
 #### Search parameters
 
@@ -119,6 +119,12 @@ minimum set of search parameters for “collection” search at the collections 
 > - CQL2 Text
 > - Basic CQL2
 
+
+> **CEOS-STAC-BP-TBD - Additional search parameter names [Recommendation]**<a name="BP-TBD"></a>
+>
+> A STAC server implementation supporting additional search parameters for collection search (e;g. search by platform, instrument, organisation) shall by preference use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD10]](./introduction.md#RD10).
+
+
 ### 4.3.2 Collection search response
 
 - result set navigation
@@ -126,7 +132,14 @@ minimum set of search parameters for “collection” search at the collections 
 - search by 'id'  (at /collections), which 'ids' can be used for searching ?  'id' from hierarchy ?
 - content negotiation (alternative formats)
 
-#### TBD
+> **CEOS-STAC-BP-011B-1 - Result set navigation collections [Recommendation]**<a name="BP-011B-1"></a>
+>
+> The $.links array in a collection search response shall include Link objects for navigating the search result set or collection list when the result set is too large to fit a single response using hyperlinks rel='self', rel='next', rel='prev', rel='first', rel='last' and type=`application/json`.
+
+> **CEOS-STAC-BP-TBD - Collection queryables [Recommendation]**<a name="BP-TBD"></a>
+>
+> A STAC server implementation supporting additional queryables for collection search shall return the link to the Queryables object with the list of queryables that can be used in a filter expression via a link object in the collection search response with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" (See also "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
+
 
 ### 4.3.3 Two-step search
 
