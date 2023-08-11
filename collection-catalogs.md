@@ -2,6 +2,7 @@
 # 4. Collection Catalog Best Practices
 
 [//]: # (this is a comment)
+The requirements in the current chapter only apply 
 
 ## 4.1 Overview
 
@@ -9,7 +10,7 @@ Explain main alternatives :
 - static collection catalog (landing page, rel="child", rel="data", ..)
 - collection catalog with search interface
 
-## 4.2 Static collection catalog without search interface
+## 4.2 Collection catalog without search interface
 
 - rel="data" or rel="child" ?
 
@@ -17,49 +18,72 @@ Explain main alternatives :
 
 > **CEOS-STAC-BP-002-1 - Collections endpoint [Requirement]**<a name="BP-002-1"></a>
 >
-> CEOS implementations shall advertise an endpoint for getting available collections in the landing page rel="data", type="application/json", href="/collections".
+> CEOS implementations shall advertise an endpoint for getting/listing available collections in the landing page rel="data", type="application/json".
 
-The above endpoint is further referred to as the `collection search endpoint`. 
+The above endpoint is further referred to as the `collections endpoint`. 
+Applies when granule searches are supported.
 
 ## 4.3 Collection catalog with search interface
 
-### Collection search request
+> **CEOS-STAC-BP-TBD - API Feature paths [Permission]**<a name="BP-TBD"></a>
+>
+> A CEOS STAC server implementation is allowed to not use fixed paths to navigate from resource to resource, but shall support discovering the actual path via the proper relation (rel="xyz") in the corresponding resource's representation.
+
+For example, the rel="items" path for a collection is not necessarily the path towards the collection with "/items" appended but may be on a different server.
+
+> **CEOS-STAC-BP-TBD - API Feature relations [Permission]**<a name="BP-TBD"></a>
+>
+> A CEOS STAC server implementation is not required to:
+  - Support the /api path or provide an OpenAPI description of its interface
+  - Support the rel="service-desc" from its landing page (root catalog)
+  - Support the /conformance path
+  - Support the rel="conformance" from its landing page (root catalog)
+
+TBD: explain the "collections endpoint" may be a "search endpoint" if proper conformance classes are declared in landing page.
+
+### 4.3.1 Collection search request
+
+> **CEOS-STAC-BP-TBD - Collection search method [Requirement]**<a name="BP-TBD"></a>
+>
+> A STAC server shall support collection searches using the HTTP `GET` method.
 
 #### Search parameters
-
-- mandatory
-- optional (q?)
 
 > **CEOS-STAC-BP-005 - Supported search parameters [Requirement]**<a name="BP-005"></a>
 >
 > The STAC-API and OGC API-Features specifications define a list of fundamental search parameters.  From these specifications, a CEOS STAC implementation shall support the following
-minimum set of search parameters for “collection” search at the collection search endpoint:
+minimum set of search parameters for “collection” search at the collection endpoint:
 - `limit`  
 - `ids`
 - `bbox` 
+- `datetime`
+
+> **CEOS-STAC-BP-TBD - Intersects search parameter [Permission]**<a name="BP-TBD"></a>
+>
+> A STAC server implementation may choose to not support the following search parameters for “collection” search at the collection endpoint:
 - `intersects`
-- `datetime` 
 
 ##### Free Text Keyword
 
 > **CEOS-STAC-BP-003 - Free text search [Recommended]**<a name="BP-003"></a>
 >
-> For supporting free text searches, the server shall advertise support for the HTTP query parameter `q` as per .
+> For supporting free text searches, the server shall advertise support for the HTTP query parameter `q` as in "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
 #### Advertising additional search parameters
 
 - rel="queryables", JSON Schema (optional)
 - CQL (optional)
 
-### Collection search response
+### 4.3.2 Collection search response
 
 - result set navigation
+- optional list of collection search parameters (rel="http://www.opengis.net/def/rel/ogc/1.0/queryables", type="application/schema+json"
 
 #### TBD
 
-### Two-step search
+### 4.3.3 Two-step search
 
-One serious hurdle to overcome in searching for data is the great number of data items to account
+One serious hurdl"e to overcome in searching for data is the great number of data items to account
 for in responses, as well as the expected number of successful “hits” for a query. In ordinary web
 searches, the searcher is usually looking for a small number of web pages or documents.
 Relevance ranking typically does a good job of presenting these successful hits near the top of
