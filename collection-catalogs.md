@@ -123,6 +123,8 @@ minimum set of search parameters for “collection” search at the collections 
 
 - result set navigation
 - optional list of collection search parameters (rel="http://www.opengis.net/def/rel/ogc/1.0/queryables", type="application/schema+json"
+- search by 'id'  (at /collections), which 'ids' can be used for searching ?  'id' from hierarchy ?
+- content negotiation (alternative formats)
 
 #### TBD
 
