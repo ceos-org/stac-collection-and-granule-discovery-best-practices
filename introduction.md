@@ -47,7 +47,9 @@ In addition, "Permissions" indicate allowed deviations from one of more of the u
 | `API` | Application Programming Interface |
 | `ARD` | Analysis Ready Data |
 | `CEOS` | Committee on Earth Observation Satellites   |  
+| `CQL` | Common Query Language   |  
 | `DIF-10` | Directory Interchange Format Version 10   |  
+| `EO` | Earth Observation   |  
 | `GCMD` | Global Change Master Directory   |  
 | `HATEOAS` | Hypertext As The Engine Of Application State  |
 | `IDN` |  International Directory Network  | 
