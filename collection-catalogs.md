@@ -122,7 +122,7 @@ minimum set of search parameters for “collection” search at the collections 
 
 > **CEOS-STAC-BP-TBD - Additional search parameter names [Recommendation]**<a name="BP-TBD"></a>
 >
-> A STAC server implementation supporting additional search parameters for collection search (e;g. search by platform, instrument, organisation) shall by preference use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD10]](./introduction.md#RD10).
+> A STAC server implementation supporting additional search parameters for collection search (e;g. search by platform, instrument, organisation) shall by preference use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD04]](./introduction.md#RD04).
 
 
 ### 4.3.2 Collection search response
