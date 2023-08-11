@@ -1,4 +1,4 @@
-[Previous](2-objectives-needs.md) | [Next](4-collection-catalogs.md)
+[Previous](objectives-needs.md) | [Next](collection-catalogs.md)
 # 3. Granule Catalog Best Practices
 
 [//]: # (this is a comment)
