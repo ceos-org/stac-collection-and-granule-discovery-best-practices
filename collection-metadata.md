@@ -1,4 +1,4 @@
-[Previous](5-granule-metadata.md) 
+[Previous](granule-metadata.md) 
 # 6. Collection Metadata Best Practices
 
 [//]: # (this is a comment)
