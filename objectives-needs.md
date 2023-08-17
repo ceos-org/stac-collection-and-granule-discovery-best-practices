@@ -1,4 +1,4 @@
-[Previous](introduction.md) | [Next](granule-catalogs.md)
+[Previous](introduction.md) | [Next](best-practices.md)
 # 2. Objectives and needs
 
 [//]: # (similar as Service Discovery Best Practice chapter )
