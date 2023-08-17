@@ -130,7 +130,31 @@ The table below list some frequently used formats and the corresponding media ty
 > **CEOS-STAC-BP-TBD - Asset roles [Recommendation]**<a name="BP-TBD"></a>
 >
 > If aditional asset roles are required (e.g. for cloud marks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
->
+
+
+Use of "STAC Alternate Asset Extension Specification" [[AD25]].
+
+.Example: Use of alternate Asset object for data available on S3 storage
+```
+ "assets": {
+    "data": {
+      "href": "https://storage.esa.int/store/TSX_OPER_SAR/2013/06/11/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100.zarr/.zmetadata",
+      "title": "Zarr consolidated metadata",
+      "type": "application/json"
+      "roles": [
+        "data",
+        "metadata",
+        "zarr-consolidated-metadata"
+      ],
+      "alternate": {
+        "s3": {
+          "title": "S3 Access",
+          "href": "s3://storage.esa.int/store/TSX_OPER_SAR/2013/06/11/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100.zarr/.zmetadata"
+        }
+      }
+    }
+  }
+```
 
 ## 6.4 Links and relations
 
