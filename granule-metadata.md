@@ -1,13 +1,13 @@
 [Previous](collection-catalogs.md) | [Next](collection-metadata.md)
-# 5. Granule Metadata Best Practices
+# 6. Granule Metadata Best Practices
 
 [//]: # (this is a comment)
 
-## Overview
+## 6.1 Overview
 
 Explain main parts
 
-## Properties
+## 6.2 Properties
 
 - mandatory/recommended properties / extensions
 - refer to mapping between STAC and OS-EO properties. (DLR)
@@ -38,7 +38,7 @@ The `bbox` item property is mandatory according to the STAC Item specification u
 
 
 
-## Assets and roles
+## 6.3 Assets and roles
 
 - what names (roles, media types) should be used for quicklooks, bands, ...
 
@@ -132,7 +132,7 @@ The table below list some frequently used formats and the corresponding media ty
 > If aditional asset roles are required (e.g. for cloud marks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
 >
 
-## Links and relations
+## 6.4 Links and relations
 
 - how to encode "offerings" (i.e. links to OGC or other service endpoints in a STAC item) ?
 - how to encode cloud-native access (zarr, COG) in STAC item.
@@ -152,7 +152,7 @@ The table below list some frequently used formats and the corresponding media ty
 
 Note: although some implementations use rel="about" for the same purpose, rel="describedby" is recommended by https://docs.ogc.org/DRAFTS/20-024.html.
 
-## Facilitating catalog federation
+## 6.5 Facilitating catalog federation
 
 > **CEOS-STAC-BP-TBD - Root relation [Recommendation]**<a name="BP-TBD"></a>
 >
