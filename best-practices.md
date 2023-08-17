@@ -14,5 +14,20 @@ In addition, "Permissions" indicate allowed deviations from one of more of the u
 
 
 
+
+## 3.2 General Best Practices
+
+
+
 | :question: |  Put general requirements here, applicable to multiple chapters (e.g. common for granule/collection to avoid repetition) ?  |
 |---------------|:------------------------|
+
+- candidate recommendations covering both granule / collections:
+  - no need for /conformance, /api
+  - result navigation
+  - media types to use
+  - common roles / relations
+      - metadata
+      - documentation
+      - ...
+      - 
