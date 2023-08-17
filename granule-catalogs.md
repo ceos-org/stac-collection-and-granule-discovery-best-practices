@@ -1,9 +1,9 @@
-[Previous](objectives-needs.md) | [Next](collection-catalogs.md)
-# 3. Granule Catalog Best Practices
+[Previous](best-practices.md) | [Next](collection-catalogs.md)
+# 3.2 Granule Catalog Best Practices
 
 [//]: # (this is a comment)
 
-## 3.1 Overview
+## 3.2.1 Overview
 
 
 | :question: | How much information do we want to provide in the document.  Not say anything about things which are explicit in the specifications (which ones?).  Or we repeat certain info for clarity ? |
@@ -21,7 +21,7 @@ Explain main alternatives :
 - static catalog (landing page, ..)
 - catalog with search interface
 
-## 3.2 Static catalog without search interface
+## 3.2.2 Static catalog without search interface
 
 - rel="item"
 
