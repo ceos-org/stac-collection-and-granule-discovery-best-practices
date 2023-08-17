@@ -13,10 +13,11 @@
    - [1.3 Terms definitions and abbreviated terms](#13-terms-definitions-and-abbreviated-terms)
    - [1.4 References](#14-references)
 - [2. Objectives and needs](#2-objectives-and-needs)
-- [3. Granule Catalog Best Practices](#3-granule-catalog-best-practices)
-- [4. Collection Catalog Best Practices](#4-collection-catalog-best-practices)
-- [5. Granule Metadata Best Practices](#5-granule-metadata-best-practices)
-- [6. Collection Metadata Best Practices](#6-collection-metadata-best-practices)
+- [3. Best Practices](#3-best-practices)
+- [4. Granule Catalog Best Practices](#4-granule-catalog-best-practices)
+- [5. Collection Catalog Best Practices](#5-collection-catalog-best-practices)
+- [6. Granule Metadata Best Practices](#6-granule-metadata-best-practices)
+- [7. Collection Metadata Best Practices](#7-collection-metadata-best-practices)
 
 <div style="page-break-after: always"></div>
 
@@ -25,6 +26,10 @@
 <div style="page-break-after: always"></div>
 
 :[chapter-2](.\objectives-needs.md)
+
+<div style="page-break-after: always"></div>
+
+:[chapter-2](.\best-practices.md)
 
 <div style="page-break-after: always"></div>
 
