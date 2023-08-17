@@ -1,12 +1,12 @@
 [Previous](granule-metadata.md) 
-# 6. Collection Metadata Best Practices
+# 7. Collection Metadata Best Practices
 
 [//]: # (this is a comment)
 
-## 6.1 Overview
+## 7.1 Overview
 Explain main parts
 
-## 6.2 Properties
+## 7.2 Properties
 
 - ...
 - summaries  (platform, instrument, science keywords, GCMD)
