@@ -1,9 +1,9 @@
 [Previous](granule-catalogs.md) | [Next](granule-metadata.md)
-# 4. Collection Catalog Best Practices
+# 5. Collection Catalog Best Practices
 
 [//]: # (this is a comment)
 
-## 4.1 Overview
+## 5.1 Overview
 
 Explain main alternatives :
 - static collection catalog (landing page, rel="child", rel="data", ..)
@@ -11,7 +11,7 @@ Explain main alternatives :
 
 The requirements in the current chapter only apply when TBD.
 
-## 4.2 Collection catalog without search interface
+## 5.2 Collection catalog without search interface
 
 EO collections represented as STAC collections can be made available as a STAC Catalog in different ways as depicted below:
 - Through a hierarchy of catalogs or collections with the rel="child" relation.
@@ -34,7 +34,7 @@ Implementations intending to support collection search are to support at least M
 
 Note: When publishing a single collection, the collection and the landing page may be combined in a single JSON file.
 
-## 4.3 Collection catalog with search interface
+## 5.3 Collection catalog with search interface
 
 > **CEOS-STAC-BP-TBD - API Feature paths [Permission]**<a name="BP-TBD"></a>
 >
@@ -74,7 +74,7 @@ The above endpoint is further referred to as the `collections endpoint`.
 
   
 
-### 4.3.1 Collection search request
+### 5.3.1 Collection search request
 
 > **CEOS-STAC-BP-TBD - Collection search method [Requirement]**<a name="BP-TBD"></a>
 >
@@ -125,7 +125,7 @@ minimum set of search parameters for “collection” search at the collections 
 > A STAC server implementation supporting additional search parameters for collection search (e;g. search by platform, instrument, organisation) shall by preference use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD04]](./introduction.md#RD04).
 
 
-### 4.3.2 Collection search response
+### 5.3.2 Collection search response
 
 - result set navigation
 - optional list of collection search parameters (rel="http://www.opengis.net/def/rel/ogc/1.0/queryables", type="application/schema+json"
@@ -141,7 +141,7 @@ minimum set of search parameters for “collection” search at the collections 
 > A STAC server implementation supporting additional queryables for collection search shall return the link to the Queryables object with the list of queryables that can be used in a filter expression via a link object in the collection search response with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" (See also "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
 
-### 4.3.3 Two-step search
+### 5.3.3 Two-step search
 
 One serious hurdl"e to overcome in searching for data is the great number of data items to account
 for in responses, as well as the expected number of successful “hits” for a query. In ordinary web
