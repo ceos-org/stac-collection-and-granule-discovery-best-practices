@@ -28,7 +28,7 @@ EO collections represented as STAC collections can be made available as a STAC C
 Implementations may combine both mechanisms and allow the same EO collection to be found via the collection hierarchy or the collection list.
 Implementations intending to support collection search are to support at least Method 2 and the corresponding endpoint.
 
-> **CEOS-STAC-REQ-510 - Collection access [Requirement]**<a name="BP-510"></a>
+> **CEOS-STAC-REQ-5210 - Collection access [Requirement]**<a name="BP-5210"></a>
 >
 > A CEOS STAC catalog shall support access to collection metadata from the catalog landing page using the rel="child" or rel="data" approach depicted above or both approaches combined.
 
@@ -38,7 +38,7 @@ Note: When publishing a single collection, the collection and the landing page m
 
 
 
-> **CEOS-STAC-REQ-520 - Collections endpoint [Requirement]**<a name="BP-520"></a>
+> **CEOS-STAC-REQ-5320 - Collections endpoint [Requirement]**<a name="BP-5320"></a>
 >
 > A CEOS STAC catalog supporting collection search shall advertise the search endpoint for collections in the landing page with rel="data" (most often `/collections`), type="application/json" and declare the corresponding collection search conformance classes in the landing page.  See "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
@@ -64,31 +64,30 @@ The above endpoint is further referred to as the `collections endpoint`.
 
 ### 5.3.1 Collection search request
 
-> **CEOS-STAC-REQ-530 - Collection search method [Requirement]**<a name="BP-530"></a>
+> **CEOS-STAC-REQ-5330 - Collection search method [Requirement]**<a name="BP-5330"></a>
 >
 > A CEOS STAC collection catalog shall support collection searches at the `collections endpoint` (rel="data") using the HTTP `GET` method.
 
+`/collections` is typcially used for the above endpoint, but this is not required.
+
 #### Search parameters
 
-> **CEOS-STAC-REQ-540 - Supported search parameters [Requirement]**<a name="BP-540"></a>
+> **CEOS-STAC-REQ-5340 - Supported search parameters [Requirement]**<a name="BP-5340"></a>
 >
 > The STAC-API and OGC API-Features specifications define a list of fundamental search parameters.  From these specifications, a CEOS STAC collection catalog shall support the following minimum set of search parameters for “collection” search at the collections endpoint:
 - `limit`  
-- `ids`
 - `bbox` 
 - `datetime`
 
-> **CEOS-STAC-PER-550 - Intersects search parameter [Permission]**<a name="BP-550"></a>
->
-> A CEOS STAC collection catalog may choose to not support the following search parameters for “collection” search at the collections endpoint:
-- `intersects`
 
-##### Free Text Keyword
-
-> **CEOS-STAC-REC-560 - Free text search [Recommendation]**<a name="BP-0560"></a>
+> **CEOS-STAC-REC-5360 - Free text search [Recommendation]**<a name="BP-5360"></a>
 >
 > For supporting free text searches, a CEOS STAC collection catalog shall advertise support for the HTTP query parameter `q` as in "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
+
+> **CEOS-STAC-REQ-5370 - Collection queryables [Requirement]**<a name="BP-5370"></a>
+>
+> A CEOS STAC collection catalog supporting additional queryables for collection search shall return the link to the Queryables object with the list of queryables that can be used in a filter expression via a link object in the collection search response with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" (See also "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
 
 ### 5.3.2 Collection search response
@@ -98,14 +97,30 @@ The above endpoint is further referred to as the `collections endpoint`.
 - content negotiation (alternative formats)
 
 
-> **CEOS-STAC-REQ-570 - Collection queryables [Requirement]**<a name="BP-570"></a>
+> **CEOS-STAC-REQ-5372 - Collection search response representation [Requirement]**<a name="BP-5372"></a>
 >
-> A CEOS STAC collection catalog supporting additional queryables for collection search shall return the link to the Queryables object with the list of queryables that can be used in a filter expression via a link object in the collection search response with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" (See also "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
+> A collection search response shall be represented as a JSON object according to the "STAC API - Collection Search" [[AD07]](./introduction.md#AD07).
+
+
+> **CEOS-STAC-REQ-5373 - Allow for collection search-by-id [Requirement]**<a name="BP-5373"></a>
+>
+> The $.collections[].id property in a collection search response shall allow to navigate to a single collection using the `id` as a path parameter appended to the collection search endpoint (rel='data') e.g. /collections/{id}. 
+
+Search-by-id makes the following use cases possible:
+
+* Put a link on a Web page pointing to a single catalog item (using a URL) to illustrate a particular event (e.g. an earthquake in the Himalaya).
+* The ability to bookmark and retrieve a single item.
+
+
+> **CEOS-STAC-REQ-5374 - Collection search response representation [Requirement]**<a name="BP-5374"></a>
+>
+> Collections included in a collection search response shall be represented according to the ["CEOS STAC Collection Metadata Best Practices"](collection-metadata.md).
+
 
 
 ### 5.3.3 Two-step search
 
-One serious hurdl"e to overcome in searching for data is the great number of data items to account
+One serious hurdle to overcome in searching for data is the great number of data items to account
 for in responses, as well as the expected number of successful “hits” for a query. In ordinary web
 searches, the searcher is usually looking for a small number of web pages or documents.
 Relevance ranking typically does a good job of presenting these successful hits near the top of
@@ -118,7 +133,7 @@ user truly wants to use all the data files of a desirable data collection set th
 region at the same time can produce a great many spurious hits, i.e., all the files for data
 collections that are not desired.
 
-> **CEOS-STAC-BP-001 - Support of two step search [Recommendation]**<a name="BP-001"></a>
+> **CEOS-STAC-REC-5380 - Support for two step search [Recommendation]**<a name="BP-5380"></a>
 > 
 > Support for a two-step search consisting of a collection level search followed by a corresponding granule level search is recommended.
 
@@ -146,17 +161,25 @@ The advantages of this approach are as follows:
 granule level using the /queryables response.
 
 
+> **CEOS-STAC-REQ-5390 - Support for two step search [Requirement]**<a name="BP-5390"></a>
+> 
+> Collections supporting two-step search shall contain a link with rel="items" in the STAC collection representation returned by the collection search.
 
 
-| ❓ | To be clarified what assumptions a STAC client is allowed to make regarding available (granule) search parameters.  Are STAC item-search parameters always all available at /search and /items endpoints, or only at the /search endpoint ?      |
-|---------------|:------------------------|
+> **CEOS-STAC-REC-5392 - Support for two step search [Recommendation]**<a name="BP-5392"></a>
+> 
+> Collections supporting two-step search shall contain a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" in the STAC collection representation returned by the collection search.
 
 
+> **CEOS-STAC-REQ-5393 - Support for two step search [Requirement]**<a name="BP-5393"></a>
+> 
+> STAC Granule Catalogs shall advertise all "additional" collection specific search/filter parameters applicable for a granule search within a collection in the corresponding queryables object for that collection and not rely on a global set of queryables applicable to all collections made available via a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" from the landing page (typically "/collections/{collectionId}/queryables" instead of "/queryables"), to be combined with a collection-specific set (which may be empty).
 
-| ❓ | What STAC collection ìdentifiers can be used to perform searches at the /search endpoint ?  All the ones available at the rel=`data` path, all the ones in the hierachical structure starting from the landing page following the rel=`child` links ? ?       |
-|---------------|:------------------------|
+
+> **CEOS-STAC-REQ-5395 - Support for two step search [Requirement]**<a name="BP-5395"></a>
+> 
+> Collections not supporting two-step search shall not contain a link rel="items" in the STAC collection representation returned by the collection search.
 
 
-| ❓ | What is the relation between the collections appearing in the hierarchy rel=`child` and the response from the /collections (rel=`data`) endpoint ?  One is a subset of the other or both can be unrelated ?   /collections to return a flat list ?  and how is it "filtered" when a query is applied ?  Flat list of all matches ?       |
-|---------------|:------------------------|
+TBD: are we allowing to use a general /queryables response in addition to the collection-specific /queryables response and are server to support the superset of both ?
 
