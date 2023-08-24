@@ -61,11 +61,11 @@ The `bbox` item property is mandatory according to the STAC Item specification u
 Additional guidance on how to encode OGC17-003r2 metadata properties with the above extensions is available in ["Mapping from OGC EO Dataset Metadata GeoJSON(-LD) Encoding Standard to STAC"](https://github.com/stac-utils/stac-crosswalks/tree/master/OGC_17-003r2). 
 
 
-```geojson
+```json
 { 
   "stac_version": "1.0.0",
   "id": "AL1_OESR_AV2_OBS_1C_20060613T100220_20060613T100232_002047_0307_2730_0410",
-   "bbox": [
+  "bbox": [
     14.5302398,
     42.4746857,
     15.6508019,
