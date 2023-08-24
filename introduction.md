@@ -14,10 +14,15 @@ TBD.
 The document is organized as follows:
 
 - Chapter 1 is the introduction of the document.
-- Chapter 2 gives an overview of objectives and needs.
-- Chapter 3 ...
-- Chapter 4 ...
+- [Chapter 2: Objectives and needs](objectives-needs.md) gives an overview of objectives and needs.
+- [Chapter 3: Best Practices](best-practices.md) introduces the categories of Best Practices and presents best practices for catalogs and metadata appicable to collections and granules.
 
+The following chapters present Best Practices for one particular topic:
+
+- [Chapter 4: Granule Catalog Best Practices](granule-catalogs.md)
+- [Chapter 5: Collection Catalog Best Practices](collection-catalogs.md)
+- [Chapter 6: Granule Metadata Best Practices](granule-metadata.md)
+- [Chapter 7: Collection Metadata Best Practices](collection-metadata.md)
 
 
 ## 1.3 Terms, definitions and abbreviated terms

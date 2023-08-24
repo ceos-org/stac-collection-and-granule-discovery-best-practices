@@ -11,7 +11,7 @@ Explain main parts
 
 - mandatory/recommended properties / extensions
 - refer to mapping between STAC and OS-EO properties. (DLR) 
-- use crosswalk or include it as annex ? https://github.com/stac-utils/stac-crosswalks/blob/master/OGC_17-003r2/README.md
+
 
 > **CEOS-STAC-REQ-6210 - Granule representation [Requirement]**<a name="BP-6210"></a>
 >
@@ -217,7 +217,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
 
 > **CEOS-STAC-REC-6360 - Alternate locations [Recommendation]**<a name="BP-6360"></a>
 >
-> When the same assets are available at multiple locations or via multiple protocols, they should be encoded as `alternate asset`as defined in the "STAC Alternate Assets Extension Specification" [[AD24]](./1-introduction.md#AD24).
+> When the same assets are available at multiple locations or via multiple protocols, they should be encoded as `alternate asset` as defined in the "STAC Alternate Assets Extension Specification" [[AD24]](./1-introduction.md#AD24).
 >
 
 .Example: Use of alternate Asset object for data available on S3 storage

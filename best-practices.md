@@ -217,7 +217,7 @@ The table below list some frequently used formats and the corresponding media ty
 
 > **CEOS-STAC-REC-3330 - Asset roles [Recommendation]**<a name="BP-3330"></a>
 >
-> If aditional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
+> If additional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
 
 
 ### 3.3.2 Links and relations

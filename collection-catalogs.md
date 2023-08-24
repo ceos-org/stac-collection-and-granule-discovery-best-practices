@@ -68,7 +68,7 @@ The above endpoint is further referred to as the `collections endpoint`.
 >
 > A CEOS STAC collection catalog shall support collection searches at the `collections endpoint` (rel="data") using the HTTP `GET` method.
 
-`/collections` is typcially used for the above endpoint, but this is not required.
+`/collections` is typically used for the above endpoint, but this is not required.
 
 #### Search parameters
 
@@ -180,6 +180,4 @@ granule level using the /queryables response.
 > 
 > Collections not supporting two-step search shall not contain a link rel="items" in the STAC collection representation returned by the collection search.
 
-
-TBD: are we allowing to use a general /queryables response in addition to the collection-specific /queryables response and are server to support the superset of both ?
 

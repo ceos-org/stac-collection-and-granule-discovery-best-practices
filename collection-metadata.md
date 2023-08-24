@@ -62,7 +62,7 @@ Explain main parts
 
 > **CEOS-STAC-REQ-7260 - Provider names [Requirement]**<a name="BP-7260"></a>
 >
-> A(n EO) Collection metadata record shall encode provider information as $.providers[*] and use the [GCMD Provider](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as $.providers[*].name.
+> A(n EO) Collection metadata record shall encode provider information as $.providers[*] and use the [GCMD Providers](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as $.providers[*].name.
 
 ```json
   "providers": [
@@ -75,6 +75,9 @@ Explain main parts
     }
   ]
 ``` 
+
+TBD: recommendation to add additional contact information with https://github.com/stac-extensions/contacts ?
+
 
 
 ## 7.3 Assets and roles
@@ -130,6 +133,9 @@ The example below indicates that all granules of this collection do have assets,
 > **CEOS-STAC-REC-7410 - Reference to license [Recommendation]**<a name="BP-7410"></a>
 >
 > CEOS STAC collection metadata should include a Link object with rel="license" to reference an external file describing the license information for the collection, unless the `license` property has a specific [SPDX license identifier](https://spdx.org/licenses/).
+
+
+TBD: templated links: https://github.com/opengeospatial/ogcapi-common/issues/187
 
 
 ## 7.5 Facilitating catalog federation
