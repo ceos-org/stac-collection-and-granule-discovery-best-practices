@@ -10,24 +10,25 @@ Explain main parts
 ## 6.2 Properties
 
 - mandatory/recommended properties / extensions
-- refer to mapping between STAC and OS-EO properties. (DLR)
+- refer to mapping between STAC and OS-EO properties. (DLR) 
+- use crosswalk or include it as annex ? https://github.com/stac-utils/stac-crosswalks/blob/master/OGC_17-003r2/README.md
 
-> **CEOS-STAC-BP-XXX - Granule representation [Requirement]**<a name="BP-TBD"></a>
+> **CEOS-STAC-REQ-6210 - Granule representation [Requirement]**<a name="BP-6210"></a>
 >
 > A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the "STAC Item Specification" [[AD03]](./introduction.md#AD03).
 
-> **CEOS-STAC-BP-013B - Temporal extents [Recommended]**<a name="BP-013B"></a>
+> **CEOS-STAC-REC-6220 - Temporal extents [Recommendation]**<a name="BP-6220"></a>
 >
 > STAC implementations should represent temporal extents in Items with the `start_datetime` and `end_datetime` properties and include the value for `start_datetime` also as `datetime` property.
 
-> **CEOS-STAC-BP-014 - Geographical extents [Requirement]**<a name="BP-014"></a>
+> **CEOS-STAC-REQ-6230 - Geographical extents [Requirement]**<a name="BP-6230"></a>
 >
 > STAC implementations shall represent geographical extents of Items with the `geometry` property (GeoJSON Geometry object or null if not available).
 
 Geographical extents of Items are represented using GeoJSON geometry objects [RFC7946](#AD4) in STAC item search responses.  This representation can natively represent multi-point, multi-line and multi-polygon geometries, thus no additional guidance similar to `CEOS-BP-014B`, `CEOS-BP-014C` and `CEOS-BP-014D` is required.
 
 
-> **CEOS-STAC-BP-014E - Minimum-bounding rectangle [Requirement]**<a name="BP-014E"></a>
+> **CEOS-STAC-REQ-6240 - Minimum-bounding rectangle [Requirement]**<a name="BP-6240"></a>
 >
 > CEOS implementations should render spatial extents using a minimum-bounding
 rectangle (MBR) with a GeoJSON `bbox` property [RFC7946](#AD4) in addition to the native more accurate
@@ -37,72 +38,161 @@ element must be an array of length 4 (two long/lat pairs), with the southwesterl
 The `bbox` item property is mandatory according to the STAC Item specification unless `geometry` is null.
 
 
+> **CEOS-STAC-REQ-6250 - Granule representation  extension [Recommendation]**<a name="BP-6250"></a>
+>
+> A(n EO) Granule metadata record represented as a STAC Item should use applicable properties defined by the following STAC extensions:
+
+
+| **Reference**                   | **STAC Extension** |     **Example Properties** |
+| --------                   | --------- |  --------- | 
+| [[AD14]](./introduction.md#AD14)  | [EO Extension](https://github.com/stac-extensions/eo)  |  eo:cloud_cover, eo:snow_cover, eo:bands |
+| [[AD15]](./introduction.md#AD15)  | [SAR Extension](https://github.com/stac-extensions/sar)  | sar:instrument_mode, sar:polarizations, sar:product_type |
+| [[AD16]](./introduction.md#AD16)  | [SAT Extension](https://github.com/stac-extensions/sat)  | sat:orbit_state, sat:absolute_orbit, ... |
+| [[AD13]](./introduction.md#AD13)  | [Scientific Extension](https://github.com/stac-extensions/scientific)  | sci:doi |
+| [[AD17]](./introduction.md#AD17)  | [Version Extension](https://github.com/stac-extensions/version)  | version |
+| [[AD18]](./introduction.md#AD18)  | [View Extension](https://github.com/stac-extensions/view)  | view:azimuth, view:incidence_angle, ... |
+| [[AD19]](./introduction.md#AD19)  | [Projection Extension](https://github.com/stac-extensions/projection)  | proj:espg |
+| [[AD20]](./introduction.md#AD20)  | [Timestamps Extension](https://github.com/stac-extensions/timestamps)  | published, expires |
+| [[AD23]](./introduction.md#AD23)  | [Landsat Extension](https://landsat.usgs.gov/stac/landsat-extension/schema.json)  | landsat:wrs_path, landsat:wrs_row |
+| [[AD21]](./introduction.md#AD21)  | [Processing Extension](https://github.com/stac-extensions/processing)  | processing:level, processing:facility, ... |
+| [[AD22]](./introduction.md#AD22)  | [Hyperspectral Extension](https://github.com/stac-extensions/hsi)  | hsi:wavelength_min, hsi:wavelength_max |
+
+
+Additional guidance on how to encode OGC17-003r2 metadata properties with the above extensions is available in ["Mapping from OGC EO Dataset Metadata GeoJSON(-LD) Encoding Standard to STAC"](https://github.com/stac-utils/stac-crosswalks/tree/master/OGC_17-003r2). 
+
+
+```geojson
+{ 
+  "stac_version": "1.0.0",
+  "id": "AL1_OESR_AV2_OBS_1C_20060613T100220_20060613T100232_002047_0307_2730_0410",
+   "bbox": [
+    14.5302398,
+    42.4746857,
+    15.6508019,
+    43.348489
+  ],
+  "geometry": {
+    "coordinates": [
+      [
+        [
+          14.7799437,
+          43.348489
+        ],
+        [
+          15.6508019,
+          43.1791444
+        ],
+        [
+          15.3915014,
+          42.4746857
+        ],
+        [
+          14.5302398,
+          42.6427013
+        ],
+        [
+          14.7799437,
+          43.348489
+        ]
+      ]
+    ],
+    "type": "Polygon"
+  },
+  "collection": "ALOS.AVNIR-2.L1C",
+  "type": "Feature",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json"
+  ],
+  "properties": {
+    "start_datetime": "2006-06-13T10:02:20.948Z",
+    "end_datetime": "2006-06-13T10:02:32.786Z",
+    "processing:facility": "ESR",
+    "view:sun_azimuth": 147,
+    "title": "AL1_OESR_AV2_OBS_1C_20060613T100220_20060613T100232_002047_0307_2730_0410",
+    "platform": "ALOS",
+    "proj:epsg": 4326,
+    "view:sun_elevation": 67,
+    "datetime": "2006-06-13T10:02:20.948Z",
+    "sar:instrument_mode": "OBS",
+    "instruments": [
+      "AVNIR-2"
+    ],
+    "constellation": "ALOS",
+    "sar:product_type": "AV2_OBS_1C",
+    "sat:orbit_state": "DESCENDING",
+    "processing:software": {
+      "AVNIR-2": "04.10"
+    },
+    "updated": "2023-03-28T18:01:51Z",
+    "sat:absolute_orbit": 2047
+  }
+}
+```
+
+> **CEOS-STAC-PER-6255 - Granule representation extension validation [Permission]**<a name="BP-6255"></a>
+>
+> A CEOS STAC implementation may include a subset of properties in the item encoding defined by any of the above STAC extensions, even though the STAC extension may require additional properties to be included to pass the corresponding STAC extension JSON schema validation. 
+
 
 ## 6.3 Assets and roles
 
 - what names (roles, media types) should be used for quicklooks, bands, ...
 
-| :warning:        | For various associations, both Assets and Links can be used.  To avoid redundancy the Best Practice should make a recommendation and not request that both are implemented.  This is future work.   |
-|---------------|:------------------------|
 
-> **CEOS-STAC-BP-TBD - Metadata assets [Requirement]**<a name="BP-TBD"></a>
->
-> If a resopurce association can be encode as Assets or Link (e.g. rel="icon", rel="alternate"), STAC implementations shall give precedence to the encoding as Asset.
-
-
-> **CEOS-STAC-BP-012-2 - Metadata assets [Requirement]**<a name="BP-012-2"></a>
->
-> STAC implementations shall provide a URL to the granule’s (or collection) metadata encoding in a particular standard representation, via an Asset object with role=`metadata`.
-
-
-> **CEOS-STAC-BP-012E - Link and Asset type attributes [Recommended]**<a name="BP-012E"></a>
->
-> STAC implementations shall specify the media (MIME) type of the artifact
-associated with a resource by specifying the "type" attribute of the Link object or Asset object.
-
-The table below list some frequently used formats and the corresponding media type (`type`) to be used for metadata assets.
-
-| **Format**                   | **type** |   
-| --------                   | --------- | 
-| [ISO19139](https://www.iso.org/standard/32557.html)      | `application/vnd.iso.19139+xml` |  
-| [ISO19139-2](https://www.iso.org/standard/57104.html)      | `application/vnd.iso.19139-2+xml` | 
-| [ISO19115-3](https://www.iso.org/standard/32579.html)      | `application/vnd.iso.19115-3+xml` | 
-| [ISO19157-2](https://www.iso.org/standard/66197.html)      | `application/vnd.iso.19157-2+xml` | 
-| [OGC 10-157r4](https://docs.opengeospatial.org/is/10-157r4/10-157r4.html)  | `application/gml+xml;profile=http://www.opengis.net/spec/EOMPOM/1.1`  |
-| [OGC 17-003r2](https://docs.opengeospatial.org/is/17-003r2/17-003r2.html)  | `application/geo+json;profile=http://www.opengis.net/spec/eo-geojson/1.0`  |
-| [Dublin Core](http://www.loc.gov/standards/sru/recordSchemas/dc-schema.xsd)  | `application/xml`  |
-| [Markdown](https://datatracker.ietf.org/doc/html/rfc7763)  | `text/markdown`  |
-
-
-> **CEOS-STAC-BP-015 - Browse image [Recommended]**<a name="BP-015"></a>
+> **CEOS-STAC-REC-6310 - Browse image [Recommendation]**<a name="BP-6310"></a>
 >
 > STAC implementations should provide a URL to the granule’s browse image when available, via an Asset object with role=`overview`.
 
-> **CEOS-STAC-BP-TBD - Thumbnail image [Recommended]**<a name="BP-TBD"></a>
+> **CEOS-STAC-REC-6320 - Thumbnail image [Recommendation]**<a name="BP-6320"></a>
 >
-> STAC implementations should provide a URL to the granule’s thumbnail image when available, via an Asset object with role=`thumbnail`.
+> STAC implementations should provide a URL to the granule’s thumbnail image (smaller than the browse image) when available, via an Asset object with role=`thumbnail`.
 
+```json
+ "assets": {
+    "quicklook": {
+      "roles": [
+        "overview"
+      ],
+      "href": "http://tpm-ds.eo.esa.int/oads/meta/PROBA1-CHRIS/browse/PR1_OPER_CHR_MO2_1P_20020710T102800_N45-018_E012-003_0001.SIP.ZIP_BID.PNG",
+      "type": "image/png",
+      "title": "QUICKLOOK"
+    },
+    "thumbnail": {
+      "roles": [
+        "thumbnail"
+      ],
+      "href": "http://tpm-ds.eo.esa.int/oads/meta/PROBA1-CHRIS/thumbnail/PR1_OPER_CHR_MO2_1P_20020710T102800_N45-018_E012-003_0001.SIP.ZIP_TIMG.jpg",
+      "type": "image/png",
+      "title": "THUMBNAIL"
+    }
+ }
+```
 
-> **CEOS-STAC-BP-016 - Data access [Recommended]**<a name="BP-016"></a>
+> **CEOS-STAC-REC-6330 - Data access [Recommendation]**<a name="BP-6330"></a>
 >
-> STAC implementations should provide data access URL for the granule via an Asset object with role=`data`.
+> STAC implementations should provide the data access URL for the granule via an Asset object with role=`data`.
 
 
 .Example: Asset object for Cloud Optimized GeoTIFF data
-```
+```json
 "assets": {
-        "analytic": {
-            "href": "https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif",
-            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-            "title": "4-Band Analytic",
-            "roles": [
-                "analytic", "data"
-            ]
-        }
+  "enclosure": {
+          "roles": [
+          "data"
+      ],
+      "href": "https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "4-Band Analytic"
+  }
+}
 ```
 
 .Example: Asset object for Zarr data
-```
+```json
  "assets": {
     "zmetadata": {
       "roles": [
@@ -113,29 +203,25 @@ The table below list some frequently used formats and the corresponding media ty
       "description": "Consolidated metadata file for Zarr store",
       "href": "https://storage.sbg.cloud.ovh.net/v1/AUTH_d40770b0914c46bfb19434ae3e97ae19/hdsa-public/prisma_v2/20200410/.zmetadata",
       "type": "application/json"
-    },
+    }
+ }
 ```
 
 
-> **CEOS-STAC-BP-016B - Data access to multiple files [Recommendation]**<a name="BP-016B"></a>
+> **CEOS-STAC-REC-6340 - Data access to multiple files [Recommendation]**<a name="BP-6340"></a>
 >
 > When data access to a granule in a granule search response is to be provided in multiple physical files, each file should be linked to via a separate Asset object with role=`data`.
 
 
-> **CEOS-STAC-BP-TBD - Common band names [Recommendation]**<a name="BP-TBD"></a>
->
-> If access to individual bands is provided via assets, then [Common Band Names](https://github.com/stac-extensions/eo/blob/main/README.md#common-band-names) should be used, preferably according to the forthcoming OGC Best Practice document [[RD03]](./introduction.md#RD03).
->
-
-> **CEOS-STAC-BP-TBD - Asset roles [Recommendation]**<a name="BP-TBD"></a>
->
-> If aditional asset roles are required (e.g. for cloud marks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
 
 
-Use of "STAC Alternate Asset Extension Specification" [[AD25]].
+> **CEOS-STAC-REC-6360 - Alternate locations [Recommendation]**<a name="BP-6360"></a>
+>
+> When the same assets are available at multiple locations or via multiple protocols, they should be encoded as `alternate asset`as defined in the "STAC Alternate Assets Extension Specification" [[AD24]](./1-introduction.md#AD24).
+>
 
 .Example: Use of alternate Asset object for data available on S3 storage
-```
+```json
  "assets": {
     "data": {
       "href": "https://storage.esa.int/store/TSX_OPER_SAR/2013/06/11/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100.zarr/.zmetadata",
@@ -156,6 +242,11 @@ Use of "STAC Alternate Asset Extension Specification" [[AD25]].
   }
 ```
 
+> **CEOS-STAC-REC-6370 - Common band names [Recommendation]**<a name="BP-6370"></a>
+>
+> If access to individual bands is provided via assets, then [Common Band Names](https://github.com/stac-extensions/eo/blob/main/README.md#common-band-names) should be used, preferably according to the forthcoming OGC Best Practice document [[RD03]](./introduction.md#RD03).
+>
+
 ## 6.4 Links and relations
 
 - how to encode "offerings" (i.e. links to OGC or other service endpoints in a STAC item) ?
@@ -165,26 +256,13 @@ Use of "STAC Alternate Asset Extension Specification" [[AD25]].
 - Recommendation to properly link to all (raster) assets in an EO product. (VITO)
 
 
-> **CEOS-STAC-BP-012-1 - Reference to metadata [Recommended]**<a name="BP-012-1"></a>
->
-> STAC implementations should include Link objects in Items or Collections with rel="alternate" or rel=”via” for detailed representation of the metadata. (The “via” relation should be preferred to convey the authoritative resource or the source of the information from where the Item or Collection is made.)
-
-
-> **CEOS-STAC-BP-012C - Reference to documentation [Recommended]**<a name="BP-012C"></a>
->
-> STAC implementations should use a Link object with rel="describedby" to reference from a collection to its documentation or from an item to its documentation.
-
-Note: although some implementations use rel="about" for the same purpose, rel="describedby" is recommended by https://docs.ogc.org/DRAFTS/20-024.html.
 
 ## 6.5 Facilitating catalog federation
 
-> **CEOS-STAC-BP-TBD - Root relation [Recommendation]**<a name="BP-TBD"></a>
->
-> It is discouraged to use the rel="root" relation in STAC item encodings as the item's original data provider's catalog/collections maybe included in a federated catalog with a different root.
->
 
 
-## CEOS-ARD recommendations
+
+## 6.6 CEOS-ARD 
 
 - TBD
 
