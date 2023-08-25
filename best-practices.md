@@ -149,7 +149,6 @@ The above Best Practices apply to all available search endpoints e.g. at rel="da
 >
 > The $.links array in a search response should include Link objects for navigating the search result set when the result set is too large to fit a single response using hyperlinks rel='self', rel='prev', rel='first', rel='last'.
 
-
 > **CEOS-STAC-REC-3295 - Result set navigation [Recommendation]**<a name="BP-3295"></a>
 >
 > Implementations may decide to only implement forward traversal via navigation/paging links. The $.links array in a search response should include Link objects for navigating the search result set when the result set is too large to fit a single response using hyperlinks rel='self', rel='prev', rel='next', rel='first', rel='last' per result page as shown below.
@@ -162,6 +161,14 @@ The above Best Practices apply to all available search endpoints e.g. at rel="da
 | Empty result set | Not allowed  |  Not allowed |  Mandatory  | Not allowed  |  Not allowed |
 | Single page | Optional |  Not allowed |  Mandatory  | Not allowed  |  Optional |
 
+> **CEOS-STAC-REC-3297 - Exceptions [Recommendation]**<a name="BP-3297"></a>
+>
+> A CEOS STAC catalog search response in case of exception shall return the applicable HTTP status code and a JSON response with the following members:
+
+* "code" (string): mandatory.
+* "description" (string): optional.
+
+Although this is only explicitly defined as [exception response structure for the rel="search" endpoint](https://api.stacspec.org/v1.0.0/item-search/#tag/Item-Search/operation/getItemSearch), it is good practice to provide similar (JSON) response bodies at the other endpoints, including rel="items" and rel="data". 
 
 
 ## 3.3 Metadata Best Practices
