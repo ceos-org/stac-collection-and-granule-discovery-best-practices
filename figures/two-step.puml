@@ -1,0 +1,57 @@
+@startuml
+
+skinparam componentStyle uml2
+skinparam ArrowColor Black
+skinparam ClassBorderColor Black
+skinparam ComponentBorderColor Black
+skinparam NoteBorderColor Black
+skinparam ObjectBorderColor Black
+skinparam ParticipantBorderColor Black
+
+participant ":Client" as osc
+participant ":Collection\nCatalog" as cc
+participant ":Granule\nCatalog" as gc 
+
+osc -> cc: Request for LandingPage
+note left : Step 1:\nCollection Level
+activate cc
+osc <-- cc: Landing Page
+deactivate cc
+
+activate osc
+osc -> osc: Extract collection search endpoint
+
+
+osc -> cc: Request for list of queryables
+deactivate osc
+activate cc
+osc <-- cc: List of queryables (collection level)
+deactivate cc
+activate osc
+
+osc -> cc: Search request (collection level)
+deactivate osc
+activate cc
+osc <-- cc: Search result (JSON)
+deactivate cc
+
+activate osc
+osc -> osc: Extract granule search endpoint
+
+
+osc -> gc: Request for list of queryables
+deactivate osc
+note left : Step 2:\nGranule Level
+activate gc
+osc <-- gc: List of queryables (granule level)
+deactivate gc
+activate osc
+
+
+osc -> gc: Search request (granule level)
+deactivate osc
+activate gc
+osc <-- gc: Search result (GeoJSON)
+deactivate gc
+
+@enduml

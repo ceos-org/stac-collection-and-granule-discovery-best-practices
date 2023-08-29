@@ -1,0 +1,42 @@
+@startuml
+
+
+skinparam componentStyle uml2
+skinparam ArrowColor Black
+skinparam ClassBorderColor Black
+skinparam ComponentBorderColor Black
+skinparam ObjectBorderColor Black
+
+hide circle
+' hide <<Resource>> circle
+show <<GeoJSON>> circle
+
+
+object "<<JSON>>\nc:Collection" as root #BUSINESS {
+   +id
+}
+
+object "<<GeoJSON>>\ng1:Feature" as g1 #BUSINESS {
+ 
+}
+object "<<GeoJSON>>\ng2:Feature" as g2 #BUSINESS {
+  
+}
+object "<<GeoJSON>>\ng3:Feature" as g3 #BUSINESS {
+ 
+}
+object "<<GeoJSON>>\ngn:Feature" as gn #BUSINESS {
+ 
+}
+
+
+root o-- "g1" : "rel="item""
+root o-- "g2" : "rel="item""
+root o-- "g3" : "rel="item""
+root o-- "gn" : "rel="item""
+
+
+
+
+
+@enduml
