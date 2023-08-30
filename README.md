@@ -2,7 +2,7 @@
 
 # CEOS STAC Best Practices
 
-## Table of Contents (new)
+## Table of Contents
 
 
 - [1. Introduction](introduction.md)
