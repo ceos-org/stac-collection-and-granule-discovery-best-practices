@@ -1,14 +1,23 @@
-[Previous](README.md) | [Next](objectives-needs.md)
+[Previous](README.md) | [Table of contents](README.md) | [Next](objectives-needs.md)
+***
 # 1. Introduction
+This document provides server implementation best practices for SpatioTemporal Asset Catalog (STAC) search and catalog services that allow for standardized and harmonized access to metadata and data for CEOS agencies, including CWIC and FedEO.
 
+STAC is a lightweight, JSON-based language that is asset-oriented, self-navigable and tailored towards the spatial and temporal domain. 
+
+It also provides a framework for acheiving federated discovery in much the same way as OpenSearch. Where STAC has an advantage over OpenSearch is its widespread adooption in the earth science infomatics community. 
 ## 1.1 Purpose of document
 
 The STAC ecosystem comprises both API-related and metadata-related specifications.
 This document provides server implementation Best Practices for STAC-based metadata publication and related discovery services allowing for standardized and harmonized access to metadata and data for CEOS agencies.
 
-TBD.
-
-
+The purpose of this document is to achieve the following,
+- Promote the use of the STAC standard as a means of data discovery for Earth Data providers
+- Define the expectations and requirements of candidate STAC implementations
+- Remove ambiguity in implementation where possible
+- Facilitate the aggregation of results between disparate Earth Data providers via STAC common standards
+- Allow for clients to access search engines via STAC capabilities with no a priori knowledge of specific implementations
+- Facilitate smooth integration between related STAC implementations, such as a dataset resource collection that refers to granule resource collections from another provider
 ## 1.2 Document overview
 
 The document is organized as follows:
@@ -101,8 +110,5 @@ The following chapters present Best Practices for one particular topic:
 | `RD02` <a name="RD02"></a> | [ISO 19115-1:2014, Geographic Information – Metadata – Part 1: Fundamentals, First Edition 2014-04-01](https://www.iso.org/standard/53798.html)  |
 | `RD03` <a name="RD03"></a> | [OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors](https://portal.ogc.org/files/?artifact_id=104980&version=1) - Expected but no draft available.  |
 | `RD04` <a name="RD04"></a> | [OGC13-026r9, OpenSearch Extension for Earth Observation](https://docs.ogc.org/is/13-026r9/13-026r9.html) |
-
-
-
-
-
+***
+[Previous](README.md) | [Table of contents](README.md) | [Next](objectives-needs.md)
