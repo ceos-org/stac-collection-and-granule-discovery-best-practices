@@ -83,11 +83,9 @@ Conformance encoding example
 - `datetime`
 
 
-> **CEOS-STAC-REC-5360 - Free text search [Recommendation]**<a name="BP-5360"></a>
+> **CEOS-STAC-REC-5360 - Free text search [Requirement]**<a name="BP-5360"></a>
 >
 > For supporting free text searches, a CEOS STAC collection catalog shall advertise support for the HTTP query parameter `q` as in "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
-
-:question: should this be required? I think it is in OpenSearch? CMR for example, would have to support this.
 
 
 > **CEOS-STAC-REQ-5370 - Collection queryables [Requirement]**<a name="BP-5370"></a>
