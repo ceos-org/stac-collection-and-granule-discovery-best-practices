@@ -1,11 +1,12 @@
-[Previous](objectives-needs.md) | [Next](granule-catalogs.md)
+[Previous](objectives-needs.md) | [Table of contents](README.md) | [Next](granule-catalogs.md)
+***
 # 3. Best Practices
 
 [//]: # (this is a comment)
 
 ## 3.1 Introduction
 
-There are three different levels of obligation for the Best Practices presented in the current document:
+There are three different levels of obligation for the Best Practices presented in this document:
 - “Requirements” (`REQ`) are mandatory and must be implemented,
 - “Recommendations” (`REC`) are optional, but strongly recommended for interoperability.
 
@@ -21,13 +22,13 @@ In addition, "Permissions" (`PER`) indicate allowed deviations from one of more 
 
 ## 3.2 Catalog Best Practices
 
-The Best Practices described in this section apply to `CEOS STAC Collection Catalogs` and `CEOS STAC Granule Catalogs`.
+The Best Practices described in this section apply to both `CEOS STAC Collection Catalogs` and `CEOS STAC Granule Catalogs`.
 
 > **CEOS-STAC-PER-3210 - API Feature paths [Permission]**<a name="BP-3210"></a>
 >
-> A CEOS STAC catalog implementation is allowed to not use fixed paths to navigate from resource to resource, but shall support discovering the actual path via the proper relation (rel="xyz") in the corresponding resource's representation.
+> A CEOS STAC catalog implementation is not required to use fixed paths to navigate from resource to resource. It shall support discovering the path via the proper relation (rel="xyz") in the corresponding resource's representation.
 
-For example, the rel="items" path for a collection is not necessarily the path towards the collection with "/items" appended but may be on a different server.
+For example, the rel="items" path for a collection is not necessarily collection path with "/items" appended but may be the path to a different API at a different location.
 
 > **CEOS-STAC-PER-3220 - API Feature relations [Permission]**<a name="BP-3220"></a>
 >
@@ -36,7 +37,6 @@ For example, the rel="items" path for a collection is not necessarily the path t
   - Support the rel="service-desc" from its landing page (root catalog)
   - Support the /conformance path
   - Support the rel="conformance" from its landing page (root catalog)
-
 
 ### 3.2.1 Advertising additional search parameters
 
@@ -53,9 +53,6 @@ The STAC API and underlying OGC API specifications define the list of search par
 
 The endpoint to which the above additional parameters apply depends on the context: i.e. collection search, granule search via rel="items" endpoint or granule search via the rel="search" endpoint.  
 
-
-
-
 > **CEOS-STAC-REQ-3235 - Parameter Descriptions [Requirement]**<a name="BP-3235"></a>
 >
 > The GET response for the rel=`queryables` endpoint in application/schema+json representation shall provide additional information about search parameters including:
@@ -67,22 +64,21 @@ The endpoint to which the above additional parameters apply depends on the conte
 - `minimum`, `maximum` to constrain the range of a numerical parameter
 
 
-TBD: allow using "minimum" and "maximum" in combination with "date-time" (string) although not allowed by JSON schema ?
-
+TBD: allow using "minimum" and "maximum" in combination with "date-time" (string) although not allowed by JSON schema? Note: temporal bounds is or was a requirement of at least one of our OpenSearch APIs IIRC.
 
 > **CEOS-STAC-REQ-3240 - Additional search parameters [Requirement]**<a name="BP-3240"></a>
 >
-> A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support the following additional query parameters and advertise the corresponding conformance classes in the landing page (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06).:
+> A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support the following additional query parameters and advertise the corresponding conformance classes in the landing page (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06):
 > - filter
 > - filter-lang
 
 > **CEOS-STAC-REQ-3250 - CQL subset [Requirement]**<a name="BP-3250"></a>
 >
-> A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support at least the following conformance classes of CQL2 (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06) and "OGC21-065, Common Query Language (CQL2)" [[AD10]](./introduction.md#AD10).:
+> A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support at least the following conformance classes of CQL2 (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06) and "OGC21-065, Common Query Language (CQL2)" [[AD10]](./introduction.md#AD10):
 > - CQL2 Text
 > - Basic CQL2
 
-| :memo:        | There is currently no mechanism allowing to advertise different CQL filtering capabilities at different endpoints.    |
+| :memo:        | There is currently no mechanism to advertise different CQL filtering capabilities at different endpoints.    |
 |---------------|:------------------------|
 
 
@@ -92,12 +88,11 @@ TBD: allow using "minimum" and "maximum" in combination with "date-time" (string
 
 > **CEOS-STAC-REC-3260 - Additional search parameter names [Recommendation]**<a name="BP-3260"></a>
 >
-> A CEOS STAC collection/granule catalog supporting additional search parameters for collection search (e.g. search by platform, instrument, organisation) or granule search (e.g. by polarisation mode, orbit direction, orbit number, cloud cover, etc.) should by preference use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD04]](./introduction.md#RD04).
+> A CEOS STAC collection/granule catalog supporting additional search parameters for collection search (e.g. search by platform, instrument, organisation) or granule search (e.g. by polarisation mode, orbit direction, orbit number, cloud cover, etc.) should, by preference, use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD04]](./introduction.md#RD04).
 
 
 | :question: |  Should a STAC API extension be proposed covering available (OpenSearch) parameters allowing `queryables` responses to refer to these by reference ?  An example is shown below.  It would allow implementations to choose their parameter names and "connect" them to interoperable definitions from the OGC OpenSearch spec (with mappings to ISO, UMM, etc.) via $ref. |
 |---------------|:------------------------|
-
 
 ```json
    "doi" : {
@@ -127,7 +122,7 @@ properties:
     type: string
 ```
 
-### 3.2.2 5earch response
+### 3.2.2 Search response
 
 > **CEOS-STAC-REQ-3270 - numberMatched [Requirement]**<a name="BP-3270"></a>
 >
@@ -232,17 +227,17 @@ The table below list some frequently used formats and the corresponding media ty
 
 > **CEOS-STAC-REC-3340 - Root relation [Recommendation]**<a name="BP-3340"></a>
 >
-> It is discouraged to use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
+> Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
 >
 
 > **CEOS-STAC-REC-3350 - Reference to metadata [Recommendation]**<a name="BP-3350"></a>
 >
-> STAC implementations should use Link objects with rel="alternate" or rel=”via” for referencing detailed representation of the metadata for a collection or granule. (The “via” relation should be preferred to convey the authoritative resource or the source of the information from where the Collection/Item is made.)
+> Implementations should use Link objects with rel="alternate" or rel=”via” for referencing detailed representation of the metadata for a collection or granule. (The “via” relation should be preferred to convey the authoritative resource or the source of the information from where the Collection/Item is made.)
 
 
 > **CEOS-STAC-REC-3360 - Reference to documentation [Recommendation]**<a name="BP-3360"></a>
 >
-> STAC implementations should use a Link object with rel="describedby" to reference from a collection or granule to its documentation.
+> Implementations should use a Link object with rel="describedby" to reference from a collection or granule to its documentation.
 
 Note: although some implementations use rel="about" for the same purpose, rel="describedby" is recommended by https://docs.ogc.org/DRAFTS/20-024.html.
 
@@ -252,3 +247,5 @@ The table below list some frequently used formats for documentation and their co
 | --------                   | --------- | 
 | [Markdown](https://datatracker.ietf.org/doc/html/rfc7763)  | `text/markdown`  |
 | [PDF](https://en.wikipedia.org/wiki/PDF)  | `application/pdf`  |
+***
+[Previous](objectives-needs.md) | [Table of contents](README.md) | [Next](granule-catalogs.md)

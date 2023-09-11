@@ -1,4 +1,5 @@
-[Previous](collection-catalogs.md) | [Next](collection-metadata.md)
+[Previous](collection-catalogs.md) | [Table of contents](README.md) | [Next](collection-metadata.md)
+***
 # 6. Granule Metadata Best Practices
 
 [//]: # (this is a comment)
@@ -177,7 +178,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
 > STAC implementations should provide the data access URL for the granule via an Asset object with role=`data`.
 
 
-.Example: Asset object for Cloud Optimized GeoTIFF data
+Example: Asset object for Cloud Optimized GeoTIFF data
 ```json
 "assets": {
   "enclosure": {
@@ -191,7 +192,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
 }
 ```
 
-.Example: Asset object for Zarr data
+Example: Asset object for Zarr data
 ```json
  "assets": {
     "zmetadata": {
@@ -265,4 +266,5 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
 ## 6.6 CEOS-ARD 
 
 - TBD
-
+***
+[Previous](collection-catalogs.md) | [Table of contents](README.md) | [Next](collection-metadata.md)

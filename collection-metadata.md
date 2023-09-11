@@ -1,4 +1,5 @@
-[Previous](granule-metadata.md) 
+[Previous](granule-metadata.md) | [Table of contents](README.md)
+***
 # 7. Collection Metadata Best Practices
 
 [//]: # (this is a comment)
@@ -62,7 +63,7 @@ Explain main parts
 
 > **CEOS-STAC-REQ-7260 - Provider names [Requirement]**<a name="BP-7260"></a>
 >
-> A(n EO) Collection metadata record shall encode provider information as $.providers[*] and use the [GCMD Providers](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as $.providers[*].name.
+A(n EO) Collection metadata record shall encode provider information as `$.providers[*]` and use the [GCMD Providers](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as $.providers[*].name.
 
 ```json
   "providers": [
@@ -86,7 +87,7 @@ TBD: recommendation to add additional contact information with https://github.co
 
 > **CEOS-STAC-REQ-7310 - Item assets [Requirement]**<a name="BP-7310"></a>
 >
-> In case all granules of a collection contain the same asset types, these assets should be provided in the collection encoding as `Item asset`as defined in the "STAC Item Assets Definition Extension Specification" [[AD25]](./1-introduction.md#AD25).
+> In the case where all granules of a collection contain the same asset types, these assets should be provided in the collection encoding as `Item asset` as defined in the "STAC Item Assets Definition Extension Specification" [[AD25]](./1-introduction.md#AD25).
 > 
 
 The example below indicates that all granules of this collection do have assets, representing a thumbnail of type PNG, a download location as .zip file and are also available as zarr, with an alternative download location on S3 object storage.  Note that the keys used for the assets (e.g. "thumbnail", "enclosure", "data") are meaningless and can have any value.
@@ -144,3 +145,5 @@ TBD: templated links: https://github.com/opengeospatial/ogcapi-common/issues/187
 ## 7.6 CEOS-ARD 
 
 - TBD
+***
+[Previous](granule-metadata.md) | [Table of contents](README.md)

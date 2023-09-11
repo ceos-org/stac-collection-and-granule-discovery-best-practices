@@ -1,5 +1,5 @@
 [Next](introduction.md)
-
+***
 # CEOS STAC Best Practices
 
 ## Table of Contents
@@ -16,11 +16,5 @@
 - [5. Collection Catalog Best Practices](collection-catalogs.md)
 - [6. Granule Metadata Best Practices](granule-metadata.md)
 - [7. Collection Metadata Best Practices](collection-metadata.md)
-
-
-
-
-
-
-
-
+***
+[Next](introduction.md)

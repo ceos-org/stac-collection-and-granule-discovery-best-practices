@@ -1,4 +1,5 @@
-[Previous](granule-catalogs.md) | [Next](granule-metadata.md)
+[Previous](granule-catalogs.md) | [Table of contents](README.md) | [Next](granule-metadata.md)
+***
 # 5. Collection Catalog Best Practices
 
 [//]: # (this is a comment)
@@ -44,7 +45,7 @@ Note: When publishing a single collection, the collection and the landing page m
 
 The above endpoint is further referred to as the `collections endpoint`. 
 
-.Conformance encoding example
+Conformance encoding example
 
 ```json
 "conformsTo": [
@@ -70,6 +71,8 @@ The above endpoint is further referred to as the `collections endpoint`.
 
 `/collections` is typically used for the above endpoint, but this is not required.
 
+:question: Make '/collections' a recommendation?
+
 #### Search parameters
 
 > **CEOS-STAC-REQ-5340 - Supported search parameters [Requirement]**<a name="BP-5340"></a>
@@ -83,6 +86,8 @@ The above endpoint is further referred to as the `collections endpoint`.
 > **CEOS-STAC-REC-5360 - Free text search [Recommendation]**<a name="BP-5360"></a>
 >
 > For supporting free text searches, a CEOS STAC collection catalog shall advertise support for the HTTP query parameter `q` as in "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
+
+:question: should this be required? I think it is in OpenSearch? CMR for example, would have to support this.
 
 
 > **CEOS-STAC-REQ-5370 - Collection queryables [Requirement]**<a name="BP-5370"></a>
@@ -108,7 +113,7 @@ The above endpoint is further referred to as the `collections endpoint`.
 
 Search-by-id makes the following use cases possible:
 
-* Put a link on a Web page pointing to a single catalog item (using a URL) to illustrate a particular event (e.g. an earthquake in the Himalaya).
+* The ability to provide a link pointing to a single catalog item (using a URL) on a web page that illustrates a particular event (e.g. an earthquake in the Himalayas).
 * The ability to bookmark and retrieve a single item.
 
 
@@ -120,18 +125,25 @@ Search-by-id makes the following use cases possible:
 
 ### 5.3.3 Two-step search
 
-One serious hurdle to overcome in searching for data is the great number of data items to account
-for in responses, as well as the expected number of successful “hits” for a query. In ordinary web
-searches, the searcher is usually looking for a small number of web pages or documents.
-Relevance ranking typically does a good job of presenting these successful hits near the top of
-the returned list, followed by single point-and-click retrievals. However, when searching for Earth
-science data covering large time periods or spatial areas, a user will often specify a set of
-constraints to find an appropriate data collection together with space-time criteria for files within
-that data collection. Often, the precision of the data collections returned for the search is low, with
-many spurious hits. However, the space-time precision of the files is often quite high: that is, the
-user truly wants to use all the data files of a desirable data collection set that fall within the spacetime region of interest. Thus, searching for all data satisfying both dataset content and space-time
-region at the same time can produce a great many spurious hits, i.e., all the files for data
-collections that are not desired.
+Traditionally, we have partitioned data into hierarchies for organizational purposes. The notion of datasets and files or collections and granules allows us to group similar assets to ease the archival and curation of data.
+
+This hierarchy can also be leveraged for discovery purposes. A general use case for discovery is to find a measurement (sea surface temperature, NDVI etc.) associated with a spatial and temporal area of interest. Querying a large archive in such a manner would potentially yield a large number of results with a low precision. This is because the measurement clause of our query can often yield low precision results. 
+
+Generally, these query parameters map successfully to explicit parts of our data's organizational hierarchy. Measurements are generally defined at the collection level and spatial and temporal extents at the granule level.
+
+Furthermore, measurement query precision is low while spatial-temporal querying of files is high.
+
+Example: A sea surface temperature query yields 100 possible collections and each one of those had 500 granules in the area of interest we have 50K results to assess. If only 10 of those collections had the correct form of sea surface temperature then we have 40K invalid results that need to be checked.
+
+If we break up the search into a collection search then a granule search then we have as follows,
+
+A sea surface temperature query yields 100 possible collections. Only 10 of those results are correct so only 90 invalid results nee to be checked. Then a granule search is performed for each of the 10 correct collections. Since spatio-temporal searching of files yields high precision the confidence in those results is also high.
+
+This is why many earth science search engines offer a two-step search mechanism. It decreases the risk of low precision results.
+
+For search federation we exploit the two-step mechanism in another way. Collection searches are resolved at a centralized repository that contains the collection-level metadata of all participating agencies and organizations. The results of such searches embed file-level search endpoints at the agency/organization responsible for the data of that collection.
+
+The collection search occurs at the centralized repository and the granule searches occur at the federated repositories.
 
 > **CEOS-STAC-REC-5380 - Support for two step search [Recommendation]**<a name="BP-5380"></a>
 > 
@@ -179,5 +191,5 @@ granule level using the /queryables response.
 > **CEOS-STAC-REQ-5395 - Support for two step search [Requirement]**<a name="BP-5395"></a>
 > 
 > Collections not supporting two-step search shall not contain a link rel="items" in the STAC collection representation returned by the collection search.
-
-
+***
+[Previous](granule-catalogs.md) | [Table of contents](README.md) | [Next](granule-metadata.md)

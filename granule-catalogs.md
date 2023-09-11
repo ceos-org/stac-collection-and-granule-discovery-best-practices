@@ -1,4 +1,5 @@
-[Previous](best-practices.md) | [Next](collection-catalogs.md)
+[Previous](best-practices.md) | [Table of contents](README.md) | [Next](collection-catalogs.md)
+***
 # 4 Granule Catalog Best Practices
 
 [//]: # (this is a comment)
@@ -46,7 +47,7 @@ TBD: allow both ?
 >
 > CEOS STAC granule catalogs may or may not advertise and provide a cross-collection endpoint for granule search, valid for all the collections in the STAC Catalog (typically the Landing Page) with rel="search" and type="application/geo+json" and may instead only provide individual granule search endpoints per collection via rel="items" in the collection representation. 
 
-The above permission avoids the implementation of multiple endpoints for granule search as a single implementation is sufficient.  CEOS STAC catalog clients should thus not assume the existence of the cross-collection granule search endpoint.
+The above permission avoids the implementation of multiple endpoints for granule search since a single implementation is sufficient.  CEOS STAC catalog clients should not assume the existence of the cross-collection granule search endpoint.
 
 > **CEOS-STAC-REQ-4330 - Cross-collection granule search method [Requirement]**<a name="BP-4330"></a>
 >
@@ -70,7 +71,7 @@ Support of the `POST` method at the cross-collection granule search endpoint (if
 > A CEOS STAC granule catalog supporting additional queryables for a collection shall return the link to the Queryables object with the list of queryables that can be used in a filter expression for that collection via a link object in the collection representation (metadata) with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" (typically, but not necessarily, at '/collections/{collectionId}/queryables').
 
 
-TBD: no requirements for cross-collection granule search endpoint is it is not required ?
+TBD: no requirements for cross-collection granule search endpoint if it is not required ?
 
 
 #### Other
@@ -88,16 +89,12 @@ TBD: no requirements for cross-collection granule search endpoint is it is not r
 
 > **CEOS-STAC-REQ-4635 - Allow for granule search-by-id [Requirement]**<a name="BP-4635"></a>
 >
-> The $.features[].id property in a granule search response shall allow to navigate to a single granule using the `id` as a path parameter appended to the granule search endpoint (rel='items') e.g. /collections/{collection-id}/items/{id}. 
+> The $.features[].id property in a granule search response shall allow navigation to a single granule using the `id` as a path parameter appended to the granule search endpoint (rel='items') e.g. /collections/{collection-id}/items/{id}. 
 
 
 > **CEOS-STAC-REQ-4640 - Item search response representation [Requirement]**<a name="BP-4640"></a>
 >
-> Granules included in a granule search response shall be represented according to the ["CEOS STAC Granule Metadata Best Practices"](granule-metadata.md).
-
-
-
-
+> Granules included in a granule search response shall be conformant with ["CEOS STAC Granule Metadata Best Practices"](granule-metadata.md).
 
 | :question: | this is a question  |
 |---------------|:------------------------|
@@ -113,3 +110,5 @@ TBD: no requirements for cross-collection granule search endpoint is it is not r
 
 | :warning:        | Take note of this       |
 |---------------|:------------------------|
+***
+[Previous](best-practices.md) | [Table of contents](README.md) | [Next](collection-catalogs.md)
