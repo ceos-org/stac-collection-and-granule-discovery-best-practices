@@ -5,7 +5,7 @@ This document provides server implementation best practices for SpatioTemporal A
 
 STAC is a lightweight, JSON-based language that is asset-oriented, self-navigable and tailored towards the spatial and temporal domain. 
 
-It also provides a framework for acheiving federated discovery in much the same way as OpenSearch. Where STAC has an advantage over OpenSearch is its widespread adooption in the earth science infomatics community. 
+It also provides a framework for achieving federated discovery in much the same way as OpenSearch. Where STAC has an advantage over OpenSearch is its widespread adoption in the earth science informatics community. 
 ## 1.1 Purpose of document
 
 The STAC ecosystem comprises both API-related and metadata-related specifications.
