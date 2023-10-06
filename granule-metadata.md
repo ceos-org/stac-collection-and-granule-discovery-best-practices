@@ -275,7 +275,7 @@ Example: Asset object for Zarr data
     "wms:styles": [
         "RAINBOW"
     ],
-    "wmts:dimensions": {
+    "wms:dimensions": {
         "transparent": "true",
         "time": "2023-10-04T01:04:20.174Z,2023-10-04T01:58:21.418Z",
     }
