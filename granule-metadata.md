@@ -266,8 +266,9 @@ Example: Asset object for Zarr data
 {
     "href": "http://10.23.12.4/v1/wmts",
     "rel": "wms",
-    "type": "text/xml",
-    "title": "Product visualized through a WMS",
+    "type": "image/png",
+    "wms:transparent": true,
+    "title": "Granule visualized via WMS",
     "wms:layers": [
         "SMOS_Open_V7:SMOS_Open_V7_MIR_OSUDP2_cog",
         "SMOS_Open_V7:SMOS_Open_V7_MIR_SMUDP2_cog"
@@ -276,7 +277,6 @@ Example: Asset object for Zarr data
         "RAINBOW"
     ],
     "wms:dimensions": {
-        "transparent": "true",
         "time": "2023-10-04T01:04:20.174Z,2023-10-04T01:58:21.418Z",
     }
 }
