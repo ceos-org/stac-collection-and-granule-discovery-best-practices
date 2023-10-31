@@ -257,6 +257,30 @@ Example: Asset object for Zarr data
 - Recommendation to properly link to all (raster) assets in an EO product. (VITO)
 
 
+> **CEOS-STAC-REC-6410 - WMS Offering [Recommendation]**<a name="BP-6410"></a>
+>
+> STAC implementations should indicate available data access via WMS using a STAC Web Map Link as defined in [[AD26]](./introduction.md#AD26).
+
+.Example: Use of WMS Web Map Link Extension
+```json
+{
+    "href": "http://10.23.12.4/v1/wmts",
+    "rel": "wms",
+    "type": "image/png",
+    "wms:transparent": true,
+    "title": "Granule visualized via WMS",
+    "wms:layers": [
+        "SMOS_Open_V7:SMOS_Open_V7_MIR_OSUDP2_cog",
+        "SMOS_Open_V7:SMOS_Open_V7_MIR_SMUDP2_cog"
+    ],
+    "wms:styles": [
+        "RAINBOW"
+    ],
+    "wms:dimensions": {
+        "time": "2023-10-04T01:04:20.174Z,2023-10-04T01:58:21.418Z",
+    }
+}
+```
 
 ## 6.5 Facilitating catalog federation
 
