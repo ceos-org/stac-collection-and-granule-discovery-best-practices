@@ -218,7 +218,7 @@ Example: Asset object for Zarr data
 
 > **CEOS-STAC-REC-6360 - Alternate locations [Recommendation]**<a name="BP-6360"></a>
 >
-> When the same assets are available at multiple locations or via multiple protocols, they should be encoded as `alternate asset` as defined in the "STAC Alternate Assets Extension Specification" [[AD24]](./1-introduction.md#AD24).
+> When the same assets are available at multiple locations or via multiple protocols, they should be encoded as `alternate asset` as defined in the "STAC Alternate Assets Extension Specification" [[AD24]](./introduction.md#AD24).
 >
 
 .Example: Use of alternate Asset object for data available on S3 storage
@@ -291,11 +291,11 @@ Example: Asset object for Zarr data
 
 > **CEOS-STAC-REC-6610 - Optical ARD granules [Recommendation]**<a name="BP-6610"></a>
 >
-> CEOS STAC granule metadata for optical ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md) [[AD27]](./1-introduction.md#AD27).
+> CEOS STAC granule metadata for optical ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md) [[AD27]](./introduction.md#AD27).
 
 > **CEOS-STAC-REC-6620 - Radar ARD collections [Recommendation]**<a name="BP-6620"></a>
 >
-> CEOS STAC granule metadata for radar ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md) [[AD27]](./1-introduction.md#AD27).
+> CEOS STAC granule metadata for radar ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md) [[AD27]](./introduction.md#AD27).
 
 ***
 [Previous](collection-catalogs.md) | [Table of contents](README.md) | [Next](collection-metadata.md)

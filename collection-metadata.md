@@ -16,7 +16,7 @@ Explain main parts
 
 > **CEOS-STAC-REQ-7210 - Collection representation [Requirement]**<a name="BP-7210"></a>
 >
-> A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the "STAC Collection Specification" [[AD02]](./1-introduction.md#AD02).
+> A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the "STAC Collection Specification" [[AD02]](./introduction.md#AD02).
 
 
 > **CEOS-STAC-REQ-7220 - Platform information [Requirement]**<a name="BP-7220"></a>
@@ -58,7 +58,7 @@ Explain main parts
 
 > **CEOS-STAC-REQ-7250 - DOI [Requirement]**<a name="BP-7250"></a>
 >
-> The DOI of a collection, if available, shall be encoded according to the Scientific Citation Extension Specification, i.e. using the `sci:doi` property and a link object with rel="cite-as" [[AD13]](./1-introduction.md#AD13).
+> The DOI of a collection, if available, shall be encoded according to the Scientific Citation Extension Specification, i.e. using the `sci:doi` property and a link object with rel="cite-as" [[AD13]](./introduction.md#AD13).
 > 
 
 > **CEOS-STAC-REQ-7260 - Provider names [Requirement]**<a name="BP-7260"></a>
@@ -87,7 +87,7 @@ TBD: recommendation to add additional contact information with https://github.co
 
 > **CEOS-STAC-REQ-7310 - Item assets [Requirement]**<a name="BP-7310"></a>
 >
-> In the case where all granules of a collection contain the same asset types, these assets should be provided in the collection encoding as `Item asset` as defined in the "STAC Item Assets Definition Extension Specification" [[AD25]](./1-introduction.md#AD25).
+> In the case where all granules of a collection contain the same asset types, these assets should be provided in the collection encoding as `Item asset` as defined in the "STAC Item Assets Definition Extension Specification" [[AD25]](./introduction.md#AD25).
 > 
 
 The example below indicates that all granules of this collection do have assets, representing a thumbnail of type PNG, a download location as .zip file and are also available as zarr, with an alternative download location on S3 object storage.  Note that the keys used for the assets (e.g. "thumbnail", "enclosure", "data") are meaningless and can have any value.
@@ -146,11 +146,11 @@ TBD: templated links: https://github.com/opengeospatial/ogcapi-common/issues/187
 
 > **CEOS-STAC-REC-7610 - Optical ARD collections [Recommendation]**<a name="BP-7610"></a>
 >
-> CEOS STAC collection metadata for optical ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md#stac-collections) [[AD27]](./1-introduction.md#AD27).
+> CEOS STAC collection metadata for optical ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md#stac-collections) [[AD27]](./introduction.md#AD27).
 
 > **CEOS-STAC-REC-7620 - Radar ARD collections [Recommendation]**<a name="BP-7620"></a>
 >
-> CEOS STAC collection metadata for radar ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md#stac-collections) [[AD27]](./1-introduction.md#AD27).
+> CEOS STAC collection metadata for radar ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md#stac-collections) [[AD27]](./introduction.md#AD27).
 
 
 ***
