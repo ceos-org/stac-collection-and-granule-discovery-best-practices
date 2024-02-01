@@ -144,6 +144,14 @@ TBD: templated links: https://github.com/opengeospatial/ogcapi-common/issues/187
 
 ## 7.6 CEOS-ARD 
 
-- TBD
+> **CEOS-STAC-REC-7610 - Optical ARD collections [Recommendation]**<a name="BP-7610"></a>
+>
+> CEOS STAC collection metadata for optical ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md#stac-collections) [[AD29]](./1-introduction.md#AD29).
+
+> **CEOS-STAC-REC-7620 - Radar ARD collections [Recommendation]**<a name="BP-7610"></a>
+>
+> CEOS STAC collection metadata for optical ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md#stac-collections) [[AD29]](./1-introduction.md#AD29).
+
+
 ***
 [Previous](granule-metadata.md) | [Table of contents](README.md)
