@@ -74,11 +74,11 @@ The following chapters present Best Practices for one particular topic:
 
 | **ID**  | **Title** | 
 | -------- | --------- | 
-| `AD01` <a name="AD01"></a> | [STAC Catalog Specification](https://github.com/radiantearth/stac-spec/blob/master/catalog-spec/catalog-spec.md) | 
-| `AD02` <a name="AD02"></a> | [STAC Collection Specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md) | 
-| `AD03` <a name="AD03"></a> | [STAC Item Specification](https://github.com/radiantearth/stac-spec/tree/master/item-spec)   | 
-| `AD04` <a name="AD04"></a>| [STAC API Specification](https://github.com/radiantearth/stac-api-spec)  | 
-| `AD05` <a name="AD05"></a> | [STAC API - Item Search](https://github.com/radiantearth/stac-api-spec/tree/main/item-search) |
+| `AD01` <a name="AD01"></a> | [STAC Catalog Specification, v1.0.0](https://github.com/radiantearth/stac-spec/blob/v1.0.0/catalog-spec/catalog-spec.md) | 
+| `AD02` <a name="AD02"></a> | [STAC Collection Specification, v1.0.0](https://github.com/radiantearth/stac-spec/tree/v1.0.0/collection-spec) | 
+| `AD03` <a name="AD03"></a> | [STAC Item Specification, v1.0.0](https://github.com/radiantearth/stac-spec/tree/v1.0.0/item-spec)   | 
+| `AD04` <a name="AD04"></a> | [STAC API Specification, v1.0.0](https://github.com/radiantearth/stac-api-spec/tree/release/v1.0.0)  | 
+| `AD05` <a name="AD05"></a> | [STAC API - Item Search, v1.0.0](https://github.com/radiantearth/stac-api-spec/tree/release/v1.0.0/item-search) |
 | `AD06` <a name="AD06"></a> | [STAC API - Filter Extension](https://github.com/stac-api-extensions/filter) |
 | `AD07` <a name="AD07"></a>| [STAC API - Collection Search](https://github.com/stac-api-extensions/collection-search) |
 | `AD08` <a name="AD08"></a> | [OGC17-069r3, OGC API - Features - Part 1: Core](https://docs.opengeospatial.org/is/17-069r3/17-069r3.html) | 
