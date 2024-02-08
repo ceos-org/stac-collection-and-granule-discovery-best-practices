@@ -170,6 +170,7 @@ Although this is only explicitly defined as [exception response structure for th
 
 The Best Practices described in this section apply to `CEOS STAC Collection Metadata` and `CEOS STAC Granule Metadata`.
 
+## 3.3.1 Properties
 
 > **CEOS-STAC-REQ-3305 - Common metadata [Recommendation]**<a name="BP-3305"></a>
 >
@@ -182,8 +183,42 @@ The Best Practices described in this section apply to `CEOS STAC Collection Meta
 |  constellation  |   [GCMD platform](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms)   |
 |  mission  |  TBD  |
 
+> **CEOS-STAC-REQ-3308 - Controlled keywords [Recommendation]**<a name="BP-3308"></a>
+>
+> CEOS implementations should encode controlled keywords in granule or collection representations using the STAC Themes Extension Specification [[AD28]](./introduction.md#AD28).
 
-## 3.3.1 Assets and roles
+
+```json
+    "themes": [
+      {
+        "concepts": [
+          {
+            "id": "35433dcc-ccdd-5b28-a777-52658c74367d",
+            "title": "Atmospheric Pressure",
+            "url": "https://earth.esa.int/concept/35433dcc-ccdd-5b28-a777-52658c74367d"
+          },
+          {
+            "id": "068e361e-639e-5823-8219-f8ee3e90c4d7",
+            "title": "Atmospheric Chemistry",
+            "url": "https://earth.esa.int/concept/068e361e-639e-5823-8219-f8ee3e90c4d7"
+          }
+        ],
+        "scheme": "https://earth.esa.int/concepts/concept_scheme/earth-topics"
+      },
+      {
+        "concepts": [
+          {
+            "id": "b9c56939-c624-467d-b196-e56a5b660334",
+            "title": "ATMOSPHERIC CHEMISTRY",
+            "url": "https://gcmd.earthdata.nasa.gov/kms/concept/b9c56939-c624-467d-b196-e56a5b660334"
+          }
+        ],
+        "scheme": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords"
+      }
+  ]
+```
+
+## 3.3.2 Assets and roles
 
 - what names (roles, media types) should be used for ...
 
@@ -222,7 +257,7 @@ The table below list some frequently used formats and the corresponding media ty
 > If additional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
 
 
-### 3.3.2 Links and relations
+### 3.3.3 Links and relations
 
 
 > **CEOS-STAC-REC-3340 - Root relation [Recommendation]**<a name="BP-3340"></a>
