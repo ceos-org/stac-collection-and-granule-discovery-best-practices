@@ -1,6 +1,6 @@
 [Next](introduction.md)
 ***
-# CEOS STAC Best Practices
+# CEOS EO collection and granule discovery best practices with STAC
 
 ## Table of Contents
 

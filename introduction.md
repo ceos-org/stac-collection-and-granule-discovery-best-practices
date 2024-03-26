@@ -76,11 +76,11 @@ The following chapters present Best Practices for one particular topic:
 
 | **ID**  | **Title** | 
 | -------- | --------- | 
-| `AD01` <a name="AD01"></a> | [STAC Catalog Specification](https://github.com/radiantearth/stac-spec/blob/master/catalog-spec/catalog-spec.md) | 
-| `AD02` <a name="AD02"></a> | [STAC Collection Specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md) | 
-| `AD03` <a name="AD03"></a> | [STAC Item Specification](https://github.com/radiantearth/stac-spec/tree/master/item-spec)   | 
-| `AD04` <a name="AD04"></a>| [STAC API Specification](https://github.com/radiantearth/stac-api-spec)  | 
-| `AD05` <a name="AD05"></a> | [STAC API - Item Search](https://github.com/radiantearth/stac-api-spec/tree/main/item-search) |
+| `AD01` <a name="AD01"></a> | [STAC Catalog Specification, v1.0.0](https://github.com/radiantearth/stac-spec/blob/v1.0.0/catalog-spec/catalog-spec.md) | 
+| `AD02` <a name="AD02"></a> | [STAC Collection Specification, v1.0.0](https://github.com/radiantearth/stac-spec/tree/v1.0.0/collection-spec) | 
+| `AD03` <a name="AD03"></a> | [STAC Item Specification, v1.0.0](https://github.com/radiantearth/stac-spec/tree/v1.0.0/item-spec)   | 
+| `AD04` <a name="AD04"></a> | [STAC API Specification, v1.0.0](https://github.com/radiantearth/stac-api-spec/tree/release/v1.0.0)  | 
+| `AD05` <a name="AD05"></a> | [STAC API - Item Search, v1.0.0](https://github.com/radiantearth/stac-api-spec/tree/release/v1.0.0/item-search) |
 | `AD06` <a name="AD06"></a> | [STAC API - Filter Extension](https://github.com/stac-api-extensions/filter) |
 | `AD07` <a name="AD07"></a>| [STAC API - Collection Search](https://github.com/stac-api-extensions/collection-search) |
 | `AD08` <a name="AD08"></a> | [OGC17-069r3, OGC API - Features - Part 1: Core](https://docs.opengeospatial.org/is/17-069r3/17-069r3.html) | 
@@ -103,7 +103,8 @@ The following chapters present Best Practices for one particular topic:
 | `AD25` <a name="AD25"></a>| [STAC Item Assets Definition Extension Specification, v1.0.0](https://github.com/stac-extensions/item-assets) |
 | `AD26` <a name="AD26"></a>| [STAC Web Map Links Extension Specification, v1.2.0](https://github.com/stac-extensions/web-map-links) |
 | `AD27` <a name="AD26"></a> |[STAC API - Free Text Search](https://github.com/cedadev/stac-freetext-search)|
-
+| `AD27` <a name="AD27"></a>| [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard/tree/main) |
+| `AD28` <a name="AD28"></a>| [STAC Themes Extension Specification, v1.0.0](https://github.com/stac-extensions/themes) |
 
 
 ### 1.4.2 Reference documents
@@ -112,7 +113,7 @@ The following chapters present Best Practices for one particular topic:
 | -------- | --------- | 
 | `RD01` <a name="RD01"></a> | [CEOS OpenSearch Best Practice Document, Version 1.0, CEOS-OPENSEARCH-BP-V1.3](https://ceos.org/document_management/Working_Groups/WGISS/Documents/WGISS%20Best%20Practices/CEOS%20OpenSearch%20Best%20Practice.pdf)  |
 | `RD02` <a name="RD02"></a> | [ISO 19115-1:2014, Geographic Information – Metadata – Part 1: Fundamentals, First Edition 2014-04-01](https://www.iso.org/standard/53798.html)  |
-| `RD03` <a name="RD03"></a> | [OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors](https://portal.ogc.org/files/?artifact_id=104980&version=1) - Expected but no draft available.  |
+| `RD03` <a name="RD03"></a> | [OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors](https://portal.ogc.org/files/?artifact_id=104980&version=1) - Expected but not available.  |
 | `RD04` <a name="RD04"></a> | [OGC13-026r9, OpenSearch Extension for Earth Observation](https://docs.ogc.org/is/13-026r9/13-026r9.html) |
 ***
 [Previous](README.md) | [Table of contents](README.md) | [Next](objectives-needs.md)
