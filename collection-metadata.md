@@ -1,4 +1,4 @@
-[Previous](granule-metadata.md) | [Table of contents](README.md)
+[Previous](granule-metadata.md) | [Table of contents](README.md) | [Next](federation.md)
 ***
 # 7. Collection Metadata Best Practices
 
@@ -146,4 +146,4 @@ TBD: templated links: https://github.com/opengeospatial/ogcapi-common/issues/187
 
 - TBD
 ***
-[Previous](granule-metadata.md) | [Table of contents](README.md)
+[Previous](granule-metadata.md) | [Table of contents](README.md) | [Next](federation.md)
