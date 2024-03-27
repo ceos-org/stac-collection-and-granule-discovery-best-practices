@@ -20,10 +20,10 @@ EO granules represented as STAC items can be made available as:
 
 | ![Search result](./figures/objects-granule-catalog-items.png "List of collections") |
 |:--:| 
-| *Method 2: Via a search interface* |
+| *Method 2: Via search interfaces* |
 
 
-TBD: allow both ?
+Both methods of publishing STAC granule metadata are valid, however, only STAC granule metadata made available via a search interface (either via rel="items" or rel="search" endpoints) can be easily federated with other catalogues without reingesting granule metadata in a federated catalogue for indexing. the recommendations provided in the current chapter recommend the provision of individual rel="items" search endpoints for each individual collection to facilitate federation of catalogues.
 
 
 ## 4.3 Catalog with search interface
