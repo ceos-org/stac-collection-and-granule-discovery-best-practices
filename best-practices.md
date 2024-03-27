@@ -220,19 +220,16 @@ The Best Practices described in this section apply to `CEOS STAC Collection Meta
 
 ## 3.3.2 Assets and roles
 
-- what names (roles, media types) should be used for ...
-
-
 > **CEOS-STAC-REQ-3310 - Resource associations [Requirement]**<a name="BP-3310"></a>
 >
 > If a resource association can be encoded as Assets (e.g. role="metadata") or Link (e.g. rel="icon", rel="alternate"), STAC implementations shall give precedence to the encoding as Asset.
 
 > **CEOS-STAC-REQ-3320 - Metadata assets [Requirement]**<a name="BP-3320"></a>
 >
-> CEOS STAC implementations shall provide a URL of the collection or granule metadata encoding in a particular standard representation, via an Asset object with role=`metadata`.
+> CEOS STAC implementations shall provide a URL of the collection or granule metadata encoding in a particular standard representation (if available), via an Asset object with role=`metadata`.
 
 
-> **CEOS-STAC-REC-3325 - Link and Asset type attributes [Recommendation]**<a name="BP-3325"></a>
+> **CEOS-STAC-REC-3325 - Link and Asset type attributes [Requirement]**<a name="BP-3325"></a>
 >
 > CEOS STAC implementations shall specify the media (MIME) type of the artifact
 associated with a resource by specifying the "type" attribute of the Link object or Asset object.  The media types (`type`) from the table below shall be used for assets/links to the corresponding resources.
