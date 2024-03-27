@@ -6,11 +6,7 @@
 
 ## 5.1 Overview
 
-Explain main alternatives :
-- static collection catalog (landing page, rel="child", rel="data", ..)
-- collection catalog with search interface
-
-The requirements in the current chapter only apply when TBD.
+STAC implementations may provide the corresponding collection metadata information as a static collection catalog (landing page with a hierarchy of collections referenced with rel="child"), as a flat list of collections (rel="data") or via a collection catalog with collection search interface.  The current chapter presents the requirements and recommendations that apply to STAC collection catalogs in addition to the general catalog requirements presented in [Catalog Best Practices](best-practices.md#32-catalog-best-practices).
 
 ## 5.2 Collection catalog without search interface
 
@@ -171,23 +167,23 @@ The advantages of this approach are as follows:
 granule level using the /queryables response.
 
 
-> **CEOS-STAC-REQ-5390 - Support for two step search [Requirement]**<a name="BP-5390"></a>
+> **CEOS-STAC-REQ-5390 - Support for granule search [Requirement]**<a name="BP-5390"></a>
 > 
-> Collections supporting two-step search shall contain a link with rel="items" in the STAC collection representation returned by the collection search.
+> Collections supporting two-step search shall contain a link with rel="items" and type="application/geo+json" in the STAC collection representation returned by the collection search.
 
 
-> **CEOS-STAC-REC-5392 - Support for two step search [Recommendation]**<a name="BP-5392"></a>
+> **CEOS-STAC-REC-5392 - Support for granule search [Recommendation]**<a name="BP-5392"></a>
 > 
-> Collections supporting two-step search shall contain a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" in the STAC collection representation returned by the collection search.
+> Collections supporting granule search should contain a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" in the STAC collection representation returned by the collection search.
 
 
-> **CEOS-STAC-REQ-5393 - Support for two step search [Requirement]**<a name="BP-5393"></a>
+> **CEOS-STAC-REQ-5393 - Support for granule search [Requirement]**<a name="BP-5393"></a>
 > 
 > STAC Granule Catalogs shall advertise all "additional" collection specific search/filter parameters applicable for a granule search within a collection in the corresponding queryables object for that collection and not rely on a global set of queryables applicable to all collections made available via a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" from the landing page (typically "/collections/{collectionId}/queryables" instead of "/queryables"), to be combined with a collection-specific set (which may be empty).
 
 
-> **CEOS-STAC-REQ-5395 - Support for two step search [Requirement]**<a name="BP-5395"></a>
+> **CEOS-STAC-REQ-5395 - Support for granule search [Requirement]**<a name="BP-5395"></a>
 > 
-> Collections not supporting two-step search shall not contain a link rel="items" in the STAC collection representation returned by the collection search.
+> Collections not supporting granule search shall not contain a link rel="items" and type="application/geo+json" in the STAC collection representation returned by the collection search.
 ***
 [Previous](granule-catalogs.md) | [Table of contents](README.md) | [Next](granule-metadata.md)

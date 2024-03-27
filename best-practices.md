@@ -13,13 +13,6 @@ There are three different levels of obligation for the Best Practices presented 
 In addition, "Permissions" (`PER`) indicate allowed deviations from one of more of the underlying specifications in cases where a subset of the original requirements is deemed sufficient in the context of CEOS.
 
 
-
-
-| :memo: |  Put general requirements in this chapter that are applicable to multiple chapters (e.g. common for granule/collection to avoid repetition)  |
-|---------------|:------------------------|
-
-
-
 ## 3.2 Catalog Best Practices
 
 The Best Practices described in this section apply to both `CEOS STAC Collection Catalogs` and `CEOS STAC Granule Catalogs`.
@@ -77,13 +70,6 @@ TBD: allow using "minimum" and "maximum" in combination with "date-time" (string
 > A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support at least the following conformance classes of CQL2 (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06) and "OGC21-065, Common Query Language (CQL2)" [[AD10]](./introduction.md#AD10):
 > - CQL2 Text
 > - Basic CQL2
-
-| :memo:        | There is currently no mechanism to advertise different CQL filtering capabilities at different endpoints.    |
-|---------------|:------------------------|
-
-
-| :memo:        | OGC API Features Part 3 allows a [simpler way to add additional search parameters](https://docs.ogc.org/DRAFTS/19-079r1.html#queryables-query-parameters) allowing them to be used as HTTP query parameters directly.  The same approach is not (yet) available in the STAC API Filtering extension.  See See https://github.com/stac-api-extensions/filter/issues/15  |
-|---------------|:------------------------|
 
 
 > **CEOS-STAC-REC-3260 - Additional search parameter names [Recommendation]**<a name="BP-3260"></a>
@@ -168,7 +154,7 @@ Although this is only explicitly defined as [exception response structure for th
 
 ## 3.3 Metadata Best Practices
 
-The Best Practices described in this section apply to `CEOS STAC Collection Metadata` and `CEOS STAC Granule Metadata`.
+The Best Practices described in this section apply to [CEOS STAC Collection Metadata](./collection-metadata.md) and [CEOS STAC Granule Metadata](./granule-metadata.md).
 
 ## 3.3.1 Properties
 
@@ -181,7 +167,7 @@ The Best Practices described in this section apply to `CEOS STAC Collection Meta
 |  platform  |    [GCMD platform](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms)   |
 |  instruments[]  |  [GCMD instrument](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/instruments?gtm_scheme=instruments)   |
 |  constellation  |   [GCMD platform](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms)   |
-|  mission  |  TBD  |
+|  mission  |   [GCMD platform](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms)  |
 
 > **CEOS-STAC-REQ-3308 - Controlled keywords [Recommendation]**<a name="BP-3308"></a>
 >
@@ -220,19 +206,16 @@ The Best Practices described in this section apply to `CEOS STAC Collection Meta
 
 ## 3.3.2 Assets and roles
 
-- what names (roles, media types) should be used for ...
-
-
 > **CEOS-STAC-REQ-3310 - Resource associations [Requirement]**<a name="BP-3310"></a>
 >
 > If a resource association can be encoded as Assets (e.g. role="metadata") or Link (e.g. rel="icon", rel="alternate"), STAC implementations shall give precedence to the encoding as Asset.
 
 > **CEOS-STAC-REQ-3320 - Metadata assets [Requirement]**<a name="BP-3320"></a>
 >
-> CEOS STAC implementations shall provide a URL of the collection or granule metadata encoding in a particular standard representation, via an Asset object with role=`metadata`.
+> CEOS STAC implementations shall provide a URL of the collection or granule metadata encoding in a particular standard representation (if available), via an Asset object with role=`metadata`.
 
 
-> **CEOS-STAC-REC-3325 - Link and Asset type attributes [Recommendation]**<a name="BP-3325"></a>
+> **CEOS-STAC-REC-3325 - Link and Asset type attributes [Requirement]**<a name="BP-3325"></a>
 >
 > CEOS STAC implementations shall specify the media (MIME) type of the artifact
 associated with a resource by specifying the "type" attribute of the Link object or Asset object.  The media types (`type`) from the table below shall be used for assets/links to the corresponding resources.
@@ -273,8 +256,6 @@ The table below list some frequently used formats and the corresponding media ty
 > **CEOS-STAC-REC-3360 - Reference to documentation [Recommendation]**<a name="BP-3360"></a>
 >
 > Implementations should use a Link object with rel="describedby" to reference from a collection or granule to its documentation.
-
-Note: although some implementations use rel="about" for the same purpose, rel="describedby" is recommended by https://docs.ogc.org/DRAFTS/20-024.html.
 
 The table below list some frequently used formats for documentation and their corresponding media type (`type`).
 

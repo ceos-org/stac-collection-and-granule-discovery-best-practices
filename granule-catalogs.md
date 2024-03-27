@@ -6,18 +6,14 @@
 
 ## 4.1 Overview
 
-
-Explain main alternatives :
-- static catalog (landing page, ..)
-- catalog with search interface
+STAC implementations may provide granule metadata information as part of a static catalog (landing page with a hierarchy of collections and granules referenced with rel="child" and rel="item"), or via granule search interfaces and corresponding endpoints advertised as rel="items" (in collection metadata) or rel="search" (cross-collection granule search advertised in catalog landing page).  The current chapter presents the requirements and recommendations that apply to STAC granule catalogs in addition to the general catalog requirements presented in [Catalog Best Practices](best-practices.md#32-catalog-best-practices).
 
 ## 4.2 Static catalog without search interface
 
-- rel="item"
-
 EO granules represented as STAC items can be made available as:
-- individual STAC items referenced from a STAC collection
-- the result of a search interface
+- individual STAC items referenced from a STAC collection (rel="item")
+- the result of a search interface request for the collection (rel="items")
+- the result of a cross-collection search interface request (rel="search")
 
 | ![Static catalog](./figures/objects-granule-catalog-item.png "Nested catalogs and collections") |
 |:--:| 
@@ -25,10 +21,10 @@ EO granules represented as STAC items can be made available as:
 
 | ![Search result](./figures/objects-granule-catalog-items.png "List of collections") |
 |:--:| 
-| *Method 2: Via a search interface* |
+| *Method 2: Via search interfaces* |
 
 
-TBD: allow both ?
+Both methods of publishing STAC granule metadata are valid, however, only STAC granule metadata made available via a search interface (either via rel="items" or rel="search" endpoints) can be easily federated with other catalogues without reingesting granule metadata in a federated catalogue for indexing. the recommendations provided in the current chapter recommend the provision of individual rel="items" search endpoints for each individual collection to facilitate federation of catalogues.
 
 
 ## 4.3 Catalog with search interface
@@ -53,7 +49,7 @@ The above permission avoids the implementation of multiple endpoints for granule
 >
 > CEOS STAC granule catalogs with cross-collection granule search endpoint shall support searches at the `endpoint` (rel="search") using the HTTP `GET` method.
 
-Support of the `POST` method at the cross-collection granule search endpoint (if available) is not required.
+Note that the provision of a cross-collection granule search endpoint itself is not required.  If it is provided, then `GET` should be supported.  Support of the `POST` method at the cross-collection granule search endpoint (if available) is not required.
 
 
 #### Search parameters
@@ -74,11 +70,6 @@ Support of the `POST` method at the cross-collection granule search endpoint (if
 TBD: no requirements for cross-collection granule search endpoint if it is not required ?
 
 
-#### Other
-
-- Asset-level search capability (STFC)
-
-
 ### 4.3.2 Granule search response
 
 
@@ -96,19 +87,5 @@ TBD: no requirements for cross-collection granule search endpoint if it is not r
 >
 > Granules included in a granule search response shall be conformant with ["CEOS STAC Granule Metadata Best Practices"](granule-metadata.md).
 
-| :question: | this is a question  |
-|---------------|:------------------------|
-
-
-| :memo:        | Take note of this       |
-|---------------|:------------------------|
-
-
-| :information_source: | Take note of this       |
-|---------------|:------------------------|
-
-
-| :warning:        | Take note of this       |
-|---------------|:------------------------|
 ***
 [Previous](best-practices.md) | [Table of contents](README.md) | [Next](collection-catalogs.md)

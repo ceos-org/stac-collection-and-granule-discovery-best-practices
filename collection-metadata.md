@@ -5,14 +5,16 @@
 [//]: # (this is a comment)
 
 ## 7.1 Overview
-Explain main parts
+This chapter presents the requirements and recommendations that apply to STAC collection metadata representations (returned by a static or searchable catalog, in isolation or included in a search response) in addition to the general metadata requirements presented in [Metadata Best Practices](best-practices.md#33-metadata-best-practices).
+
+The requirements and recommendations provided relate to:
+
+- Properties
+- Asset and roles
+- Links and relations
+- Facilitating federation 
 
 ## 7.2 Properties
-
-- ...
-- summaries  (platform, instrument, science keywords, GCMD)
-- organisation objects with names/URL from GCMD ?
-
 
 > **CEOS-STAC-REQ-7210 - Collection representation [Requirement]**<a name="BP-7210"></a>
 >
@@ -77,15 +79,9 @@ A(n EO) Collection metadata record shall encode provider information as `$.provi
   ]
 ``` 
 
-TBD: recommendation to add additional contact information with https://github.com/stac-extensions/contacts ?
-
-
-
 ## 7.3 Assets and roles
 
-- what names (roles, media types) should be used for ...
-
-> **CEOS-STAC-REQ-7310 - Item assets [Requirement]**<a name="BP-7310"></a>
+> **CEOS-STAC-REQ-7310 - Item assets [Recommendation]**<a name="BP-7310"></a>
 >
 > In the case where all granules of a collection contain the same asset types, these assets should be provided in the collection encoding as `Item asset` as defined in the "STAC Item Assets Definition Extension Specification" [[AD25]](./introduction.md#AD25).
 > 
@@ -129,18 +125,37 @@ The example below indicates that all granules of this collection do have assets,
 
 ## 7.4 Links and relations
 
-- how to encode "offerings" (i.e. links to OGC or other service endpoints in a STAC collection) ?
+> **CEOS-STAC-REQ-7410 - Support for granule search [Requirement]**<a name="BP-7410"></a>
+> 
+> Collections supporting granule search shall contain a link with rel="items" and type="application/geo+json" in the STAC collection representation.
 
-> **CEOS-STAC-REC-7410 - Reference to license [Recommendation]**<a name="BP-7410"></a>
+> **CEOS-STAC-REC-7420 - Support for granule search [Recommendation]**<a name="BP-7420"></a>
+> 
+> Collections supporting granule search should contain a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" in the STAC collection representation.
+
+> **CEOS-STAC-REQ-7430 - Support for granule search [Requirement]**<a name="BP-7430"></a>
+> 
+> STAC Granule Catalogs shall advertise all "additional" collection specific search/filter parameters applicable for a granule search within a collection in the corresponding queryables object for that collection and not rely on a global set of queryables applicable to all collections made available via a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" from the landing page (typically "/collections/{collectionId}/queryables" instead of "/queryables"), to be combined with a collection-specific set (which may be empty).
+
+> **CEOS-STAC-REQ-7440 - Support for granule search [Requirement]**<a name="BP-7440"></a>
+> 
+> Collections not supporting granule search shall not contain a link rel="items" and type="application/geo+json" in the STAC collection representation.
+
+> **CEOS-STAC-REC-7450 - Reference to license [Recommendation]**<a name="BP-7450"></a>
 >
 > CEOS STAC collection metadata should include a Link object with rel="license" to reference an external file describing the license information for the collection, unless the `license` property has a specific [SPDX license identifier](https://spdx.org/licenses/).
 
 
-TBD: templated links: https://github.com/opengeospatial/ogcapi-common/issues/187
-
-
 ## 7.5 Facilitating catalog federation
 
+> **CEOS-STAC-REQ-7510 - Absolute links [Requirement]**<a name="BP-7510"></a>
+>
+> "href" attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC collection metadata records.
+
+> **CEOS-STAC-REC-7520 - Parent relation [Recommendation]**<a name="BP-7520"></a>
+>
+> Implementations should not use the rel="parent" relation in STAC collection encodings as the original collection may be referenced or included in a federated catalog below a different parent.
+>
 
 ## 7.6 CEOS-ARD 
 
