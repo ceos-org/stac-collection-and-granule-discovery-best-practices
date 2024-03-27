@@ -69,11 +69,6 @@ Note that the provision of a cross-collection granule search endpoint itself is 
 TBD: no requirements for cross-collection granule search endpoint if it is not required ?
 
 
-#### Other
-
-- Asset-level search capability (STFC)
-
-
 ### 4.3.2 Granule search response
 
 
@@ -91,19 +86,5 @@ TBD: no requirements for cross-collection granule search endpoint if it is not r
 >
 > Granules included in a granule search response shall be conformant with ["CEOS STAC Granule Metadata Best Practices"](granule-metadata.md).
 
-| :question: | this is a question  |
-|---------------|:------------------------|
-
-
-| :memo:        | Take note of this       |
-|---------------|:------------------------|
-
-
-| :information_source: | Take note of this       |
-|---------------|:------------------------|
-
-
-| :warning:        | Take note of this       |
-|---------------|:------------------------|
 ***
 [Previous](best-practices.md) | [Table of contents](README.md) | [Next](collection-catalogs.md)
