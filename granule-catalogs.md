@@ -48,7 +48,7 @@ The above permission avoids the implementation of multiple endpoints for granule
 >
 > CEOS STAC granule catalogs with cross-collection granule search endpoint shall support searches at the `endpoint` (rel="search") using the HTTP `GET` method.
 
-Support of the `POST` method at the cross-collection granule search endpoint (if available) is not required.
+Note that the provision of a cross-collection granule search endpoint itself is not required.  If it is provided, then `GET` should be supported.  Support of the `POST` method at the cross-collection granule search endpoint (if available) is not required.
 
 
 #### Search parameters
