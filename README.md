@@ -16,5 +16,6 @@
 - [5. Collection Catalog Best Practices](collection-catalogs.md)
 - [6. Granule Metadata Best Practices](granule-metadata.md)
 - [7. Collection Metadata Best Practices](collection-metadata.md)
+- [8. Federation Best Practices](federation.md)
 ***
 [Next](introduction.md)

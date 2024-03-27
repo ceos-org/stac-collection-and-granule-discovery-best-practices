@@ -1,4 +1,4 @@
-[Previous](granule-metadata.md) | [Table of contents](README.md)
+[Previous](granule-metadata.md) | [Table of contents](README.md) | [Next](federation.md)
 ***
 # 7. Collection Metadata Best Practices
 
@@ -168,5 +168,5 @@ The example below indicates that all granules of this collection do have assets,
 > CEOS STAC collection metadata for radar ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md#stac-collections) [[AD27]](./introduction.md#AD27).
 
 
-***
-[Previous](granule-metadata.md) | [Table of contents](README.md)
+
+[Previous](granule-metadata.md) | [Table of contents](README.md) | [Next](federation.md)
