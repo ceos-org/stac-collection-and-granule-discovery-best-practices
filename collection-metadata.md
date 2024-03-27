@@ -5,14 +5,16 @@
 [//]: # (this is a comment)
 
 ## 7.1 Overview
-Explain main parts
+This chapter presents the requirements and recommendation that apply to STAC collection metadata representations (returned by a static or searchable catalog, in isolation or included in a search response) in addition to the general metadata requirements presented in [Metadata Best Practices](best-practices.md#33-metadata-best-practices).
+
+The requirements and recommendations provided relate to:
+
+- Properties
+- Asset and roles
+- Links and relations
+- Facilitating federation 
 
 ## 7.2 Properties
-
-- ...
-- summaries  (platform, instrument, science keywords, GCMD)
-- organisation objects with names/URL from GCMD ?
-
 
 > **CEOS-STAC-REQ-7210 - Collection representation [Requirement]**<a name="BP-7210"></a>
 >
@@ -151,6 +153,11 @@ The example below indicates that all granules of this collection do have assets,
 > **CEOS-STAC-REQ-7510 - Absolute links [Requirement]**<a name="BP-7510"></a>
 >
 > "href" attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC collection metadata records.
+
+> **CEOS-STAC-REC-7520 - Parent relation [Recommendation]**<a name="BP-7520"></a>
+>
+> Implementations should not use the rel="parent" relation in STAC collection encodings as the original collection may be referenced or included in a federated catalog below a different parent.
+>
 
 ## 7.6 CEOS-ARD 
 
