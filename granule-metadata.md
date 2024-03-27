@@ -6,7 +6,14 @@
 
 ## 6.1 Overview
 
-Explain main parts
+This chapter presents the requirements and recommendation that apply to STAC granule metadata representations (returned by a static or searchable catalog, in isolation or included in a search response) in addition to the general metadata requirements presented in [Metadata Best Practices](best-practices.md#33-metadata-best-practices).
+
+The requirements and recommendations provided relate to:
+
+- Properties
+- Asset and roles
+- Links and relations
+- Facilitating federation 
 
 ## 6.2 Properties
 
