@@ -6,11 +6,7 @@
 
 ## 5.1 Overview
 
-Explain main alternatives :
-- static collection catalog (landing page, rel="child", rel="data", ..)
-- collection catalog with search interface
-
-The requirements in the current chapter only apply when TBD.
+STAC implementations may provide the corresponding collection metadata information as a static collection catalog (landing page with a hierarchy of collections referenced with rel="child"), as a flat list of collections (rel="data") or via a collection catalog with collection search interface.  The current chapter presents the requirements and recommendations that apply to STAC collection catalogs in addition to the general catalog requirements presented in [Metadata Best Practices](best-practices.md#32-catalog-best-practices).
 
 ## 5.2 Collection catalog without search interface
 
