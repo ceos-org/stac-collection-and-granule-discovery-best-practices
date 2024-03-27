@@ -6,14 +6,9 @@
 
 ## 4.1 Overview
 
-
-Explain main alternatives :
-- static catalog (landing page, ..)
-- catalog with search interface
+STAC implementations may provide granule metadata information as part of a static catalog (landing page with a hierarchy of collections and granules referenced with rel="child" and rel="item"), or via granule search interfaces and corresponding endpoints advertised as rel="items" (in collection metadata) or rel="search" (cross-collection granule search advertised in catalog landing page).  The current chapter presents the requirements and recommendations that apply to STAC granule catalogs in addition to the general catalog requirements presented in [Catalog Best Practices](best-practices.md#32-catalog-best-practices).
 
 ## 4.2 Static catalog without search interface
-
-- rel="item"
 
 EO granules represented as STAC items can be made available as:
 - individual STAC items referenced from a STAC collection
