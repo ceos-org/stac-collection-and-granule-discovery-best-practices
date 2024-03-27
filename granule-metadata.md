@@ -17,10 +17,6 @@ The requirements and recommendations provided relate to:
 
 ## 6.2 Properties
 
-- mandatory/recommended properties / extensions
-- refer to mapping between STAC and OS-EO properties. (DLR) 
-
-
 > **CEOS-STAC-REQ-6210 - Granule representation [Requirement]**<a name="BP-6210"></a>
 >
 > A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the "STAC Item Specification" [[AD03]](./introduction.md#AD03).
