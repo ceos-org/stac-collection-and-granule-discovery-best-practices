@@ -11,8 +11,9 @@ STAC implementations may provide granule metadata information as part of a stati
 ## 4.2 Static catalog without search interface
 
 EO granules represented as STAC items can be made available as:
-- individual STAC items referenced from a STAC collection
-- the result of a search interface
+- individual STAC items referenced from a STAC collection (rel="item")
+- the result of a search interface request for the collection (rel="items")
+- the result of a cross-collection search interface request (rel="search")
 
 | ![Static catalog](./figures/objects-granule-catalog-item.png "Nested catalogs and collections") |
 |:--:| 
