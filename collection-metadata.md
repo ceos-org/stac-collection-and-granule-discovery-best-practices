@@ -5,7 +5,7 @@
 [//]: # (this is a comment)
 
 ## 7.1 Overview
-This chapter presents the requirements and recommendation that apply to STAC collection metadata representations (returned by a static or searchable catalog, in isolation or included in a search response) in addition to the general metadata requirements presented in [Metadata Best Practices](best-practices.md#33-metadata-best-practices).
+This chapter presents the requirements and recommendations that apply to STAC collection metadata representations (returned by a static or searchable catalog, in isolation or included in a search response) in addition to the general metadata requirements presented in [Metadata Best Practices](best-practices.md#33-metadata-best-practices).
 
 The requirements and recommendations provided relate to:
 
