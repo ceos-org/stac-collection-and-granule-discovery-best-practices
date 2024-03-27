@@ -40,7 +40,7 @@ collections: [
                 rel: "items",
                 href: "https://uops.nrsc.gov.in/stac/collections/IMS1_HYSI_GEO.v1.0/items",
                 title: "Granules in this collection",
-                type: "application/json"
+                type: "application/geo+json"
             }
         ]
         ...
