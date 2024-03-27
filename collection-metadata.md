@@ -81,8 +81,6 @@ A(n EO) Collection metadata record shall encode provider information as `$.provi
 
 ## 7.3 Assets and roles
 
-- what names (roles, media types) should be used for ...
-
 > **CEOS-STAC-REQ-7310 - Item assets [Recommendation]**<a name="BP-7310"></a>
 >
 > In the case where all granules of a collection contain the same asset types, these assets should be provided in the collection encoding as `Item asset` as defined in the "STAC Item Assets Definition Extension Specification" [[AD25]](./introduction.md#AD25).
