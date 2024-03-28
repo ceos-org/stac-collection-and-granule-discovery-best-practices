@@ -274,7 +274,7 @@ The table below list some frequently used formats for documentation and their co
 > Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
 >
 
-| :question: |  should we add a recomendation about (STAC) identifiers to be used for collections that remain unique after federation ?  e.g. multiple agencies with Landsat or Sentinel collections may cause naming clashes... Does such recommendation already exist in other CEOS contexts ? |
+| :question: |  should we add a recommendation about (STAC) identifiers to be used for collections that remain unique after federation ?  e.g. multiple agencies with Landsat or Sentinel collections may cause naming clashes... Does such recommendation already exist in other CEOS contexts ? |
 |---------------|:------------------------|
 
 ***
