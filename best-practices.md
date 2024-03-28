@@ -171,7 +171,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
 
 > **CEOS-STAC-REQ-3308 - Controlled keywords [Recommendation]**<a name="BP-3308"></a>
 >
-> CEOS implementations should encode controlled keywords in granule or collection representations using the STAC Themes Extension Specification [[AD28]](./introduction.md#AD28).
+> CEOS implementations should encode controlled keywords in granule or collection representations using the STAC Themes Extension Specification [[AD29]](./introduction.md#AD29).
 
 
 ```json
