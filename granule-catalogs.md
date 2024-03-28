@@ -66,10 +66,6 @@ Note that the provision of a cross-collection granule search endpoint itself is 
 >
 > A CEOS STAC granule catalog supporting additional queryables for a collection shall return the link to the Queryables object with the list of queryables that can be used in a filter expression for that collection via a link object in the collection representation (metadata) with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" (typically, but not necessarily, at '/collections/{collectionId}/queryables').
 
-
-TBD: no requirements for cross-collection granule search endpoint if it is not required ?
-
-
 ### 4.3.2 Granule search response
 
 
@@ -79,7 +75,7 @@ TBD: no requirements for cross-collection granule search endpoint if it is not r
 
 > **CEOS-STAC-REQ-4635 - Item search numberMatched [Requirement]**<a name="BP-4635"></a>
 >
-> Granule search responses shall use the properties `$.numberMatched` and `$.numberReturned` as per version v1.0.0 of the ["STAC API ItemCollection Specification"](https://github.com/radiantearth/stac-api-spec/blob/master/fragments/itemcollection/README.md) instead of using the deprecated [Context Extension](https://github.com/stac-api-extensions/context) to communicate the number of results.
+> Granule search responses shall use the properties `$.numberMatched` and `$.numberReturned` as per version v1.0.0 of the ["STAC API ItemCollection Specification"](https://github.com/radiantearth/stac-api-spec/blob/master/fragments/itemcollection/README.md) instead of using the deprecated ["STAC API - Context Extension Specification"](https://github.com/stac-api-extensions/context) to communicate the number of results.
 
 > **CEOS-STAC-REQ-4640 - Allow for granule search-by-id [Requirement]**<a name="BP-4640"></a>
 >
