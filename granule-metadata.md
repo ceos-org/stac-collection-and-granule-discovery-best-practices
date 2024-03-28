@@ -144,9 +144,6 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
 
 ## 6.3 Assets and roles
 
-- what names (roles, media types) should be used for quicklooks, bands, ...
-
-
 > **CEOS-STAC-REC-6310 - Browse image [Recommendation]**<a name="BP-6310"></a>
 >
 > STAC implementations should provide a URL to the granule’s browse image when available, via an Asset object with role=`overview`.
@@ -218,7 +215,6 @@ Example: Asset object for Zarr data
 
 
 
-
 > **CEOS-STAC-REC-6360 - Alternate locations [Recommendation]**<a name="BP-6360"></a>
 >
 > When the same assets are available at multiple locations or via multiple protocols, they should be encoded as `alternate asset` as defined in the "STAC Alternate Assets Extension Specification" [[AD24]](./introduction.md#AD24).
@@ -253,13 +249,6 @@ Example: Asset object for Zarr data
 
 ## 6.4 Links and relations
 
-- how to encode "offerings" (i.e. links to OGC or other service endpoints in a STAC item) ?
-- how to encode cloud-native access (zarr, COG) in STAC item.
-- how to encode different resource access methods e.g. http download link or S3 location url
-- how/when to use the asset alternate links extension?
-- Recommendation to properly link to all (raster) assets in an EO product. (VITO)
-
-
 > **CEOS-STAC-REC-6410 - WMS Offering [Recommendation]**<a name="BP-6410"></a>
 >
 > STAC implementations should indicate available data access via WMS using a STAC Web Map Link as defined in [[AD26]](./introduction.md#AD26).
@@ -287,7 +276,9 @@ Example: Asset object for Zarr data
 
 ## 6.5 Facilitating catalog federation
 
-
+> **CEOS-STAC-REQ-6510 - Absolute links [Requirement]**<a name="BP-6510"></a>
+>
+> "href" attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC granule metadata records.
 
 
 ## 6.6 CEOS-ARD 
