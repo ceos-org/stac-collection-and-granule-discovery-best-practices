@@ -77,15 +77,19 @@ TBD: no requirements for cross-collection granule search endpoint if it is not r
 >
 > A granule search response shall be represented as a GeoJSON FeatureCollection according to version v1.0.0 of the ["STAC API ItemCollection Specification"](https://github.com/radiantearth/stac-api-spec/blob/master/fragments/itemcollection/README.md).
 
+> **CEOS-STAC-REQ-4635 - Item search numberMatched [Requirement]**<a name="BP-4635"></a>
+>
+> Granule search responses shall use the properties `$.numberMatched` and `$.numberReturned` as per version v1.0.0 of the ["STAC API ItemCollection Specification"](https://github.com/radiantearth/stac-api-spec/blob/master/fragments/itemcollection/README.md) instead of using the deprecated [Context Extension](https://github.com/stac-api-extensions/context) to communicate the number of results.
 
-> **CEOS-STAC-REQ-4635 - Allow for granule search-by-id [Requirement]**<a name="BP-4635"></a>
+> **CEOS-STAC-REQ-4640 - Allow for granule search-by-id [Requirement]**<a name="BP-4640"></a>
 >
 > The $.features[].id property in a granule search response shall allow navigation to a single granule using the `id` as a path parameter appended to the granule search endpoint (rel='items') e.g. /collections/{collection-id}/items/{id}. 
 
 
-> **CEOS-STAC-REQ-4640 - Item search response representation [Requirement]**<a name="BP-4640"></a>
+> **CEOS-STAC-REQ-4645 - Item search response representation [Requirement]**<a name="BP-4645"></a>
 >
 > Granules included in a granule search response shall be conformant with ["CEOS STAC Granule Metadata Best Practices"](granule-metadata.md).
+
 
 ***
 [Previous](best-practices.md) | [Table of contents](README.md) | [Next](collection-catalogs.md)
