@@ -156,7 +156,7 @@ Although this is only explicitly defined as [exception response structure for th
 
 The Best Practices described in this section apply to [CEOS STAC Collection Metadata](./collection-metadata.md) and [CEOS STAC Granule Metadata](./granule-metadata.md).
 
-## 3.3.1 Properties
+### 3.3.1 Properties
 
 > **CEOS-STAC-REQ-3305 - Common metadata [Recommendation]**<a name="BP-3305"></a>
 >
@@ -204,7 +204,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
   ]
 ```
 
-## 3.3.2 Assets and roles
+### 3.3.2 Assets and roles
 
 > **CEOS-STAC-REQ-3310 - Resource associations [Requirement]**<a name="BP-3310"></a>
 >
@@ -243,11 +243,6 @@ The table below list some frequently used formats and the corresponding media ty
 ### 3.3.3 Links and relations
 
 
-> **CEOS-STAC-REC-3340 - Root relation [Recommendation]**<a name="BP-3340"></a>
->
-> Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
->
-
 > **CEOS-STAC-REC-3350 - Reference to metadata [Recommendation]**<a name="BP-3350"></a>
 >
 > Implementations should use Link objects with rel="alternate" or rel=”via” for referencing detailed representation of the metadata for a collection or granule. (The “via” relation should be preferred to convey the authoritative resource or the source of the information from where the Collection/Item is made.)
@@ -263,5 +258,19 @@ The table below list some frequently used formats for documentation and their co
 | --------                   | --------- | 
 | [Markdown](https://datatracker.ietf.org/doc/html/rfc7763)  | `text/markdown`  |
 | [PDF](https://en.wikipedia.org/wiki/PDF)  | `application/pdf`  |
+
+
+### 3.3.4 Facilitating catalog federation
+
+> **CEOS-STAC-REQ-3410 - Absolute links [Requirement]**<a name="BP-3410"></a>
+>
+> "href" attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC collection or granule metadata records.
+
+> **CEOS-STAC-REC-3440 - Root relation [Recommendation]**<a name="BP-3440"></a>
+>
+> Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
+>
+
+
 ***
 [Previous](objectives-needs.md) | [Table of contents](README.md) | [Next](granule-catalogs.md)
