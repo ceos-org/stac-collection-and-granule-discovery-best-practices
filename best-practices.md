@@ -12,6 +12,9 @@ There are three different levels of obligation for the Best Practices presented 
 
 In addition, "Permissions" (`PER`) indicate allowed deviations from one of more of the underlying specifications in cases where a subset of the original requirements is deemed sufficient in the context of CEOS.
 
+| :question: |  should we introduce a category called "Conditional" ?  These are mandatory under certain conditions.. e.g. /queryables, CQL, ... |
+|---------------|:------------------------|
+
 
 ## 3.2 Catalog Best Practices
 
