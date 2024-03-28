@@ -294,11 +294,11 @@ Example: Asset object for Zarr data
 
 > **CEOS-STAC-REC-6610 - Optical ARD granules [Recommendation]**<a name="BP-6610"></a>
 >
-> CEOS STAC granule metadata for optical ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md) [[AD27]](./introduction.md#AD27).
+> CEOS STAC granule metadata for optical ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md) [[AD28]](./introduction.md#AD28).
 
 > **CEOS-STAC-REC-6620 - Radar ARD collections [Recommendation]**<a name="BP-6620"></a>
 >
-> CEOS STAC granule metadata for radar ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md) [[AD27]](./introduction.md#AD27).
+> CEOS STAC granule metadata for radar ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md) [[AD28]](./introduction.md#AD28).
 
 ***
 [Previous](collection-catalogs.md) | [Table of contents](README.md) | [Next](collection-metadata.md)
