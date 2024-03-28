@@ -12,6 +12,9 @@ There are three different levels of obligation for the Best Practices presented 
 
 In addition, "Permissions" (`PER`) indicate allowed deviations from one of more of the underlying specifications in cases where a subset of the original requirements is deemed sufficient in the context of CEOS.
 
+| :question: |  should we introduce a category called "Conditional" ?  These are mandatory under certain conditions.. e.g. /queryables, CQL, ... |
+|---------------|:------------------------|
+
 
 ## 3.2 Catalog Best Practices
 
@@ -156,7 +159,7 @@ Although this is only explicitly defined as [exception response structure for th
 
 The Best Practices described in this section apply to [CEOS STAC Collection Metadata](./collection-metadata.md) and [CEOS STAC Granule Metadata](./granule-metadata.md).
 
-## 3.3.1 Properties
+### 3.3.1 Properties
 
 > **CEOS-STAC-REQ-3305 - Common metadata [Recommendation]**<a name="BP-3305"></a>
 >
@@ -171,7 +174,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
 
 > **CEOS-STAC-REQ-3308 - Controlled keywords [Recommendation]**<a name="BP-3308"></a>
 >
-> CEOS implementations should encode controlled keywords in granule or collection representations using the STAC Themes Extension Specification [[AD28]](./introduction.md#AD28).
+> CEOS implementations should encode controlled keywords in granule or collection representations using the STAC Themes Extension Specification [[AD29]](./introduction.md#AD29).
 
 
 ```json
@@ -204,7 +207,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
   ]
 ```
 
-## 3.3.2 Assets and roles
+### 3.3.2 Assets and roles
 
 > **CEOS-STAC-REQ-3310 - Resource associations [Requirement]**<a name="BP-3310"></a>
 >
@@ -243,11 +246,6 @@ The table below list some frequently used formats and the corresponding media ty
 ### 3.3.3 Links and relations
 
 
-> **CEOS-STAC-REC-3340 - Root relation [Recommendation]**<a name="BP-3340"></a>
->
-> Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
->
-
 > **CEOS-STAC-REC-3350 - Reference to metadata [Recommendation]**<a name="BP-3350"></a>
 >
 > Implementations should use Link objects with rel="alternate" or rel=”via” for referencing detailed representation of the metadata for a collection or granule. (The “via” relation should be preferred to convey the authoritative resource or the source of the information from where the Collection/Item is made.)
@@ -263,5 +261,21 @@ The table below list some frequently used formats for documentation and their co
 | --------                   | --------- | 
 | [Markdown](https://datatracker.ietf.org/doc/html/rfc7763)  | `text/markdown`  |
 | [PDF](https://en.wikipedia.org/wiki/PDF)  | `application/pdf`  |
+
+
+### 3.3.4 Facilitating catalog federation
+
+> **CEOS-STAC-REQ-3410 - Absolute links [Requirement]**<a name="BP-3410"></a>
+>
+> "href" attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC collection or granule metadata records.
+
+> **CEOS-STAC-REC-3440 - Root relation [Recommendation]**<a name="BP-3440"></a>
+>
+> Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
+>
+
+| :question: |  should we add a recommendation about (STAC) identifiers to be used for collections that remain unique after federation ?  e.g. multiple agencies with Landsat or Sentinel collections may cause naming clashes... Does such recommendation already exist in other CEOS contexts ? |
+|---------------|:------------------------|
+
 ***
 [Previous](objectives-needs.md) | [Table of contents](README.md) | [Next](granule-catalogs.md)

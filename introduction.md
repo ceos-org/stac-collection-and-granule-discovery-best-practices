@@ -33,7 +33,6 @@ The following chapters present Best Practices for one particular topic:
 - [Chapter 5: Collection Catalog Best Practices](collection-catalogs.md)
 - [Chapter 6: Granule Metadata Best Practices](granule-metadata.md)
 - [Chapter 7: Collection Metadata Best Practices](collection-metadata.md)
-- [Chapter 7: Collection Metadata Best Practices](collection-metadata.md)
 - [Chapter 8. Federation Best Practices](federation.md)
 
 ## 1.3 Terms, definitions and abbreviated terms
@@ -102,9 +101,9 @@ The following chapters present Best Practices for one particular topic:
 | `AD24` <a name="AD24"></a>| [STAC Alternate Assets Extension Specification, v1.1.0](https://github.com/stac-extensions/alternate-assets) |
 | `AD25` <a name="AD25"></a>| [STAC Item Assets Definition Extension Specification, v1.0.0](https://github.com/stac-extensions/item-assets) |
 | `AD26` <a name="AD26"></a>| [STAC Web Map Links Extension Specification, v1.2.0](https://github.com/stac-extensions/web-map-links) |
-| `AD27` <a name="AD26"></a> |[STAC API - Free Text Search](https://github.com/cedadev/stac-freetext-search)|
-| `AD27` <a name="AD27"></a>| [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard/tree/main) |
-| `AD28` <a name="AD28"></a>| [STAC Themes Extension Specification, v1.0.0](https://github.com/stac-extensions/themes) |
+| `AD27` <a name="AD27"></a> |[STAC API - Free Text Search](https://github.com/cedadev/stac-freetext-search)|
+| `AD28` <a name="AD28"></a>| [STAC CEOS-ARD Extension Specification](https://github.com/stac-api-extensions/freetext-search) |
+| `AD29` <a name="AD29"></a>| [STAC Themes Extension Specification, v1.0.0](https://github.com/stac-extensions/themes) |
 
 
 ### 1.4.2 Reference documents
