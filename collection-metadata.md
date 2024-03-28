@@ -161,11 +161,11 @@ The example below indicates that all granules of this collection do have assets,
 
 > **CEOS-STAC-REC-7610 - Optical ARD collections [Recommendation]**<a name="BP-7610"></a>
 >
-> CEOS STAC collection metadata for optical ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md#stac-collections) [[AD27]](./introduction.md#AD27).
+> CEOS STAC collection metadata for optical ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md#stac-collections) [[AD27]](./introduction.md#AD28).
 
 > **CEOS-STAC-REC-7620 - Radar ARD collections [Recommendation]**<a name="BP-7620"></a>
 >
-> CEOS STAC collection metadata for radar ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md#stac-collections) [[AD27]](./introduction.md#AD27).
+> CEOS STAC collection metadata for radar ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md#stac-collections) [[AD27]](./introduction.md#AD28).
 
 
 
