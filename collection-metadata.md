@@ -20,20 +20,37 @@ The requirements and recommendations provided relate to:
 >
 > A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the "STAC Collection Specification" [[AD02]](./introduction.md#AD02).
 
+> **CEOS-STAC-REC-7215 - Collection metadata dates [Recommendation]**<a name="BP-7215"></a>
+>
+> A(n EO) Collection metadata record should encode metadata dates using the `$.created`, `$.updated` and `$.published` properties according to the "STAC Timestamps Extension Specification" [[AD20]](./introduction.md#AD20).
+
+```json
+{
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/timestamps/v1.1.0/schema.json" ],
+    "id": "Radarsat-2",
+    "type": "Collection",
+    "title": "RADARSAT-2 ESA Archive",
+    "created": "2020-10-26T00:00:00.000Z",
+    "updated": "2023-11-10T08:04:18Z",
+    "published": "2020-11-01T00:00:00.000Z"
+}
+``` 
 
 > **CEOS-STAC-REQ-7220 - Platform information [Requirement]**<a name="BP-7220"></a>
 >
-> A(n EO) Collection metadata record shall encode the platform name(s) as $..summaries.platform property and use the platform name corresponding to the [GCMD platforms](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms) preferred label.
+> A(n EO) Collection metadata record shall encode the platform name(s) as `$.summaries.platform` property and use the platform name corresponding to the [GCMD platforms](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms) preferred label.
 
 
 > **CEOS-STAC-REQ-7230 - Instrument information [Requirement]**<a name="BP-7230"></a>
 >
-> A(n EO) Collection metadata record shall encode the instrument name(s) as $..summaries.instruments property and use the instrument names corresponding to the [GCMD instruments](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/instruments?gtm_scheme=instruments) preferred label.
+> A(n EO) Collection metadata record shall encode the instrument name(s) as `$.summaries.instruments` property and use the instrument names corresponding to the [GCMD instruments](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/instruments?gtm_scheme=instruments) preferred label.
 
 
 > **CEOS-STAC-REQ-7240 - Science keywords [Requirement]**<a name="BP-7240"></a>
 >
-> A(n EO) Collection metadata record shall encode related science keywords as $.keywords property and use the science keywords corresponding to the [GCMD Earth Science](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/Earth%20Science?gtm_scheme=Earth%20Science)) preferred label.
+> A(n EO) Collection metadata record shall encode related science keywords as `$.keywords` property and use the science keywords corresponding to the [GCMD Earth Science](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/Earth%20Science?gtm_scheme=Earth%20Science)) preferred label.
 
 
 ```json
@@ -60,14 +77,18 @@ The requirements and recommendations provided relate to:
 
 > **CEOS-STAC-REQ-7250 - DOI [Requirement]**<a name="BP-7250"></a>
 >
-> The DOI of a collection, if available, shall be encoded according to the Scientific Citation Extension Specification, i.e. using the `sci:doi` property and a link object with rel="cite-as" [[AD13]](./introduction.md#AD13).
+> The DOI of a collection, if available, shall be encoded according to the Scientific Citation Extension Specification, i.e. using the `$.sci:doi` property and a link object with rel="cite-as" [[AD13]](./introduction.md#AD13).
 > 
 
 > **CEOS-STAC-REQ-7260 - Provider names [Requirement]**<a name="BP-7260"></a>
 >
-A(n EO) Collection metadata record shall encode provider information as `$.providers[*]` and use the [GCMD Providers](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as $.providers[*].name.
+A(n EO) Collection metadata record shall encode provider information as `$.providers[*]` and use the [GCMD Providers](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as `$.providers[*].name`.
 
 ```json
+  "id": "TropForest",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+  ],
   "providers": [
     {
       "roles": [
@@ -75,6 +96,15 @@ A(n EO) Collection metadata record shall encode provider information as `$.provi
       ],
       "name": "ESA/ESRIN",
       "url": "https://esa.int"
+    }
+  ],
+  "sci:doi": "10.5270/esa-qoe849q",
+  "links": [
+    {
+      "rel": "cite-as",
+      "href": "https://doi.org/10.5270/esa-qoe849q",
+      "type": "text/html",
+      "title": "Landing page"
     }
   ]
 ``` 
