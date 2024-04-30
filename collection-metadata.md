@@ -193,6 +193,6 @@ The example below indicates that all granules of this collection do have assets,
 
 The CEOS-ARD specifications are available as specification text and it doesn't provide an official mapping to STAC.
 A community-lead project aims at providing a mapping between the CEOS-ARD requirements and existing STAC extensions, which can be used as a guideline for STAC implementations that aim for CEOS-ARD compliance.
-See the [CEOS-ARD STAC extension](https://github.com/stac-extensions/ceos-ard) [[AD28]](./introduction.md#AD28) and its Optical and Radar profiles for details.
+See the [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) [[AD28]](./introduction.md#AD28) and its Optical and Radar profiles for details.
 
 [Previous](granule-metadata.md) | [Table of contents](README.md) | [Next](federation.md)
