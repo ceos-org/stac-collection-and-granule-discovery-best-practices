@@ -8,12 +8,10 @@
 
 There are three different levels of obligation for the Best Practices presented in this document:
 - “Requirements” (`REQ`) are mandatory and must be implemented,
+- “Conditional requirements” (`CREQ`) are only mandatory in certain contexts or under certain conditions,
 - “Recommendations” (`REC`) are optional, but strongly recommended for interoperability.
 
 In addition, "Permissions" (`PER`) indicate allowed deviations from one of more of the underlying specifications in cases where a subset of the original requirements is deemed sufficient in the context of CEOS.
-
-| :question: |  should we introduce a category called "Conditional" ?  These are mandatory under certain conditions.. e.g. /queryables, CQL, ... |
-|---------------|:------------------------|
 
 
 ## 3.2 Catalog Best Practices
@@ -38,7 +36,7 @@ For example, the rel="items" path for a collection is not necessarily collection
 
 The STAC API and underlying OGC API specifications define the list of search parameters to be supported.  Catalog implementations may however support additional parameters the meaning/intepretation of which is not defined by these specifications.
 
-> **CEOS-STAC-REQ-3230 - Additional search parameters [Requirement]**<a name="BP-3230"></a>
+> **CEOS-STAC-REQ-3230 - Additional search parameters [Conditional]**<a name="BP-3230"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters shall implement the "STAC API Filter Extension" [[AD06]](./introduction.md#AD06), i.e.:
 > - Advertise the additional filter parameters via the corresponding Queryables responses (JSON Schema),
@@ -58,13 +56,13 @@ The endpoint to which the above additional parameters apply depends on the conte
 
 It is not allowed to constrain the values of temporal search parameters using "minimum" and "maximum" in the JSON schema returned by the rel=`queryables` endpoint of a collection.  STAC client implementations are therefore recommended to constrain the range of the temporal search parameters using the temporal interval information advertised in the STAC collection metadata.
 
-> **CEOS-STAC-REQ-3240 - Additional search parameters [Requirement]**<a name="BP-3240"></a>
+> **CEOS-STAC-REQ-3240 - Additional search parameters [Conditional]**<a name="BP-3240"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support the following additional query parameters and advertise the corresponding conformance classes in the landing page (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06):
 > - filter
 > - filter-lang
 
-> **CEOS-STAC-REQ-3250 - CQL subset [Requirement]**<a name="BP-3250"></a>
+> **CEOS-STAC-REQ-3250 - CQL subset [Conditional]**<a name="BP-3250"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support at least the following conformance classes of CQL2 (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06) and "OGC21-065, Common Query Language (CQL2)" [[AD10]](./introduction.md#AD10):
 > - CQL2 Text
