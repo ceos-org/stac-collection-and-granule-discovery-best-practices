@@ -8,12 +8,10 @@
 
 There are three different levels of obligation for the Best Practices presented in this document:
 - “Requirements” (`REQ`) are mandatory and must be implemented,
+- “Conditional requirements” (`CREQ`) are only mandatory in certain contexts or under certain conditions,
 - “Recommendations” (`REC`) are optional, but strongly recommended for interoperability.
 
 In addition, "Permissions" (`PER`) indicate allowed deviations from one of more of the underlying specifications in cases where a subset of the original requirements is deemed sufficient in the context of CEOS.
-
-| :question: |  should we introduce a category called "Conditional" ?  These are mandatory under certain conditions.. e.g. /queryables, CQL, ... |
-|---------------|:------------------------|
 
 
 ## 3.2 Catalog Best Practices
@@ -36,12 +34,9 @@ For example, the rel="items" path for a collection is not necessarily collection
 
 ### 3.2.1 Advertising additional search parameters
 
-- rel="queryables", JSON Schema (optional)
-- CQL (optional)
-
 The STAC API and underlying OGC API specifications define the list of search parameters to be supported.  Catalog implementations may however support additional parameters the meaning/intepretation of which is not defined by these specifications.
 
-> **CEOS-STAC-REQ-3230 - Additional search parameters [Requirement]**<a name="BP-3230"></a>
+> **CEOS-STAC-CREQ-3230 - Additional search parameters [Conditional]**<a name="BP-3230"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters shall implement the "STAC API Filter Extension" [[AD06]](./introduction.md#AD06), i.e.:
 > - Advertise the additional filter parameters via the corresponding Queryables responses (JSON Schema),
@@ -59,16 +54,15 @@ The endpoint to which the above additional parameters apply depends on the conte
 - `minItems`, `maxItems` to constrain the size of arrays
 - `minimum`, `maximum` to constrain the range of a numerical parameter
 
+It is not allowed to constrain the values of temporal search parameters using "minimum" and "maximum" in the JSON schema returned by the rel=`queryables` endpoint of a collection.  STAC client implementations are therefore recommended to constrain the range of the temporal search parameters using the temporal interval information advertised in the STAC collection metadata.
 
-TBD: allow using "minimum" and "maximum" in combination with "date-time" (string) although not allowed by JSON schema? Note: temporal bounds is or was a requirement of at least one of our OpenSearch APIs IIRC.
-
-> **CEOS-STAC-REQ-3240 - Additional search parameters [Requirement]**<a name="BP-3240"></a>
+> **CEOS-STAC-CREQ-3240 - Additional search parameters [Conditional]**<a name="BP-3240"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support the following additional query parameters and advertise the corresponding conformance classes in the landing page (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06):
 > - filter
 > - filter-lang
 
-> **CEOS-STAC-REQ-3250 - CQL subset [Requirement]**<a name="BP-3250"></a>
+> **CEOS-STAC-CREQ-3250 - CQL subset [Conditional]**<a name="BP-3250"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support at least the following conformance classes of CQL2 (See also "STAC API Filter Extension" [[AD06]](./introduction.md#AD06) and "OGC21-065, Common Query Language (CQL2)" [[AD10]](./introduction.md#AD10):
 > - CQL2 Text
@@ -161,7 +155,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
 
 ### 3.3.1 Properties
 
-> **CEOS-STAC-REQ-3305 - Common metadata [Recommendation]**<a name="BP-3305"></a>
+> **CEOS-STAC-REC-3305 - Common metadata [Recommendation]**<a name="BP-3305"></a>
 >
 > CEOS implementations should encode the following [STAC common metadata properties](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#instrument) in granule or collection representations with a name corresponding to the preferred label defined in the corresponding GCMD keyword scheme:
 
@@ -172,7 +166,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
 |  constellation  |   [GCMD platform](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms)   |
 |  mission  |   [GCMD platform](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms)  |
 
-> **CEOS-STAC-REQ-3308 - Controlled keywords [Recommendation]**<a name="BP-3308"></a>
+> **CEOS-STAC-REC-3308 - Controlled keywords [Recommendation]**<a name="BP-3308"></a>
 >
 > CEOS implementations should encode controlled keywords in granule or collection representations using the STAC Themes Extension Specification [[AD29]](./introduction.md#AD29).
 
@@ -218,7 +212,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
 > CEOS STAC implementations shall provide a URL of the collection or granule metadata encoding in a particular standard representation (if available), via an Asset object with role=`metadata`.
 
 
-> **CEOS-STAC-REC-3325 - Link and Asset type attributes [Requirement]**<a name="BP-3325"></a>
+> **CEOS-STAC-REQ-3325 - Link and Asset type attributes [Requirement]**<a name="BP-3325"></a>
 >
 > CEOS STAC implementations shall specify the media (MIME) type of the artifact
 associated with a resource by specifying the "type" attribute of the Link object or Asset object.  The media types (`type`) from the table below shall be used for assets/links to the corresponding resources.

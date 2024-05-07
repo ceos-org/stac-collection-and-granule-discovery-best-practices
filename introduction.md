@@ -43,7 +43,7 @@ The following chapters present Best Practices for one particular topic:
 | -------- | --------- | 
 | `Analysis Ready Data` | Satellite data that have been processed to a minimum set of requirements and organized into a form that allows immediate analysis with a minimum of additional user effort and interoperability both through time and with other datasets. |
 | `Granule` | A granule is the finest granularity of data that can be independently managed. A granule usually matches the individual file of EO satellite data.  | 
-| `Collection` | A collection is an aggregation of granules sharing the same product specification. A collection typically corresponds to the series of products derived from data acquired by a sensor on board a satellite and having the same mode of operation.  | 
+| `Collection` | A collection is an aggregation of granules sharing the same product specification. A collection typically corresponds to the series of products derived from data acquired by a sensor on board a satellite and having the same mode of operation. [[RD01]](#RD01) | 
 | `Interface` | Named set of operations that characterize the behavior of an entity.  | 
 | `Metadata` | Information about a resource [[RD02]](#RD02).  | 
 | `Metadata element` | Discrete unit of metadata [[RD02]](#RD02).  | 
