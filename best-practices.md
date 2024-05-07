@@ -36,9 +36,6 @@ For example, the rel="items" path for a collection is not necessarily collection
 
 ### 3.2.1 Advertising additional search parameters
 
-- rel="queryables", JSON Schema (optional)
-- CQL (optional)
-
 The STAC API and underlying OGC API specifications define the list of search parameters to be supported.  Catalog implementations may however support additional parameters the meaning/intepretation of which is not defined by these specifications.
 
 > **CEOS-STAC-REQ-3230 - Additional search parameters [Requirement]**<a name="BP-3230"></a>
@@ -59,8 +56,7 @@ The endpoint to which the above additional parameters apply depends on the conte
 - `minItems`, `maxItems` to constrain the size of arrays
 - `minimum`, `maximum` to constrain the range of a numerical parameter
 
-
-TBD: allow using "minimum" and "maximum" in combination with "date-time" (string) although not allowed by JSON schema? Note: temporal bounds is or was a requirement of at least one of our OpenSearch APIs IIRC.
+It is not allowed to constrain the values of temporal search parameters using "minimum" and "maximum" in the JSON schema returned by the rel=`queryables` endpoint of a collection.  STAC client implementations are therefore recommended to constrain the range of the temporal search parameters using the temporal interval information advertised in the STAC collection metadata.
 
 > **CEOS-STAC-REQ-3240 - Additional search parameters [Requirement]**<a name="BP-3240"></a>
 >
