@@ -35,7 +35,7 @@ Note: When publishing a single collection, the collection and the landing page m
 
 
 
-> **CEOS-STAC-REQ-5320 - Collections endpoint [Requirement]**<a name="BP-5320"></a>
+> **CEOS-STAC-CREQ-5320 - Collections endpoint [Conditional]**<a name="BP-5320"></a>
 >
 > A CEOS STAC catalog supporting collection search shall advertise the search endpoint for collections in the landing page with rel="data" (most often `/collections`), type="application/json" and declare the corresponding collection search conformance classes in the landing page.  See "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
@@ -67,7 +67,9 @@ Conformance encoding example
 
 `/collections` is typically used for the above endpoint, but this is not required.
 
-:question: Make '/collections' a recommendation?
+> **CEOS-STAC-REC-5335 - Collection search endpoint [Recommendation]**<a name="BP-5335"></a>
+>
+> A CEOS STAC collection catalog should make its `collections endpoint` (rel="data") available at '/collections'.
 
 #### Search parameters
 
@@ -84,7 +86,7 @@ Conformance encoding example
 > For supporting free text searches, a CEOS STAC collection catalog shall advertise support for the HTTP query parameter `q` as in "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
 
-> **CEOS-STAC-REQ-5370 - Collection queryables [Requirement]**<a name="BP-5370"></a>
+> **CEOS-STAC-CREQ-5370 - Collection queryables [Conditional]**<a name="BP-5370"></a>
 >
 > A CEOS STAC collection catalog supporting additional queryables for collection search shall return the link to the Queryables object with the list of queryables that can be used in a filter expression via a link object in the collection search response with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" and type="application/schema+json" (See also "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
@@ -179,7 +181,7 @@ granule level using the /queryables response.
 
 > **CEOS-STAC-REQ-5393 - Support for granule search [Requirement]**<a name="BP-5393"></a>
 > 
-> STAC Granule Catalogs shall advertise all "additional" collection specific search/filter parameters applicable for a granule search within a collection in the corresponding queryables object for that collection and not rely on a global set of queryables applicable to all collections made available via a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" from the landing page (typically "/collections/{collectionId}/queryables" instead of "/queryables"), to be combined with a collection-specific set (which may be empty).
+> STAC Granule Catalogs shall advertise all "additional" collection specific search/filter parameters applicable for a granule search within a collection (if any) in the corresponding queryables object for that collection and not rely on a global set of queryables applicable to all collections made available via a link with rel="http://www.opengis.net/def/rel/ogc/1.0/queryables" from the landing page (typically "/collections/{collectionId}/queryables" instead of "/queryables"), to be combined with a collection-specific set (which may be empty).
 
 
 > **CEOS-STAC-REQ-5395 - Support for granule search [Requirement]**<a name="BP-5395"></a>
