@@ -81,7 +81,7 @@ Conformance encoding example
 - `datetime`
 
 
-> **CEOS-STAC-REC-5360 - Free text search [Requirement]**<a name="BP-5360"></a>
+> **CEOS-STAC-REQ-5360 - Free text search [Requirement]**<a name="BP-5360"></a>
 >
 > For supporting free text searches, a CEOS STAC collection catalog shall advertise support for the HTTP query parameter `q` as in "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
 
