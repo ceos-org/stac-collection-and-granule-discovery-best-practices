@@ -109,7 +109,8 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
     "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
     "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/view/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json"
   ],
   "properties": {
     "start_datetime": "2006-06-13T10:02:20.948Z",
@@ -117,6 +118,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
     "processing:facility": "ESR",
     "view:sun_azimuth": 147,
     "title": "AL1_OESR_AV2_OBS_1C_20060613T100220_20060613T100232_002047_0307_2730_0410",
+    "version": "04.10",
     "platform": "ALOS",
     "proj:epsg": 4326,
     "view:sun_elevation": 67,
