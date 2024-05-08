@@ -179,12 +179,26 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
 >
 > STAC implementations should provide the data access URL for the granule via an Asset object with role=`data`.
 
+Example: Asset object for data download
+```json
+"assets": {
+  "enclosure": {
+      "roles": [
+          "data"
+      ],
+      "href": "https://tpm-ds.eo.esa.int/oads/data/TerraSAR-X/TSX_OPER_SAR_HS_EEC_20170923T104523_N31-049_E110-331_0000_v0100.SIP.ZIP",
+      "type": "application/octet-stream",
+      "title": "Download",
+      "file:size": 219597515
+  }
+}
+```
 
 Example: Asset object for Cloud Optimized GeoTIFF data
 ```json
 "assets": {
   "enclosure": {
-          "roles": [
+      "roles": [
           "data"
       ],
       "href": "https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif",
