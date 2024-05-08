@@ -187,16 +187,12 @@ The example below indicates that all granules of this collection do have assets,
 > Implementations should not use the rel="parent" relation in STAC collection encodings as the original collection may be referenced or included in a federated catalog below a different parent.
 >
 
-## 7.6 CEOS-ARD 
+## 7.6 CEOS-ARD
 
-> **CEOS-STAC-REC-7610 - Optical ARD collections [Recommendation]**<a name="BP-7610"></a>
->
-> CEOS STAC collection metadata for optical ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md#stac-collections) [[AD27]](./introduction.md#AD28).
+[CEOS-ARD](https://ceos.org/ard/) [[AD30]](./introduction.md#AD30) publishes Product Family Specifications (PFS) that define recommendations and requirements to make certain types of data available as Analysis-Ready Data (ARD).
 
-> **CEOS-STAC-REC-7620 - Radar ARD collections [Recommendation]**<a name="BP-7620"></a>
->
-> CEOS STAC collection metadata for radar ARD collections should include Collection Summaries as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md#stac-collections) [[AD27]](./introduction.md#AD28).
-
-
+The CEOS-ARD specifications are available as specification text and it doesn't provide an official mapping to STAC.
+A community-lead project aims at providing a mapping between the CEOS-ARD requirements and existing STAC extensions, which can be used as a guideline for STAC implementations that aim for CEOS-ARD compliance.
+See the [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) [[AD28]](./introduction.md#AD28) and its Optical and Radar profiles for details.
 
 [Previous](granule-metadata.md) | [Table of contents](README.md) | [Next](federation.md)
