@@ -18,7 +18,7 @@ The purpose of this document is to achieve the following,
 - Facilitate the aggregation of results between disparate Earth Data providers via STAC common standards
 - Allow for clients to access search engines via STAC capabilities with no a priori knowledge of specific implementations
 - Facilitate smooth integration between related STAC implementations, such as a dataset resource collection that refers to granule resource collections from another provider
-- Replace the existing [CEOSS WGISS Integrated Catalog](https://ceos.org/ourwork/workinggroups/wgiss/access/cwic/) (CWIC) infrastructure, based on the [OpenSearch API](https://github.com/dewitt/opensearch), with the STAC API and STAC catalogs
+- Replace the existing [CEOSS WGISS Integrated Catalog](https://ceos.org/ourwork/workinggroups/wgiss/access/cwic/) (CWIC) infrastructure, based on the [OpenSearch API](https://github.com/dewitt/opensearch) [[RD01]](#RD01), with the STAC API and STAC catalogs
 ## 1.2 Document overview
 
 The document is organized as follows:
