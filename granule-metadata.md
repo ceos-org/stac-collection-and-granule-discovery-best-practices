@@ -283,13 +283,11 @@ Example: Asset object for Zarr data
 
 ## 6.6 CEOS-ARD 
 
-> **CEOS-STAC-REC-6610 - Optical ARD granules [Recommendation]**<a name="BP-6610"></a>
->
-> CEOS STAC granule metadata for optical ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md) [[AD28]](./introduction.md#AD28).
+[CEOS-ARD](https://ceos.org/ard/) [[AD30]](./introduction.md#AD30) publishes Product Family Specifications (PFS) that define recommendations and requirements to make certain types of data available as Analysis-Ready Data (ARD).
 
-> **CEOS-STAC-REC-6620 - Radar ARD collections [Recommendation]**<a name="BP-6620"></a>
->
-> CEOS STAC granule metadata for radar ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md) [[AD28]](./introduction.md#AD28).
+The CEOS-ARD specifications are available as specification text and do not provide an official mapping to STAC.
+A community-lead project aims at providing a mapping between the CEOS-ARD requirements and existing STAC extensions, which can be used as a guideline for STAC implementations that aim for CEOS-ARD compliance.
+See the [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) [[AD28]](./introduction.md#AD28) and its Optical and Radar profiles for details.
 
 ***
 [Previous](collection-catalogs.md) | [Table of contents](README.md) | [Next](collection-metadata.md)
