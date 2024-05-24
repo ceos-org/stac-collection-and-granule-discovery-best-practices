@@ -31,6 +31,9 @@ The requirements and recommendations provided relate to:
 
 Geographical extents of Items are represented using GeoJSON geometry objects [RFC7946](#AD4) in STAC item search responses.  This representation can natively represent multi-point, multi-line and multi-polygon geometries, thus no additional guidance similar to `CEOS-BP-014B`, `CEOS-BP-014C` and `CEOS-BP-014D` is required.
 
+> **CEOS-STAC-REQ-6235 - Polygon geometry [Requirement]**<a name="BP-6235"></a>
+>
+> The geographical extent of an Item represented as polygon shall follow the right-hand rule with respect to the area it bounds and in case of a polygon with more than one ring, the first shall be the exterior ring and the others shall be interior rings as required by the [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.6).
 
 > **CEOS-STAC-REQ-6240 - Minimum-bounding rectangle [Requirement]**<a name="BP-6240"></a>
 >
