@@ -185,7 +185,13 @@ The example below indicates that all granules of this collection do have assets,
 > **CEOS-STAC-REC-7520 - Parent relation [Recommendation]**<a name="BP-7520"></a>
 >
 > Implementations should not use the rel="parent" relation in STAC collection encodings as the original collection may be referenced or included in a federated catalog below a different parent.
+
+
+> **CEOS-STAC-REC-7530 - Keywords [Requirement]**<a name="BP-7530"></a>
 >
+> CEOS STAC collection metadata shall contain at least one platform keyword, one corresponding instrument keyword and one science keyword encoded according to CEOS-STAC-REQ-7220, CEOS-STAC-REQ-7230 and CEOS-STAC-REQ-7240.
+
+This is required to allow federation into [CEOS IDN](https://ceos.org/ourwork/workinggroups/wgiss/access/international-directory-network) which has a similar requirement for collection metadata provided in [DIF-10](https://www.earthdata.nasa.gov/esdis/esco/standards-and-practices/directory-interchange-format-dif-standard) format. 
 
 ## 7.6 CEOS-ARD
 
