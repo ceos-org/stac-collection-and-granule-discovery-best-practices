@@ -185,7 +185,7 @@ Example: Asset object for Cloud Optimized GeoTIFF data
 ```json
 "assets": {
   "enclosure": {
-          "roles": [
+      "roles": [
           "data"
       ],
       "href": "https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif",
