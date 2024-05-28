@@ -18,7 +18,7 @@ The purpose of this document is to achieve the following,
 - Facilitate the aggregation of results between disparate Earth Data providers via STAC common standards
 - Allow for clients to access search engines via STAC capabilities with no a priori knowledge of specific implementations
 - Facilitate smooth integration between related STAC implementations, such as a dataset resource collection that refers to granule resource collections from another provider
-- Replace the existing [CEOSS WGISS Integrated Catalog](https://ceos.org/ourwork/workinggroups/wgiss/access/cwic/) (CWIC) infrastructure, based on the [OpenSearch API](https://github.com/dewitt/opensearch), with the STAC API and STAC catalogs
+- Replace the existing [CEOSS WGISS Integrated Catalog](https://ceos.org/ourwork/workinggroups/wgiss/access/cwic/) (CWIC) and [WGISS Connected Data Assets](https://ceos.org/ourwork/workinggroups/wgiss/access/connected-data-assets/) (CDA) infrastructure, based on the [OpenSearch API](https://github.com/dewitt/opensearch), with the STAC API and STAC catalogs
 ## 1.2 Document overview
 
 The document is organized as follows:
@@ -105,6 +105,7 @@ The following chapters present Best Practices for one particular topic:
 | `AD28` <a name="AD28"></a>| [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) |
 | `AD29` <a name="AD29"></a>| [STAC Themes Extension Specification, v1.0.0](https://github.com/stac-extensions/themes) |
 | `AD30` <a name="AD30"></a>| [CEOS-ARD Product Family Specifications](https://ceos.org/ard) |
+| `AD31` <a name="AD31"></a>| [STAC Product Extension Specification, v0.1.0](https://github.com/stac-extensions/product) |
 
 
 ### 1.4.2 Reference documents
@@ -113,7 +114,7 @@ The following chapters present Best Practices for one particular topic:
 | -------- | --------- | 
 | `RD01` <a name="RD01"></a> | [CEOS OpenSearch Best Practice Document, Version 1.0, CEOS-OPENSEARCH-BP-V1.3](https://ceos.org/document_management/Working_Groups/WGISS/Documents/WGISS%20Best%20Practices/CEOS%20OpenSearch%20Best%20Practice.pdf)  |
 | `RD02` <a name="RD02"></a> | [ISO 19115-1:2014, Geographic Information – Metadata – Part 1: Fundamentals, First Edition 2014-04-01](https://www.iso.org/standard/53798.html)  |
-| `RD03` <a name="RD03"></a> | [OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors](https://portal.ogc.org/files/?artifact_id=104980&version=1) - Expected but not available.  |
+| `RD03` <a name="RD03"></a> | [OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors](https://portal.ogc.org/files/?artifact_id=104980&version=1) - Not yet available.  |
 | `RD04` <a name="RD04"></a> | [OGC13-026r9, OpenSearch Extension for Earth Observation](https://docs.ogc.org/is/13-026r9/13-026r9.html) |
 ***
 [Previous](README.md) | [Table of contents](README.md) | [Next](objectives-needs.md)
