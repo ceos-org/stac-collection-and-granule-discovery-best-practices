@@ -53,7 +53,7 @@ The `bbox` item property is mandatory according to the STAC Item specification u
 | **Reference**                   | **STAC Extension** |     **Example Properties** |
 | --------                   | --------- |  --------- | 
 | [[AD14]](./introduction.md#AD14)  | [EO Extension](https://github.com/stac-extensions/eo)  |  eo:cloud_cover, eo:snow_cover, eo:bands |
-| [[AD15]](./introduction.md#AD15)  | [SAR Extension](https://github.com/stac-extensions/sar)  | sar:instrument_mode, sar:polarizations, sar:product_type |
+| [[AD15]](./introduction.md#AD15)  | [SAR Extension](https://github.com/stac-extensions/sar)  | sar:instrument_mode, sar:polarizations, ... |
 | [[AD16]](./introduction.md#AD16)  | [SAT Extension](https://github.com/stac-extensions/sat)  | sat:orbit_state, sat:absolute_orbit, ... |
 | [[AD13]](./introduction.md#AD13)  | [Scientific Extension](https://github.com/stac-extensions/scientific)  | sci:doi |
 | [[AD17]](./introduction.md#AD17)  | [Version Extension](https://github.com/stac-extensions/version)  | version |
@@ -63,6 +63,7 @@ The `bbox` item property is mandatory according to the STAC Item specification u
 | [[AD23]](./introduction.md#AD23)  | [Landsat Extension](https://landsat.usgs.gov/stac/landsat-extension/schema.json)  | landsat:wrs_path, landsat:wrs_row |
 | [[AD21]](./introduction.md#AD21)  | [Processing Extension](https://github.com/stac-extensions/processing)  | processing:level, processing:facility, ... |
 | [[AD22]](./introduction.md#AD22)  | [Hyperspectral Extension](https://github.com/stac-extensions/hsi)  | hsi:wavelength_min, hsi:wavelength_max |
+| [[AD31]](./introduction.md#AD31)  | [Product Extension](https://github.com/stac-extensions/product)  | product:type |
 
 
 Additional guidance on how to encode OGC17-003r2 metadata properties with the above extensions is available in ["Mapping from OGC EO Dataset Metadata GeoJSON(-LD) Encoding Standard to STAC"](https://github.com/stac-utils/stac-crosswalks/tree/master/OGC_17-003r2). 
@@ -110,6 +111,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
   "stac_extensions": [
     "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
     "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/product/v0.1.0/schema.json",
     "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json"
@@ -129,7 +131,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
       "AVNIR-2"
     ],
     "constellation": "ALOS",
-    "sar:product_type": "AV2_OBS_1C",
+    "product:type": "AV2_OBS_1C",
     "sat:orbit_state": "DESCENDING",
     "processing:software": {
       "AVNIR-2": "04.10"
