@@ -268,13 +268,15 @@ The table below list some frequently used formats for documentation and their co
 >
 > "href" attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC collection or granule metadata records.
 
-> **CEOS-STAC-REC-3440 - Root relation [Recommendation]**<a name="BP-3440"></a>
+> **CEOS-STAC-REC-3420 - Root relation [Recommendation]**<a name="BP-3420"></a>
 >
 > Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
+
+> **CEOS-STAC-REC-3430 - Collection identifier [Recommendation]**<a name="BP-3430"></a>
+>
+> Implementations should carefully choose the "identifier" used for a STAC collection `/collections/{identifier}` to minimize the risk of duplicate collection identifiers after federating with catalogs and collections from other providers.
 >
 
-| :question: |  should we add a recommendation about (STAC) identifiers to be used for collections that remain unique after federation ?  e.g. multiple agencies with Landsat or Sentinel collections may cause naming clashes... Does such recommendation already exist in other CEOS contexts ? |
-|---------------|:------------------------|
 
 ***
 [Previous](objectives-needs.md) | [Table of contents](README.md) | [Next](granule-catalogs.md)
