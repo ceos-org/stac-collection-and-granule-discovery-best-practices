@@ -150,7 +150,7 @@ Although this is only explicitly defined as [exception response structure for th
 
 > **CEOS-STAC-REC-3299 - Alternative response formats [Recommendation]**<a name="BP-3299"></a>
 >
-> A CEOS STAC catalog supporting alternative search response formats shall allow this via content negotiation and use common media types also used for assets and links as referenced in the current Best Practices document (See [Link and Asset type](#BP-3325)).
+> A CEOS STAC catalog supporting alternative response formats shall allow this via content negotiation and use common media types also used for assets and links as referenced in the current Best Practices document (See [Link and Asset type](#BP-3325)).
 
 ## 3.3 Metadata Best Practices
 
