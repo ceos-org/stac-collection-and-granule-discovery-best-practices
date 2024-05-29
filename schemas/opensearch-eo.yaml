@@ -1,0 +1,222 @@
+---
+# 
+# schema.yaml
+#
+# Definitions of OpenSearch queryables defined in OGC13-026r9 for use with the STAC filter extension.
+# 
+# References:
+# -----------
+#
+#   https://docs.ogc.org/is/13-026r9/13-026r9.html
+#   https://github.com/stac-api-extensions/filter
+#
+# How to use:
+# -----------
+#
+#   Include in the /queryables response as shown below.
+#
+#   "gsd" : {
+#      "description" : "Ground Sample Distance",
+#      "$ref": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/instrument.json#/properties/gsd"
+#    },
+#
+#   "doi" : {
+#       "description" : "{eo:doi}",
+#       "$ref": "https://github.com/eovoc/opensearch-eo/v1.1/schema.json#/properties/doi"
+#    }
+#
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": https://raw.githubusercontent.com/ceos-wgiss/stac-collection-and-granule-discovery-best-practices/main/schemas/opensearch-eo.json#
+title: OpenSearch parameter declarations
+type: object
+properties:
+  #
+  # OGC13-026r9 Table 4
+  #
+  doi:
+    description: "{eo:doi}"
+    title: Doi
+    type: string
+  instrument:
+    description: "{eo:instrument}"
+    title: Instrument
+    type: string
+  platform:
+    description: "{eo:platform}"
+    title: Platform
+    type: string
+  platformSerialIdentifier:
+    description: "{eo:platformSerialIdentifier}"
+    title: Platform serial identifier
+    type: string
+  processingLevel:
+    description: "{eo:processingLevel}"
+    title: Processing level
+    type: string
+  productType:
+    description: "{eo:productType}"
+    title: Product type
+    type: string
+  #
+  # OGC13-026r9 Table 5
+  #
+  organisationName:
+    description: "{eo:organisationName}"
+    title: Organisation name
+    type: string
+  otherConstraint:
+    description: "{eo:otherConstraint}"
+    title: Other constraint
+    type: string
+  useLimitation:
+    description: "{eo:useLimitation}"
+    title: Use limitation
+    type: string
+  #
+  # OGC13-026r9 Table 6
+  #
+  acquisitionType:
+    description: "{eo:acquisitionType}"
+    title: Acquisition type
+    type: string
+    enum:
+    - NOMINAL
+    - CALIBRATION
+    - OTHER
+  orbitNumber:
+    description: "{eo:orbitNumber}"
+    title: Orbit number
+    type: integer
+  creationDate:
+    format: date-time
+    description: "{eo:creationDate}"
+    title: Creation date
+    type: string
+  frame:
+    description: "{eo:frame}"
+    title: Frame
+    type: string
+  modificationDate:
+    format: date-time
+    description: "{eo:modificationDate}"
+    title: Modification date
+    type: string
+  orbitDirection:
+    description: "{eo:orbitDirection}"
+    title: Orbit direction
+    type: string
+    enum:
+    - ASCENDING
+    - DESCENDING
+  processingCenter:
+    description: "{eo:processingCenter}"
+    title: Processing center
+    type: string
+  processingDate:
+    format: date-time
+    description: "{eo:processingDate}"
+    title: Processing date
+    type: string
+  processingMode:
+    description: "{eo:processingMode}"
+    title: Processing mode
+    type: string
+  productionStatus:
+    description: "{eo:productionStatus}"
+    title: Production status
+    type: string
+    enum:
+    - ARCHIVED
+    - ACQUIRED
+    - CANCELLED
+  productVersion:
+    description: "{eo:productVersion}"
+    title: Product version
+    type: string
+  productQualityStatus:
+    description: "{eo:productQualityStatus}"
+    title: Product quality status
+    type: string
+    enum:
+    - NOMINAL
+    - DEGRADED
+  sensorMode:
+    description: "{eo:sensorMode}"
+    title: Sensor mode
+    type: string
+  track:
+    description: "{eo:track}"
+    title: Track
+    type: string
+  #
+  # OGC13-026r9 Table 7
+  #
+  antennaLookDirection:
+    description: "{eo:antennaLookDirection}"
+    title: Antenna look direction
+    type: string
+    enum:
+    - LEFT
+    - RIGHT
+  completionTimeFromAscendingNode:
+    description: "{eo:completionTimeFromAscendingNode}"
+    title: Completion time from ascending node
+    type: number
+  incidenceAngleVariation:
+    description: "{eo:incidenceAngleVariation}"
+    title: Incidence angle variation
+    type: number
+  maximumIncidenceAngle:
+    description: "{eo:maximumIncidenceAngle}"
+    title: Maximum incidence angle
+    type: number
+  minimumIncidenceAngle:
+    description: "{eo:minimumIncidenceAngle}"
+    title: Minimum incidence angle
+    type: number
+  polarisationChannels:
+    description: "{eo:polarisationChannels}"
+    title: Polarisation channels
+    type: string
+    enum:
+    - HH
+    - HV
+    - VH
+    - VV
+    - HH, VV
+    - HH, VH
+    - HH, HV
+    - VH, VV
+    - VH, HV
+    - VV, HV
+    - VV, VH
+    - HV, VH
+    - UNDEFINED
+  polarisationMode:
+    description: "{eo:polarisationMode}"
+    title: Polarisation mode
+    type: string
+    enum:
+    - S
+    - D
+    - T
+    - Q
+    - UNDEFINED 
+  startTimeFromAscendingNode:
+    description: "{eo:startTimeFromAscendingNode}"
+    title: Start time from ascending node
+    type: number 
+  # 
+  # Parameters from other OpenSearch extension namespaces
+  #
+  classifiedAs:
+    format: uri
+    description: "{semantic:classifiedAs}"
+    title: Classified as
+    type: string
+
+# nativeProductFormat:
+  #  description: "{eo:nativeProductFormat}"
+  #  title: Native product format
+  #  type: string
+ 
