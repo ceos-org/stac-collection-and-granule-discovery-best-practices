@@ -107,7 +107,22 @@ A(n EO) Collection metadata record shall encode provider information as `$.provi
       "title": "Landing page"
     }
   ]
-``` 
+```
+
+If there is a need to advertise the provider email address then an `email` property should be added in the [Provider Object](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#provider-object).
+
+```json
+  "providers": [
+    {
+      "roles": [
+        "producer"
+      ],
+      "name": "ESA/ESRIN",
+      "url": "https://esa.int",
+      "email": "eohelp@esa.int"
+    }
+  ]
+```
 
 ## 7.3 Assets and roles
 
