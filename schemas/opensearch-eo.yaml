@@ -1,6 +1,6 @@
 ---
 # 
-# schema.yaml
+# opensearch-eo.yaml
 #
 # Definitions of OpenSearch queryables defined in OGC13-026r9 for use with the STAC filter extension.
 # 
@@ -22,7 +22,7 @@
 #
 #   "doi" : {
 #       "description" : "{eo:doi}",
-#       "$ref": "https://github.com/eovoc/opensearch-eo/v1.1/schema.json#/properties/doi"
+#       "$ref": "https://raw.githubusercontent.com/ceos-wgiss/stac-collection-and-granule-discovery-best-practices/main/schemas/opensearch-eo.json#properties/doi"
 #    }
 #
 "$schema": http://json-schema.org/draft-07/schema#
@@ -33,45 +33,165 @@ properties:
   #
   # OGC13-026r9 Table 4
   #
-  doi:
-    description: "{eo:doi}"
-    title: Doi
+  compositeType:
+    description: "Type of composite product expressed as time period that the composite product covers  (e.g. P10D for a 10 day composite)"
+    title: Composite type
     type: string
+  dissemination:
+    description: "A string identifying the dissemination method (e.g. EUMETCast, EUMETCast-Europe, DataCentre)"
+    title: Dissemination
+    type: string
+  doi:
+    description: "Digital Object Identifier identifying the product (see http://www.doi.org)"
+    title: Digital Object Identifier
+    type: string
+  hasSecurityConstraints:
+    description: "A string informing if the resource has any security constraints."
+    title: has Security Constraints
+    type: string
+    enum:
+    - TRUE
+    - FALSE
   instrument:
-    description: "{eo:instrument}"
+    description: "A string identifying the instrument (e.g. MERIS, AATSR, ASAR, HRVIR. SAR)."
     title: Instrument
     type: string
+  orbitType:
+    description: "A string identifying the platform orbit type (e.g. LEO, GEO)"
+    title: Orbit type
+    type: string
+  spectralRange:
+    description: "A string identifying the sensor spectral range (e.g. INFRARED, NEAR-INFRARED, UV, VISIBLE)"
+    title: Spectral range
+    type: string
   platform:
-    description: "{eo:platform}"
+    description: "A string with the platform short name (e.g. Sentinel-1)"
     title: Platform
     type: string
   platformSerialIdentifier:
-    description: "{eo:platformSerialIdentifier}"
+    description: "A string with the Platform serial identifier"
     title: Platform serial identifier
     type: string
   processingLevel:
-    description: "{eo:processingLevel}"
+    description: "A string identifying the processing level applied to the entry"
     title: Processing level
     type: string
   productType:
-    description: "{eo:productType}"
+    description: "A string identifying the entry type (e.g. ER02_SAR_IM__0P, MER_RR__1P, SM_SLC__1S, GES_DISC_AIRH3STD_V005)"
     title: Product type
     type: string
+  sensorType:
+    description: "A string identifying the sensor type."
+    title: Sensor type
+    type: string
+    enum:
+    - OPTICAL
+    - RADAR
+    - ALTIMETRIC
+    - ATMOSPHERIC
+    - LIMB
+  wavelength:
+    description: "A number, set or interval requesting the sensor wavelengths in nanometers."
+    title: Wavelength
+    type: integer
   #
   # OGC13-026r9 Table 5
   #
+  # Fields labelled [INSPIRE] are to be supported for INSPIRE. For details see INSPIRE Metadata Implementing Rules: 
+  # Technical Guidelines based on EN ISO 19115 and EN ISO 19119 and Technical Guidance for the implementation 
+  # of INSPIRE Discovery Services.
+  #
+  title:
+    description: "A name given to the resource [INSPIRE]"
+    title: Title
+    type: string
+  topicCategory:
+    description: "Main theme(s) of the dataset [INSPIRE]"
+    title: Topic category
+    type: string
+  keyword:
+    description: "Commonly used word(s) or formalised word(s) or phrase(s) used to describe the subject [INSPIRE]."
+    title: Keyword
+    type: string
+  abstract:
+    description: "Abstract [INSPIRE]."
+    title: Abstract
+    type: string
+  denominator:
+    description: "Level of detail expressed as a scale factor or a ground distance. Here: the number below the line in a vulgar fraction. [INSPIRE]"
+    title: Denominator
+    type: integer
+  distanceValue:
+    description: "Sample ground distance. Here: the distance as decimal value. Used in combination with distanceUOM. [INSPIRE]"
+    title: Distance value
+    type: number
+  distanceUOM:
+    description: "Sample ground distance. Here: the name of the unit of measure. CodeList, one of: meter, km,….  Used in combination with distanceValue. [INSPIRE]"
+    title: Distance value
+    type: string
   organisationName:
-    description: "{eo:organisationName}"
+    description: "A string identifying the name of the organization responsible for the resource [INSPIRE]"
     title: Organisation name
     type: string
-  otherConstraint:
-    description: "{eo:otherConstraint}"
-    title: Other constraint
+  organisationRole:
+    description: "The function performed by the responsible party [INSPIRE]"
+    title: Organisation role
+    type: string
+  publicationDate:
+    format: date-time
+    description: "The date when the resource was issued"
+    title: Publication date
+    type: string
+  lineage:
+    description: "General explanation of the data producer’s knowledge about the lineage of a dataset. [INSPIRE]"
+    title: Lineage
     type: string
   useLimitation:
-    description: "{eo:useLimitation}"
+    description: "A string identifying informing if the resource has usage limitations. [INSPIRE]"
     title: Use limitation
     type: string
+  accessConstraint:
+    description: "Applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource [INSPIRE]"
+    title: Access constraint
+    type: string
+  otherConstraint:
+    description: "Other restrictions and legal prerequisites for accessing and using the resource or metadata. [INSPIRE]"
+    title: Other constraint
+    type: string
+  classification:
+    description: "Name of the handling restrictions on the resource or metadata. [INSPIRE]"
+    title: Classification
+    type: string
+  language:
+    description: "Language of the intellectual content of the metadata record. [INSPIRE]"
+    title: Language
+    type: string
+  # specification - the following 4 parameters are to be used together within a search request [INSPIRE].
+  specification:
+    description: "Title of the specification [INSPIRE]"
+    title: Specification
+    type: string
+  specificationDate:
+    format: date-time
+    description: "Reference date of specification [INSPIRE]"
+    title: Specification date
+    type: string
+  specificationdateType:
+    description: "Type reference date of specification [INSPIRE]"
+    title: Specification date type
+    type: string
+    enum:
+    - creation
+    - revision
+    - publication
+  degree:
+    description: "This is the degree of conformity of the resource to the related specification. Possible values: true (if conformant), false (if not conformant), null (if not evaluated) [INSPIRE]."
+    title: Degree
+    type: string
+    enum:
+    - TRUE
+    - FALSE
+    - NULL
   #
   # OGC13-026r9 Table 6
   #
