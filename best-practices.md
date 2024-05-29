@@ -107,12 +107,12 @@ properties:
 
 ### 3.2.2 Search response
 
-> **CEOS-STAC-REQ-3270 - numberMatched [Requirement]**<a name="BP-3270"></a>
+> **CEOS-STAC-REQ-3265 - numberMatched [Requirement]**<a name="BP-3265"></a>
 >
 > A CEOS STAC catalog search response shall include the `numberMatched` property providing the number of items meeting the selection parameters, possibly estimated.
 
 
-> **CEOS-STAC-REC-3275 - numberReturned [Recommendation]**<a name="BP-3275"></a>
+> **CEOS-STAC-REC-3270 - numberReturned [Recommendation]**<a name="BP-3270"></a>
 >
 > A CEOS STAC catalog search response should include the `numberReturned` property.
 
@@ -148,6 +148,9 @@ The above Best Practices apply to all available search endpoints e.g. at rel="da
 
 Although this is only explicitly defined as [exception response structure for the rel="search" endpoint](https://api.stacspec.org/v1.0.0/item-search/#tag/Item-Search/operation/getItemSearch), it is good practice to provide similar (JSON) response bodies at the other endpoints, including rel="items" and rel="data". 
 
+> **CEOS-STAC-REC-3299 - Alternative response formats [Recommendation]**<a name="BP-3299"></a>
+>
+> A CEOS STAC catalog supporting alternative search response formats shall allow this via content negotiation and use common media types also used for assets and links as referenced in the current Best Practices document (See [Link and Asset type](#BP-3325)).
 
 ## 3.3 Metadata Best Practices
 
@@ -217,7 +220,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
 > CEOS STAC implementations shall specify the media (MIME) type of the artifact
 associated with a resource by specifying the "type" attribute of the Link object or Asset object.  The media types (`type`) from the table below shall be used for assets/links to the corresponding resources.
 
-The table below list some frequently used formats and the corresponding media type to be used for metadata assets.
+The table below lists some frequently used formats and the corresponding media type for metadata assets.
 
 | **Format**                   | **type** |   
 | --------                   | --------- | 
@@ -231,10 +234,12 @@ The table below list some frequently used formats and the corresponding media ty
 | [OGC 17-084r1](https://docs.ogc.org/bp/17-084r1/17-084r1.html)  | `application/geo+json;profile=http://www.opengis.net/spec/eoc-geojson/1.0`  |
 | [Dublin Core](http://www.loc.gov/standards/sru/recordSchemas/dc-schema.xsd)  | `application/xml`  |
 
+If additional media types are required, preference shall be given to the media types listed in [Common Media Types Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#common-media-types-in-stac).
+
 
 > **CEOS-STAC-REC-3330 - Asset roles [Recommendation]**<a name="BP-3330"></a>
 >
-> If additional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
+> If additional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the general  [Asset Roles Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
 
 
 ### 3.3.3 Links and relations
