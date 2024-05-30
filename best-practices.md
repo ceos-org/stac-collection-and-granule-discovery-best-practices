@@ -274,9 +274,9 @@ The table below list some frequently used formats for documentation and their co
 
 > **CEOS-STAC-REC-3430 - Collection identifier [Recommendation]**<a name="BP-3430"></a>
 >
-> Implementations should carefully choose the "identifier" used for a STAC collection `/collections/{identifier}` to minimize the risk of duplicate collection identifiers after federating with catalogs and collections from other providers.
+> Implementations should carefully choose the "identifier" used for a STAC collection `/collections/{identifier}` to minimize the risk of duplicate collection identifiers when federated with catalogs and collections from other providers.
 >
-
+For additional guidance about data collection citations and identifiers, refer to the "WGISS Data Collections Management Practices White Paper" [[RD05]](./introduction.md#RD05).
 
 ***
 [Previous](objectives-needs.md) | [Table of contents](README.md) | [Next](granule-catalogs.md)
