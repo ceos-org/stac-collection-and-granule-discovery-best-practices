@@ -80,7 +80,7 @@ In principle, these definitions can be reused via the `$ref` field in a /queryab
 ```json
    "acquisitionType" : {
        "description" : "Used to distinguish the appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other.",
-       "$ref": "https://github.com/ceos-wgiss/stac-best-practices/schemas/opensearch-eo.json#/properties/acquisitionType"
+       "$ref": "https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#/properties/acquisitionType"
     }
 ```
 However, the approach above is [known to complicate implementation of search clients](https://github.com/stac-api-extensions/filter/issues/12).   Therefore, the JSON schemas returned by servers should dereference such references and should return a complete, standalone JSON Schema instead.
@@ -94,7 +94,7 @@ The above definition of the acquisitionType (`http://a9.com/-/opensearch/extensi
 ```json
    "acquisitionType" : {
       "description" : "Used to distinguish the appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other.",
-      "$id": "https://github.com/ceos-wgiss/stac-best-practices/schemas/opensearch-eo.json#/properties/acquisitionType",
+      "$id": "https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#/properties/acquisitionType",
       "title": "Acquisition type",
       "type": "string",
       "enum": [
