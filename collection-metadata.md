@@ -80,6 +80,8 @@ The requirements and recommendations provided relate to:
 > The DOI of a collection, if available, shall be encoded according to the Scientific Citation Extension Specification, i.e. using the `$.sci:doi` property and a link object with rel="cite-as" [[AD13]](./introduction.md#AD13).
 > 
 
+For additional guidance about use of persistent identifiers (e.g. DOI), refer to the "CEOS WGISS Persistent Best Practice" [RD06].
+
 > **CEOS-STAC-REQ-7260 - Provider names [Requirement]**<a name="BP-7260"></a>
 >
 A(n EO) Collection metadata record shall encode provider information as `$.providers[*]` and use the [GCMD Providers](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as `$.providers[*].name`.
