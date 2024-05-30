@@ -117,6 +117,6 @@ The following chapters present Best Practices for one particular topic:
 | `RD03` <a name="RD03"></a> | [OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors](https://portal.ogc.org/files/?artifact_id=104980&version=1) - Not yet available.  |
 | `RD04` <a name="RD04"></a> | [OGC13-026r9, OpenSearch Extension for Earth Observation](https://docs.ogc.org/is/13-026r9/13-026r9.html) |
 | `RD05` <a name="RD05"></a> | [WGISS Data Collections Management Practices White Paper](https://ceos.org/ourwork/workinggroups/wgiss/documents/) - Not yet available. |
-| `RD06` <a name="RD06"></a> | [CEOS WGISS Persistent Identifiers Best Practice, Version 1.4, CEOS/WGISS/DSIG/PIDBP](https://ceos.org/ourwork/workinggroups/wgiss/documents/WGISS%20Best%20Practices/CEOS%20Persistent%20Identifier%20Best%20Practice.pdf) |
+| `RD06` <a name="RD06"></a> | [CEOS WGISS Persistent Identifiers Best Practice, Version 1.4, CEOS/WGISS/DSIG/PIDBP](https://ceos.org/document_management/Working_Groups/WGISS/Documents/WGISS%20Best%20Practices/CEOS%20Persistent%20Identifier%20Best%20Practice.pdf) |
 ***
 [Previous](README.md) | [Table of contents](README.md) | [Next](objectives-needs.md)
