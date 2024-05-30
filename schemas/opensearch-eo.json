@@ -328,37 +328,61 @@
 			"title": "Processing mode",
 			"type": "string"
 		},
-		"antennaLookDirection": {
-			"description": "{eo:antennaLookDirection}",
-			"title": "Antenna look direction",
-			"type": "string",
-			"enum": [
-				"LEFT",
-				"RIGHT"
-			]
+		"availabilityTime": {
+			"format": "date-time",
+			"description": "The time when the result became available (e.g. if postprocessing or laboratory analysis is required, it might be different to the phenomenonTime). dateTime in ISO 8601 format",
+			"title": "Availability time",
+			"type": "string"
+		},
+		"acquisitionStation": {
+			"description": "A string identifying the station used for the acquisition.",
+			"title": "Acquisition station",
+			"type": "string"
+		},
+		"acquisitionSubType": {
+			"description": "Acquisition sub-type.",
+			"title": "Acquisition subtype",
+			"type": "string"
+		},
+		"startTimeFromAscendingNode": {
+			"description": "Start time of acquisition in milliseconds from Ascending node date.",
+			"title": "Start time from ascending node",
+			"type": "number"
 		},
 		"completionTimeFromAscendingNode": {
-			"description": "{eo:completionTimeFromAscendingNode}",
+			"description": "Completion time of acquisition in milliseconds from Ascending node date.",
 			"title": "Completion time from ascending node",
 			"type": "number"
 		},
-		"incidenceAngleVariation": {
-			"description": "{eo:incidenceAngleVariation}",
-			"title": "Incidence angle variation",
+		"illuminationAzimuthAngle": {
+			"description": "Mean illumination/solar azimuth angle given in degrees. (i.e. uom='deg')",
+			"title": "Illumination azimuth angle",
 			"type": "number"
 		},
-		"maximumIncidenceAngle": {
-			"description": "{eo:maximumIncidenceAngle}",
-			"title": "Maximum incidence angle",
+		"illuminationZenithAngle": {
+			"description": "Mean illumination/solar zenith angle given in degrees.",
+			"title": "Illumination zenith angle",
 			"type": "number"
 		},
-		"minimumIncidenceAngle": {
-			"description": "{eo:minimumIncidenceAngle}",
-			"title": "Minimum incidence angle",
+		"illuminationElevationAngle": {
+			"description": "Mean illumination/solar elevation angle given in degrees. (i.e. uom='deg')",
+			"title": "Illumination elevation angle",
 			"type": "number"
+		},
+		"polarisationMode": {
+			"description": "Polarisation mode taken from codelist: S (for single), D (for dual), T (for twin), Q (for quad), UNDEFINED",
+			"title": "Polarisation mode",
+			"type": "string",
+			"enum": [
+				"S",
+				"D",
+				"T",
+				"Q",
+				"UNDEFINED"
+			]
 		},
 		"polarisationChannels": {
-			"description": "{eo:polarisationChannels}",
+			"description": "Polarisation channel transmit/receive configuration: horizontal, vertical.",
 			"title": "Polarisation channels",
 			"type": "string",
 			"enum": [
@@ -377,21 +401,33 @@
 				"UNDEFINED"
 			]
 		},
-		"polarisationMode": {
-			"description": "{eo:polarisationMode}",
-			"title": "Polarisation mode",
+		"antennaLookDirection": {
+			"description": "Antenna look direction LEFT or RIGHT",
+			"title": "Antenna look direction",
 			"type": "string",
 			"enum": [
-				"S",
-				"D",
-				"T",
-				"Q",
-				"UNDEFINED"
+				"LEFT",
+				"RIGHT"
 			]
 		},
-		"startTimeFromAscendingNode": {
-			"description": "{eo:startTimeFromAscendingNode}",
-			"title": "Start time from ascending node",
+		"minimumIncidenceAngle": {
+			"description": "Minimum incidence angle given in degrees (i.e. uom='deg')",
+			"title": "Minimum incidence angle",
+			"type": "number"
+		},
+		"maximumIncidenceAngle": {
+			"description": "Maximum incidence angle given in degrees (i.e. uom='deg')",
+			"title": "Maximum incidence angle",
+			"type": "number"
+		},
+		"dopplerFrequency": {
+			"description": "Doppler Frequency of acquisition",
+			"title": "Doppler frequency",
+			"type": "number"
+		},
+		"incidenceAngleVariation": {
+			"description": "Incidence angle variation",
+			"title": "Incidence angle variation",
 			"type": "number"
 		},
 		"classifiedAs": {
