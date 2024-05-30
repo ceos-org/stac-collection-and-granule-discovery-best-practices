@@ -69,41 +69,43 @@ It is not allowed to constrain the values of temporal search parameters using "m
 > - Basic CQL2
 
 
-> **CEOS-STAC-REC-3260 - Additional search parameter names [Recommendation]**<a name="BP-3260"></a>
+> **CEOS-STAC-REC-3255 - Additional search parameter names [Recommendation]**<a name="BP-3255"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters for collection search (e.g. search by platform, instrument, organisation) or granule search (e.g. by polarisation mode, orbit direction, orbit number, cloud cover, etc.) should, by preference, use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD04]](./introduction.md#RD04).
 
+To facilitate migration from OpenSearch Description Document implementations to the STAC Filter extension with Queryables, definitions of most OGC 13-026r9 search parameters in the format understood by the Filter extension are available as [queryable definitions in YAML format](./schemas/opensearch-eo.yaml) (with additional comments) and [queryable definitions in JSON format](./schemas/opensearch-eo.json). 
 
-| :question: |  Should a STAC API extension be proposed covering available (OpenSearch) parameters allowing `queryables` responses to refer to these by reference ?  An example is shown below.  It would allow implementations to choose their parameter names and "connect" them to interoperable definitions from the OGC OpenSearch spec (with mappings to ISO, UMM, etc.) via $ref. |
-|---------------|:------------------------|
+In principle, these definitions can be reused via the `$ref` field in a /queryables response as shown in the example below.
 
 ```json
-   "doi" : {
-       "description" : "{eo:doi}",
-       "$ref": "https://github.com/ceos-wgiss/opensearch-eo/v1.1/schema.json#/properties/doi"
+   "acquisitionType" : {
+       "description" : "Used to distinguish the appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other.",
+       "$ref": "https://github.com/ceos-wgiss/stac-best-practices/schemas/opensearch-eo.json#/properties/acquisitionType"
+    }
+```
+However, the approach above is [known to complicate implementation of search clients](https://github.com/stac-api-extensions/filter/issues/12).   Therefore, the JSON schemas returned by servers should dereference such references and should return a complete, standalone JSON Schema instead.
+
+> **CEOS-STAC-REC-3260 - Standalone JSON Schema [Recommendation]**<a name="BP-3260"></a>
+>
+> CEOS STAC catalog server /queryables responses should contain a stand-alone JSON schema without `$ref`.
+
+The above definition of the acquisitionType (`http://a9.com/-/opensearch/extensions/eo/1.0/acquisitionType`) parameter with dereferenced reference then corresponds to the example below.
+
+```json
+   "acquisitionType" : {
+      "description" : "Used to distinguish the appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other.",
+      "$id": "https://github.com/ceos-wgiss/stac-best-practices/schemas/opensearch-eo.json#/properties/acquisitionType",
+      "title": "Acquisition type",
+      "type": "string",
+      "enum": [
+         "NOMINAL",
+         "CALIBRATION",
+         "OTHER"
+      ]
     }
 ```
 
-Extract of a possible STAC extension (YAML) with additional reusable parameter definitions as per OGC13-026r9.
-
-```
-"$schema": http://json-schema.org/draft-07/schema#
-"$id": https://github.com/ceos-wgiss/opensearch-eo/v1.1/schema.json#
-title: OpenSearch parameter declarations
-type: object
-properties:
-  #
-  # OGC13-026r9 Table 4
-  #
-  doi:
-    description: "{eo:doi}"
-    title: Doi
-    type: string
-  instrument:
-    description: "{eo:instrument}"
-    title: Instrument
-    type: string
-```
+The `$id` field is recommended to be included to have an explicit reference to the original definition of the parameter.  The `$id` allows federating clients to compare or group queryables offered by servers/collections from different providers, encourages data providers to refer to and reuse the same (OGC) definitions for EO search parameters with the same meaning, and allows servers to decouple the actual parameter name from the name included as the end of the `$id`.
 
 ### 3.2.2 Search response
 
