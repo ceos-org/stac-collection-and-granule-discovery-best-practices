@@ -1,0 +1,440 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#",
+	"title": "OpenSearch parameter declarations",
+	"type": "object",
+	"properties": {
+		"compositeType": {
+			"description": "Type of composite product expressed as time period that the composite product covers  (e.g. P10D for a 10 day composite)",
+			"title": "Composite type",
+			"type": "string"
+		},
+		"dissemination": {
+			"description": "A string identifying the dissemination method (e.g. EUMETCast, EUMETCast-Europe, DataCentre)",
+			"title": "Dissemination",
+			"type": "string"
+		},
+		"doi": {
+			"description": "Digital Object Identifier identifying the product (see http://www.doi.org)",
+			"title": "Digital Object Identifier",
+			"type": "string"
+		},
+		"hasSecurityConstraints": {
+			"description": "A string informing if the resource has any security constraints.",
+			"title": "has Security Constraints",
+			"type": "string",
+			"enum": [
+				true,
+				false
+			]
+		},
+		"instrument": {
+			"description": "A string identifying the instrument (e.g. MERIS, AATSR, ASAR, HRVIR. SAR).",
+			"title": "Instrument",
+			"type": "string"
+		},
+		"orbitType": {
+			"description": "A string identifying the platform orbit type (e.g. LEO, GEO)",
+			"title": "Orbit type",
+			"type": "string"
+		},
+		"spectralRange": {
+			"description": "A string identifying the sensor spectral range (e.g. INFRARED, NEAR-INFRARED, UV, VISIBLE)",
+			"title": "Spectral range",
+			"type": "string"
+		},
+		"platform": {
+			"description": "A string with the platform short name (e.g. Sentinel-1)",
+			"title": "Platform",
+			"type": "string"
+		},
+		"platformSerialIdentifier": {
+			"description": "A string with the Platform serial identifier",
+			"title": "Platform serial identifier",
+			"type": "string"
+		},
+		"processingLevel": {
+			"description": "A string identifying the processing level applied to the entry",
+			"title": "Processing level",
+			"type": "string"
+		},
+		"productType": {
+			"description": "A string identifying the entry type (e.g. ER02_SAR_IM__0P, MER_RR__1P, SM_SLC__1S, GES_DISC_AIRH3STD_V005)",
+			"title": "Product type",
+			"type": "string"
+		},
+		"sensorType": {
+			"description": "A string identifying the sensor type.",
+			"title": "Sensor type",
+			"type": "string",
+			"enum": [
+				"OPTICAL",
+				"RADAR",
+				"ALTIMETRIC",
+				"ATMOSPHERIC",
+				"LIMB"
+			]
+		},
+		"wavelength": {
+			"description": "A number, set or interval requesting the sensor wavelengths in nanometers.",
+			"title": "Wavelength",
+			"type": "integer"
+		},
+		"title": {
+			"description": "A name given to the resource [INSPIRE]",
+			"title": "Title",
+			"type": "string"
+		},
+		"topicCategory": {
+			"description": "Main theme(s) of the dataset [INSPIRE]",
+			"title": "Topic category",
+			"type": "string"
+		},
+		"keyword": {
+			"description": "Commonly used word(s) or formalised word(s) or phrase(s) used to describe the subject [INSPIRE].",
+			"title": "Keyword",
+			"type": "string"
+		},
+		"abstract": {
+			"description": "Abstract [INSPIRE].",
+			"title": "Abstract",
+			"type": "string"
+		},
+		"denominator": {
+			"description": "Level of detail expressed as a scale factor or a ground distance. Here: the number below the line in a vulgar fraction. [INSPIRE]",
+			"title": "Denominator",
+			"type": "integer"
+		},
+		"distanceValue": {
+			"description": "Sample ground distance. Here: the distance as decimal value. Used in combination with distanceUOM. [INSPIRE]",
+			"title": "Distance value",
+			"type": "number"
+		},
+		"distanceUOM": {
+			"description": "Sample ground distance. Here: the name of the unit of measure. CodeList, one of: meter, km,….  Used in combination with distanceValue. [INSPIRE]",
+			"title": "Distance value",
+			"type": "string"
+		},
+		"organisationName": {
+			"description": "A string identifying the name of the organization responsible for the resource [INSPIRE]",
+			"title": "Organisation name",
+			"type": "string"
+		},
+		"organisationRole": {
+			"description": "The function performed by the responsible party [INSPIRE]",
+			"title": "Organisation role",
+			"type": "string"
+		},
+		"publicationDate": {
+			"format": "date-time",
+			"description": "The date when the resource was issued",
+			"title": "Publication date",
+			"type": "string"
+		},
+		"lineage": {
+			"description": "General explanation of the data producer’s knowledge about the lineage of a dataset. [INSPIRE]",
+			"title": "Lineage",
+			"type": "string"
+		},
+		"useLimitation": {
+			"description": "A string identifying informing if the resource has usage limitations. [INSPIRE]",
+			"title": "Use limitation",
+			"type": "string"
+		},
+		"accessConstraint": {
+			"description": "Applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource [INSPIRE]",
+			"title": "Access constraint",
+			"type": "string"
+		},
+		"otherConstraint": {
+			"description": "Other restrictions and legal prerequisites for accessing and using the resource or metadata. [INSPIRE]",
+			"title": "Other constraint",
+			"type": "string"
+		},
+		"classification": {
+			"description": "Name of the handling restrictions on the resource or metadata. [INSPIRE]",
+			"title": "Classification",
+			"type": "string"
+		},
+		"language": {
+			"description": "Language of the intellectual content of the metadata record. [INSPIRE]",
+			"title": "Language",
+			"type": "string"
+		},
+		"specification": {
+			"description": "Title of the specification [INSPIRE]",
+			"title": "Specification",
+			"type": "string"
+		},
+		"specificationDate": {
+			"format": "date-time",
+			"description": "Reference date of specification [INSPIRE]",
+			"title": "Specification date",
+			"type": "string"
+		},
+		"specificationdateType": {
+			"description": "Type reference date of specification [INSPIRE]",
+			"title": "Specification date type",
+			"type": "string",
+			"enum": [
+				"creation",
+				"revision",
+				"publication"
+			]
+		},
+		"degree": {
+			"description": "This is the degree of conformity of the resource to the related specification. Possible values: true (if conformant), false (if not conformant), null (if not evaluated) [INSPIRE].",
+			"title": "Degree",
+			"type": "string",
+			"enum": [
+				true,
+				false,
+				null
+			]
+		},
+		"parentIdentifier": {
+			"description": "A string identifying the parent of the entry in a hierarchy of resources",
+			"title": "Parent identifier",
+			"type": "string"
+		},
+		"productionStatus": {
+			"description": "A string identifying the status of the entry.",
+			"title": "Production status",
+			"type": "string",
+			"enum": [
+				"ARCHIVED",
+				"ACQUIRED",
+				"CANCELLED"
+			]
+		},
+		"acquisitionType": {
+			"description": "Used to distinguishthe appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other",
+			"title": "Acquisition type",
+			"type": "string",
+			"enum": [
+				"NOMINAL",
+				"CALIBRATION",
+				"OTHER"
+			]
+		},
+		"orbitNumber": {
+			"description": "A number, set or interval requesting the acquisition orbit",
+			"title": "Orbit number",
+			"type": "integer"
+		},
+		"orbitDirection": {
+			"description": "A string identifying the acquisition orbit direction.",
+			"title": "Orbit direction",
+			"type": "string",
+			"enum": [
+				"ASCENDING",
+				"DESCENDING"
+			]
+		},
+		"track": {
+			"description": "A string identifying the orbit track",
+			"title": "Track",
+			"type": "string"
+		},
+		"frame": {
+			"description": "A string identifying the orbit frame",
+			"title": "Frame",
+			"type": "string"
+		},
+		"swathIdentifier": {
+			"description": "Swath identifier (e.g. Envisat ASAR has 7 distinct swaths (I1,I2,I3...I7) that correspond to precise incidence angles for the sensor). Value list can be retrieved with codeSpace.",
+			"title": "Swath identifier",
+			"type": "string"
+		},
+		"cloudCover": {
+			"description": "A number, set or interval of the cloud cover % (0-100)",
+			"title": "Cloud cover",
+			"type": "integer"
+		},
+		"snowCover": {
+			"description": "A number, set or interval of the snow cover % (0-100)",
+			"title": "Snow cover",
+			"type": "integer"
+		},
+		"lowestLocation": {
+			"description": "A number, set or interval of the bottom height of datalayer (in meters).",
+			"title": "Lowest location",
+			"type": "number"
+		},
+		"highestLocation": {
+			"description": "A number, set or interval of the top height of datalayer (in meters).",
+			"title": "Lowest location",
+			"type": "number"
+		},
+		"productVersion": {
+			"description": "A string identifying the version of the Product.",
+			"title": "Product version",
+			"type": "string"
+		},
+		"productQualityStatus": {
+			"description": "Must be provided if the product passed a quality check. Possible values: NOMINAL and DEGRADED.",
+			"title": "Product quality status",
+			"type": "string",
+			"enum": [
+				"NOMINAL",
+				"DEGRADED"
+			]
+		},
+		"productQualityDegradationTag": {
+			"description": "Keywords giving information on the degradations affecting the product. Possible values are mission specific and can be freely define (e.g. 'RADIOMETRY', 'MISSING_LINES')",
+			"title": "Product quality degradation tag",
+			"type": "string"
+		},
+		"processorName": {
+			"description": "A string identifying the processor software name",
+			"title": "Processor name",
+			"type": "string"
+		},
+		"processingCenter": {
+			"description": "A string identifying the processing center (e.g. PDHS-E, PDHS-K, DPA, F-ACRI)",
+			"title": "Processing center",
+			"type": "string"
+		},
+		"creationDate": {
+			"format": "date-time",
+			"description": "The date when the metadata item was ingested for the first time (i.e. inserted) in the catalogue.",
+			"title": "Creation date",
+			"type": "string"
+		},
+		"modificationDate": {
+			"format": "date-time",
+			"description": "The date when the metadata item was last modified (i.e. updated) in the catalogue.",
+			"title": "Modification date",
+			"type": "string"
+		},
+		"processingDate": {
+			"format": "date-time",
+			"description": "A date interval requesting entries processed within a given time interval",
+			"title": "Processing date",
+			"type": "string"
+		},
+		"sensorMode": {
+			"description": "A string identifying the sensor mode.",
+			"title": "Sensor mode",
+			"type": "string"
+		},
+		"archivingCenter": {
+			"description": "A string identifying the archiving center.",
+			"title": "Archiving center",
+			"type": "string"
+		},
+		"processingMode": {
+			"description": "Processing mode. Often referred to as Real Time, Near Real Time etc.",
+			"title": "Processing mode",
+			"type": "string"
+		},
+		"availabilityTime": {
+			"format": "date-time",
+			"description": "The time when the result became available (e.g. if postprocessing or laboratory analysis is required, it might be different to the phenomenonTime). dateTime in ISO 8601 format",
+			"title": "Availability time",
+			"type": "string"
+		},
+		"acquisitionStation": {
+			"description": "A string identifying the station used for the acquisition.",
+			"title": "Acquisition station",
+			"type": "string"
+		},
+		"acquisitionSubType": {
+			"description": "Acquisition sub-type.",
+			"title": "Acquisition subtype",
+			"type": "string"
+		},
+		"startTimeFromAscendingNode": {
+			"description": "Start time of acquisition in milliseconds from Ascending node date.",
+			"title": "Start time from ascending node",
+			"type": "number"
+		},
+		"completionTimeFromAscendingNode": {
+			"description": "Completion time of acquisition in milliseconds from Ascending node date.",
+			"title": "Completion time from ascending node",
+			"type": "number"
+		},
+		"illuminationAzimuthAngle": {
+			"description": "Mean illumination/solar azimuth angle given in degrees. (i.e. uom='deg')",
+			"title": "Illumination azimuth angle",
+			"type": "number"
+		},
+		"illuminationZenithAngle": {
+			"description": "Mean illumination/solar zenith angle given in degrees.",
+			"title": "Illumination zenith angle",
+			"type": "number"
+		},
+		"illuminationElevationAngle": {
+			"description": "Mean illumination/solar elevation angle given in degrees. (i.e. uom='deg')",
+			"title": "Illumination elevation angle",
+			"type": "number"
+		},
+		"polarisationMode": {
+			"description": "Polarisation mode taken from codelist: S (for single), D (for dual), T (for twin), Q (for quad), UNDEFINED",
+			"title": "Polarisation mode",
+			"type": "string",
+			"enum": [
+				"S",
+				"D",
+				"T",
+				"Q",
+				"UNDEFINED"
+			]
+		},
+		"polarisationChannels": {
+			"description": "Polarisation channel transmit/receive configuration: horizontal, vertical.",
+			"title": "Polarisation channels",
+			"type": "string",
+			"enum": [
+				"HH",
+				"HV",
+				"VH",
+				"VV",
+				"HH, VV",
+				"HH, VH",
+				"HH, HV",
+				"VH, VV",
+				"VH, HV",
+				"VV, HV",
+				"VV, VH",
+				"HV, VH",
+				"UNDEFINED"
+			]
+		},
+		"antennaLookDirection": {
+			"description": "Antenna look direction LEFT or RIGHT",
+			"title": "Antenna look direction",
+			"type": "string",
+			"enum": [
+				"LEFT",
+				"RIGHT"
+			]
+		},
+		"minimumIncidenceAngle": {
+			"description": "Minimum incidence angle given in degrees (i.e. uom='deg')",
+			"title": "Minimum incidence angle",
+			"type": "number"
+		},
+		"maximumIncidenceAngle": {
+			"description": "Maximum incidence angle given in degrees (i.e. uom='deg')",
+			"title": "Maximum incidence angle",
+			"type": "number"
+		},
+		"dopplerFrequency": {
+			"description": "Doppler Frequency of acquisition",
+			"title": "Doppler frequency",
+			"type": "number"
+		},
+		"incidenceAngleVariation": {
+			"description": "Incidence angle variation",
+			"title": "Incidence angle variation",
+			"type": "number"
+		},
+		"classifiedAs": {
+			"format": "uri",
+			"description": "{semantic:classifiedAs}",
+			"title": "Classified as",
+			"type": "string"
+		}
+	}
+}

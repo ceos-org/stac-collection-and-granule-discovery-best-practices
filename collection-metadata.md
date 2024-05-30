@@ -80,6 +80,8 @@ The requirements and recommendations provided relate to:
 > The DOI of a collection, if available, shall be encoded according to the Scientific Citation Extension Specification, i.e. using the `$.sci:doi` property and a link object with rel="cite-as" [[AD13]](./introduction.md#AD13).
 > 
 
+For additional guidance about use of persistent identifiers (e.g. DOI), refer to the "CEOS WGISS Persistent Best Practice" [RD06].
+
 > **CEOS-STAC-REQ-7260 - Provider names [Requirement]**<a name="BP-7260"></a>
 >
 A(n EO) Collection metadata record shall encode provider information as `$.providers[*]` and use the [GCMD Providers](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/providers?gtm_scheme=providers) preferred label (skos:prefLabel) as `$.providers[*].name`.
@@ -107,7 +109,22 @@ A(n EO) Collection metadata record shall encode provider information as `$.provi
       "title": "Landing page"
     }
   ]
-``` 
+```
+
+If there is a need to advertise the provider email address then an `email` property should be added in the [Provider Object](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#provider-object).
+
+```json
+  "providers": [
+    {
+      "roles": [
+        "producer"
+      ],
+      "name": "ESA/ESRIN",
+      "url": "https://esa.int",
+      "email": "eohelp@esa.int"
+    }
+  ]
+```
 
 ## 7.3 Assets and roles
 
@@ -185,7 +202,13 @@ The example below indicates that all granules of this collection do have assets,
 > **CEOS-STAC-REC-7520 - Parent relation [Recommendation]**<a name="BP-7520"></a>
 >
 > Implementations should not use the rel="parent" relation in STAC collection encodings as the original collection may be referenced or included in a federated catalog below a different parent.
+
+
+> **CEOS-STAC-REC-7530 - Keywords [Requirement]**<a name="BP-7530"></a>
 >
+> CEOS STAC collection metadata shall contain at least one platform keyword, one corresponding instrument keyword and one science keyword encoded according to CEOS-STAC-REQ-7220, CEOS-STAC-REQ-7230 and CEOS-STAC-REQ-7240.
+
+This is required to allow federation into [CEOS IDN](https://ceos.org/ourwork/workinggroups/wgiss/access/international-directory-network) which has a similar requirement for collection metadata provided in [DIF-10](https://www.earthdata.nasa.gov/esdis/esco/standards-and-practices/directory-interchange-format-dif-standard) format. 
 
 ## 7.6 CEOS-ARD
 

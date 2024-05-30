@@ -33,8 +33,6 @@ Note: When publishing a single collection, the collection and the landing page m
 
 ## 5.3 Collection catalog with search interface
 
-
-
 > **CEOS-STAC-CREQ-5320 - Collections endpoint [Conditional]**<a name="BP-5320"></a>
 >
 > A CEOS STAC catalog supporting collection search shall advertise the search endpoint for collections in the landing page with rel="data" (most often `/collections`), type="application/json" and declare the corresponding collection search conformance classes in the landing page.  See "STAC API Collection Search" [[AD07]](./introduction.md#AD07).
@@ -56,8 +54,7 @@ Conformance encoding example
     "http://www.opengis.net/spec/cql2/1.0/conf/basic-cql2"
   ]
 ```
-
-  
+ 
 
 ### 5.3.1 Collection search request
 
@@ -92,11 +89,6 @@ Conformance encoding example
 
 
 ### 5.3.2 Collection search response
-
-- optional list of collection search parameters (rel="http://www.opengis.net/def/rel/ogc/1.0/queryables", type="application/schema+json"
-- search by 'id'  (at /collections), which 'ids' can be used for searching ?  'id' from hierarchy ?
-- content negotiation (alternative formats)
-
 
 > **CEOS-STAC-REQ-5372 - Collection search response representation [Requirement]**<a name="BP-5372"></a>
 >

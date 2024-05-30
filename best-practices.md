@@ -69,50 +69,52 @@ It is not allowed to constrain the values of temporal search parameters using "m
 > - Basic CQL2
 
 
-> **CEOS-STAC-REC-3260 - Additional search parameter names [Recommendation]**<a name="BP-3260"></a>
+> **CEOS-STAC-REC-3255 - Additional search parameter names [Recommendation]**<a name="BP-3255"></a>
 >
 > A CEOS STAC collection/granule catalog supporting additional search parameters for collection search (e.g. search by platform, instrument, organisation) or granule search (e.g. by polarisation mode, orbit direction, orbit number, cloud cover, etc.) should, by preference, use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 [[RD04]](./introduction.md#RD04).
 
+To facilitate migration from OpenSearch Description Document implementations to the STAC Filter extension with Queryables, definitions of most OGC 13-026r9 search parameters in the format understood by the Filter extension are available as [queryable definitions in YAML format](./schemas/opensearch-eo.yaml) (with additional comments) and [queryable definitions in JSON format](./schemas/opensearch-eo.json). 
 
-| :question: |  Should a STAC API extension be proposed covering available (OpenSearch) parameters allowing `queryables` responses to refer to these by reference ?  An example is shown below.  It would allow implementations to choose their parameter names and "connect" them to interoperable definitions from the OGC OpenSearch spec (with mappings to ISO, UMM, etc.) via $ref. |
-|---------------|:------------------------|
+In principle, these definitions can be reused via the `$ref` field in a /queryables response as shown in the example below.
 
 ```json
-   "doi" : {
-       "description" : "{eo:doi}",
-       "$ref": "https://github.com/ceos-wgiss/opensearch-eo/v1.1/schema.json#/properties/doi"
+   "acquisitionType" : {
+       "description" : "Used to distinguish the appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other.",
+       "$ref": "https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#/properties/acquisitionType"
+    }
+```
+However, the approach above is [known to complicate implementation of search clients](https://github.com/stac-api-extensions/filter/issues/12).   Therefore, the JSON schemas returned by servers should dereference such references and should return a complete, standalone JSON Schema instead.
+
+> **CEOS-STAC-REC-3260 - Standalone JSON Schema [Recommendation]**<a name="BP-3260"></a>
+>
+> CEOS STAC catalog server /queryables responses should contain a stand-alone JSON schema without `$ref`.
+
+The above definition of the acquisitionType (`http://a9.com/-/opensearch/extensions/eo/1.0/acquisitionType`) parameter with dereferenced reference then corresponds to the example below.
+
+```json
+   "acquisitionType" : {
+      "description" : "Used to distinguish the appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other.",
+      "$id": "https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#/properties/acquisitionType",
+      "title": "Acquisition type",
+      "type": "string",
+      "enum": [
+         "NOMINAL",
+         "CALIBRATION",
+         "OTHER"
+      ]
     }
 ```
 
-Extract of a possible STAC extension (YAML) with additional reusable parameter definitions as per OGC13-026r9.
-
-```
-"$schema": http://json-schema.org/draft-07/schema#
-"$id": https://github.com/ceos-wgiss/opensearch-eo/v1.1/schema.json#
-title: OpenSearch parameter declarations
-type: object
-properties:
-  #
-  # OGC13-026r9 Table 4
-  #
-  doi:
-    description: "{eo:doi}"
-    title: Doi
-    type: string
-  instrument:
-    description: "{eo:instrument}"
-    title: Instrument
-    type: string
-```
+The `$id` field is recommended to be included to have an explicit reference to the original definition of the parameter.  The `$id` allows federating clients to compare or group queryables offered by servers/collections from different providers, encourages data providers to refer to and reuse the same (OGC) definitions for EO search parameters with the same meaning, and allows servers to decouple the actual parameter name from the name included as the end of the `$id`.
 
 ### 3.2.2 Search response
 
-> **CEOS-STAC-REQ-3270 - numberMatched [Requirement]**<a name="BP-3270"></a>
+> **CEOS-STAC-REQ-3265 - numberMatched [Requirement]**<a name="BP-3265"></a>
 >
 > A CEOS STAC catalog search response shall include the `numberMatched` property providing the number of items meeting the selection parameters, possibly estimated.
 
 
-> **CEOS-STAC-REC-3275 - numberReturned [Recommendation]**<a name="BP-3275"></a>
+> **CEOS-STAC-REC-3270 - numberReturned [Recommendation]**<a name="BP-3270"></a>
 >
 > A CEOS STAC catalog search response should include the `numberReturned` property.
 
@@ -148,6 +150,9 @@ The above Best Practices apply to all available search endpoints e.g. at rel="da
 
 Although this is only explicitly defined as [exception response structure for the rel="search" endpoint](https://api.stacspec.org/v1.0.0/item-search/#tag/Item-Search/operation/getItemSearch), it is good practice to provide similar (JSON) response bodies at the other endpoints, including rel="items" and rel="data". 
 
+> **CEOS-STAC-REC-3299 - Alternative response formats [Recommendation]**<a name="BP-3299"></a>
+>
+> A CEOS STAC catalog supporting alternative response formats shall allow this via content negotiation and use common media types also used for assets and links as referenced in the current Best Practices document (See [Link and Asset type](#BP-3325)).
 
 ## 3.3 Metadata Best Practices
 
@@ -217,7 +222,7 @@ The Best Practices described in this section apply to [CEOS STAC Collection Meta
 > CEOS STAC implementations shall specify the media (MIME) type of the artifact
 associated with a resource by specifying the "type" attribute of the Link object or Asset object.  The media types (`type`) from the table below shall be used for assets/links to the corresponding resources.
 
-The table below list some frequently used formats and the corresponding media type to be used for metadata assets.
+The table below lists some frequently used formats and the corresponding media type for metadata assets.
 
 | **Format**                   | **type** |   
 | --------                   | --------- | 
@@ -231,10 +236,12 @@ The table below list some frequently used formats and the corresponding media ty
 | [OGC 17-084r1](https://docs.ogc.org/bp/17-084r1/17-084r1.html)  | `application/geo+json;profile=http://www.opengis.net/spec/eoc-geojson/1.0`  |
 | [Dublin Core](http://www.loc.gov/standards/sru/recordSchemas/dc-schema.xsd)  | `application/xml`  |
 
+If additional media types are required, preference shall be given to the media types listed in [Common Media Types Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#common-media-types-in-stac).
+
 
 > **CEOS-STAC-REC-3330 - Asset roles [Recommendation]**<a name="BP-3330"></a>
 >
-> If additional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the [corresponding Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
+> If additional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the general  [Asset Roles Best Practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles).
 
 
 ### 3.3.3 Links and relations
@@ -263,13 +270,15 @@ The table below list some frequently used formats for documentation and their co
 >
 > "href" attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC collection or granule metadata records.
 
-> **CEOS-STAC-REC-3440 - Root relation [Recommendation]**<a name="BP-3440"></a>
+> **CEOS-STAC-REC-3420 - Root relation [Recommendation]**<a name="BP-3420"></a>
 >
 > Implementations should not use the rel="root" relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.
->
 
-| :question: |  should we add a recommendation about (STAC) identifiers to be used for collections that remain unique after federation ?  e.g. multiple agencies with Landsat or Sentinel collections may cause naming clashes... Does such recommendation already exist in other CEOS contexts ? |
-|---------------|:------------------------|
+> **CEOS-STAC-REC-3430 - Collection identifier [Recommendation]**<a name="BP-3430"></a>
+>
+> Implementations should carefully choose the "identifier" used for a STAC collection `/collections/{identifier}` to minimize the risk of duplicate collection identifiers when federated with catalogs and collections from other providers.
+>
+For additional guidance about data collection citations and identifiers, refer to the "WGISS Data Collections Management Practices White Paper" [[RD05]](./introduction.md#RD05).
 
 ***
 [Previous](objectives-needs.md) | [Table of contents](README.md) | [Next](granule-catalogs.md)

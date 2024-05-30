@@ -31,6 +31,9 @@ The requirements and recommendations provided relate to:
 
 Geographical extents of Items are represented using GeoJSON geometry objects [RFC7946](#AD4) in STAC item search responses.  This representation can natively represent multi-point, multi-line and multi-polygon geometries, thus no additional guidance similar to `CEOS-BP-014B`, `CEOS-BP-014C` and `CEOS-BP-014D` is required.
 
+> **CEOS-STAC-REQ-6235 - Polygon geometry [Requirement]**<a name="BP-6235"></a>
+>
+> The geographical extent of an Item represented as polygon shall follow the right-hand rule with respect to the area it bounds and in case of a polygon with more than one ring, the first shall be the exterior ring and the others shall be interior rings as required by the [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.6).
 
 > **CEOS-STAC-REQ-6240 - Minimum-bounding rectangle [Requirement]**<a name="BP-6240"></a>
 >
@@ -50,7 +53,7 @@ The `bbox` item property is mandatory according to the STAC Item specification u
 | **Reference**                   | **STAC Extension** |     **Example Properties** |
 | --------                   | --------- |  --------- | 
 | [[AD14]](./introduction.md#AD14)  | [EO Extension](https://github.com/stac-extensions/eo)  |  eo:cloud_cover, eo:snow_cover, eo:bands |
-| [[AD15]](./introduction.md#AD15)  | [SAR Extension](https://github.com/stac-extensions/sar)  | sar:instrument_mode, sar:polarizations, sar:product_type |
+| [[AD15]](./introduction.md#AD15)  | [SAR Extension](https://github.com/stac-extensions/sar)  | sar:instrument_mode, sar:polarizations, ... |
 | [[AD16]](./introduction.md#AD16)  | [SAT Extension](https://github.com/stac-extensions/sat)  | sat:orbit_state, sat:absolute_orbit, ... |
 | [[AD13]](./introduction.md#AD13)  | [Scientific Extension](https://github.com/stac-extensions/scientific)  | sci:doi |
 | [[AD17]](./introduction.md#AD17)  | [Version Extension](https://github.com/stac-extensions/version)  | version |
@@ -60,6 +63,7 @@ The `bbox` item property is mandatory according to the STAC Item specification u
 | [[AD23]](./introduction.md#AD23)  | [Landsat Extension](https://landsat.usgs.gov/stac/landsat-extension/schema.json)  | landsat:wrs_path, landsat:wrs_row |
 | [[AD21]](./introduction.md#AD21)  | [Processing Extension](https://github.com/stac-extensions/processing)  | processing:level, processing:facility, ... |
 | [[AD22]](./introduction.md#AD22)  | [Hyperspectral Extension](https://github.com/stac-extensions/hsi)  | hsi:wavelength_min, hsi:wavelength_max |
+| [[AD31]](./introduction.md#AD31)  | [Product Extension](https://github.com/stac-extensions/product)  | product:type |
 
 
 Additional guidance on how to encode OGC17-003r2 metadata properties with the above extensions is available in ["Mapping from OGC EO Dataset Metadata GeoJSON(-LD) Encoding Standard to STAC"](https://github.com/stac-utils/stac-crosswalks/tree/master/OGC_17-003r2). 
@@ -107,6 +111,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
   "stac_extensions": [
     "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
     "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/product/v0.1.0/schema.json",
     "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json"
@@ -126,7 +131,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
       "AVNIR-2"
     ],
     "constellation": "ALOS",
-    "sar:product_type": "AV2_OBS_1C",
+    "product:type": "AV2_OBS_1C",
     "sat:orbit_state": "DESCENDING",
     "processing:software": {
       "AVNIR-2": "04.10"
@@ -182,7 +187,7 @@ Example: Asset object for Cloud Optimized GeoTIFF data
 ```json
 "assets": {
   "enclosure": {
-          "roles": [
+      "roles": [
           "data"
       ],
       "href": "https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif",
@@ -283,13 +288,11 @@ Example: Asset object for Zarr data
 
 ## 6.6 CEOS-ARD 
 
-> **CEOS-STAC-REC-6610 - Optical ARD granules [Recommendation]**<a name="BP-6610"></a>
->
-> CEOS STAC granule metadata for optical ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Optical data](https://github.com/stac-extensions/ceos-ard/blob/main/optical.md) [[AD28]](./introduction.md#AD28).
+[CEOS-ARD](https://ceos.org/ard/) [[AD30]](./introduction.md#AD30) publishes Product Family Specifications (PFS) that define recommendations and requirements to make certain types of data available as Analysis-Ready Data (ARD).
 
-> **CEOS-STAC-REC-6620 - Radar ARD collections [Recommendation]**<a name="BP-6620"></a>
->
-> CEOS STAC granule metadata for radar ARD collections should include properties and links as defined by the [CEOS-ARD STAC Extension for Radar data](https://github.com/stac-extensions/ceos-ard/blob/main/radar.md) [[AD28]](./introduction.md#AD28).
+The CEOS-ARD specifications are available as specification text and do not provide an official mapping to STAC.
+A community-lead project aims at providing a mapping between the CEOS-ARD requirements and existing STAC extensions, which can be used as a guideline for STAC implementations that aim for CEOS-ARD compliance.
+See the [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) [[AD28]](./introduction.md#AD28) and its Optical and Radar profiles for details.
 
 ***
 [Previous](collection-catalogs.md) | [Table of contents](README.md) | [Next](collection-metadata.md)
