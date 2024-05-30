@@ -53,10 +53,10 @@ In order to achieve a federated CWIC solution, a STAC API implementing the colle
 | -------- | --------- | 
 | `AD06` <a name="AD06"></a> | [STAC API - Filter Extension](https://github.com/stac-api-extensions/filter) |
 | `AD07` <a name="AD07"></a> | [STAC API - Collection Search](https://github.com/stac-api-extensions/collection-search) |
-| `AD27` <a name="AD26"></a> |[STAC API - Free Text Search](https://github.com/cedadev/stac-freetext-search)  __free text search is part of AD07 also__     |
+| `AD27` <a name="AD26"></a> |[STAC API - Free Text Search](https://github.com/cedadev/stac-freetext-search)  |
 
 ## 8.3 Granule discovery
-For successfull granule discovery, an CEOS agency STAC API will require the following support,
+For successful granule discovery, an CEOS agency STAC API will require the following support,
 - Filter by spatial constraint: Bounding Box
 - Filter by temporal constraint
 
