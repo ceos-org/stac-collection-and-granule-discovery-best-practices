@@ -26,7 +26,7 @@
 #    }
 #
 "$schema": http://json-schema.org/draft-07/schema#
-"$id": https://raw.githubusercontent.com/ceos-wgiss/stac-collection-and-granule-discovery-best-practices/main/schemas/opensearch-eo.json#
+"$id": https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#
 title: OpenSearch parameter declarations
 type: object
 properties:
@@ -195,8 +195,20 @@ properties:
   #
   # OGC13-026r9 Table 6
   #
+  parentIdentifier:
+    description: "A string identifying the parent of the entry in a hierarchy of resources"
+    title: Parent identifier
+    type: string
+  productionStatus:
+    description: "A string identifying the status of the entry."
+    title: Production status
+    type: string
+    enum:
+    - ARCHIVED
+    - ACQUIRED
+    - CANCELLED
   acquisitionType:
-    description: "{eo:acquisitionType}"
+    description: "Used to distinguishthe appropriateness of the acquisition for 'general' use, whether the product is a nominal acquisition, special calibration product or other"
     title: Acquisition type
     type: string
     enum:
@@ -204,69 +216,93 @@ properties:
     - CALIBRATION
     - OTHER
   orbitNumber:
-    description: "{eo:orbitNumber}"
+    description: "A number, set or interval requesting the acquisition orbit"
     title: Orbit number
     type: integer
-  creationDate:
-    format: date-time
-    description: "{eo:creationDate}"
-    title: Creation date
-    type: string
-  frame:
-    description: "{eo:frame}"
-    title: Frame
-    type: string
-  modificationDate:
-    format: date-time
-    description: "{eo:modificationDate}"
-    title: Modification date
-    type: string
   orbitDirection:
-    description: "{eo:orbitDirection}"
+    description: "A string identifying the acquisition orbit direction."
     title: Orbit direction
     type: string
     enum:
     - ASCENDING
     - DESCENDING
-  processingCenter:
-    description: "{eo:processingCenter}"
-    title: Processing center
+  track:
+    description: "A string identifying the orbit track"
+    title: Track
     type: string
-  processingDate:
-    format: date-time
-    description: "{eo:processingDate}"
-    title: Processing date
+  frame:
+    description: "A string identifying the orbit frame"
+    title: Frame
     type: string
-  processingMode:
-    description: "{eo:processingMode}"
-    title: Processing mode
+  swathIdentifier:
+    description: "Swath identifier (e.g. Envisat ASAR has 7 distinct swaths (I1,I2,I3...I7) that correspond to precise incidence angles for the sensor). Value list can be retrieved with codeSpace."
+    title: Swath identifier
     type: string
-  productionStatus:
-    description: "{eo:productionStatus}"
-    title: Production status
-    type: string
-    enum:
-    - ARCHIVED
-    - ACQUIRED
-    - CANCELLED
+  cloudCover:
+    description: "A number, set or interval of the cloud cover % (0-100)"
+    title: Cloud cover
+    type: integer
+  snowCover:
+    description: "A number, set or interval of the snow cover % (0-100)"
+    title: Snow cover
+    type: integer
+  lowestLocation:
+    description: "A number, set or interval of the bottom height of datalayer (in meters)."
+    title: Lowest location
+    type: number
+  highestLocation:
+    description: "A number, set or interval of the top height of datalayer (in meters)."
+    title: Lowest location
+    type: number
   productVersion:
-    description: "{eo:productVersion}"
+    description: "A string identifying the version of the Product."
     title: Product version
     type: string
   productQualityStatus:
-    description: "{eo:productQualityStatus}"
+    description: "Must be provided if the product passed a quality check. Possible values: NOMINAL and DEGRADED."
     title: Product quality status
     type: string
     enum:
     - NOMINAL
     - DEGRADED
+  productQualityDegradationTag:
+    description: "Keywords giving information on the degradations affecting the product. Possible values are mission specific and can be freely define (e.g. 'RADIOMETRY', 'MISSING_LINES')"
+    title: Product quality degradation tag
+    type: string
+  processorName:
+    description: "A string identifying the processor software name"
+    title: Processor name
+    type: string
+  processingCenter:
+    description: "A string identifying the processing center (e.g. PDHS-E, PDHS-K, DPA, F-ACRI)"
+    title: Processing center
+    type: string 
+  creationDate:
+    format: date-time
+    description: "The date when the metadata item was ingested for the first time (i.e. inserted) in the catalogue."
+    title: Creation date
+    type: string
+  modificationDate:
+    format: date-time
+    description: "The date when the metadata item was last modified (i.e. updated) in the catalogue."
+    title: Modification date
+    type: string
+  processingDate:
+    format: date-time
+    description: "A date interval requesting entries processed within a given time interval"
+    title: Processing date
+    type: string
   sensorMode:
-    description: "{eo:sensorMode}"
+    description: "A string identifying the sensor mode."
     title: Sensor mode
     type: string
-  track:
-    description: "{eo:track}"
-    title: Track
+  archivingCenter:
+    description: "A string identifying the archiving center."
+    title: Archiving center
+    type: string 
+  processingMode:
+    description: "Processing mode. Often referred to as Real Time, Near Real Time etc."
+    title: Processing mode
     type: string
   #
   # OGC13-026r9 Table 7
