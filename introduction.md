@@ -65,6 +65,7 @@ The following chapters present Best Practices for one particular topic:
 | `JSON` | JavaScript Object Notation  | 
 | `OGC` | Open Geospatial Consortium  | 
 | `OSDD` | OpenSearch Description Document  |
+| `S3` | Simple Storage Service  |
 | `STAC` | Spatiotemporal Asset Catalog  |
 | `WGISS` | Working Group on Information Systems and Services  | 
 
