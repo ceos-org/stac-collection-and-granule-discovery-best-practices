@@ -71,7 +71,72 @@ In order to achieve a federated CWIC solution, a STAC API serving granules must 
 | **ID**  | **Title** | 
 | -------- | --------- | 
 | `AD06` <a name="AD06"></a> | [STAC API - Filter Extension](https://github.com/stac-api-extensions/filter) |
+
+
 ## 8.4 Data acquisition
 The list of items that a granule search will return will represent data files/granules. Each of those items will have a link to the data itself which the client can use to acquire the data. It should be noted that the API that serves up this data may be (and usually is) subject to a particular agency's authentication system. This usually manifests as an OAUTH2-type user experience where the user is first redirected to a login page where they can either create a user profile or enter the credentials of their existing profile. Once complete, the user is redirected to the data asset and acquisition can complete.
+
+
+## 8.5 Authentication
+
+> **CEOS-STAC-REQ-8510 - No authentication for discovery [Requirement]**<a name="BP-8510"></a>
+>
+> STAC implementations shall not require authentication for collection and granule discovery and provide access to the following resources (if available) without requiring authentication:
+- collection metadata (STAC collection)
+- granule metadata (STAC item)
+- granule thumbnail
+- granule quicklook
+
+
+> **CEOS-STAC-REC-8520 - Advertising authentication interface [Recommendation]**<a name="BP-8520"></a>
+>
+> STAC implementations requiring authentication for asset download should advertise this using the STAC Authentication Extension [[AD32]](./introduction.md#AD32).
+
+
+> **CEOS-STAC-REC-8530 - Advertising OpenID Connect authentication interface in granule metadata [Recommendation]**<a name="BP-8530"></a>
+>
+> STAC implementations requiring authentication via OpenID Connect for asset download (e.g. data download) should indicate this in the granule metadata using the STAC Authentication Extension [[AD32]](./introduction.md#AD32) and refer to the [metadata of the OpenID server](https://swagger.io/docs/specification/v3_0/authentication/openid-connect-discovery/).
+
+.Example: Use of the Authentication Extension for OpenID Connect
+```json
+{
+  "stac_version": "1.0.0",
+
+  "assets": {
+    "enclosure": {
+      "created": "2012-01-17T00:00:00Z",
+      "roles": [
+        "data"
+      ],
+      
+      "href": "https://catalog.maap.eo.esa.int/data/TropForest/2009/01/06/AL1_OTPF_AL1_AV2_2F_20090106T041747_20090106T041747_000000_E097_N025/AL1_OTPF_AL1_AV2_2F_20090106T041747_20090106T041747_000000_E097_N025.ZIP",
+      "auth:refs": [
+        "oidc"
+      ],
+      "type": "application/zip",
+      "title": "Download",
+      "file:size": 10512689
+    }
+  },
+ 
+  "id": "AL1_OTPF_AL1_AV2_2F_20090106T041747_20090106T041747_000000_E097_N025",
+  "collection": "TropForest",
+  "type": "Feature",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://stac-extensions.github.io/authentication/v1.1.0/schema.json"
+  ],
+  "properties": {
+    "auth:schemes": {
+      "oidc": {
+        "openIdConnectUrl": "https://iam.ascend.icsgate.eu/realms/esa-maap/.well-known/openid-configuration",
+        "type": "openIdConnect"
+      }
+    }
+  }
+}
+```
+
+
 ***
 [Previous](collection-metadata.md) | [Table of contents](README.md)
