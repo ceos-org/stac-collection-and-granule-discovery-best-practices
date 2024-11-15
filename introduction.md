@@ -83,8 +83,8 @@ The following chapters present Best Practices for one particular topic:
 | `AD06` <a name="AD06"></a> | [STAC API - Filter Extension](https://github.com/stac-api-extensions/filter) |
 | `AD07` <a name="AD07"></a>| [STAC API - Collection Search](https://github.com/stac-api-extensions/collection-search) |
 | `AD08` <a name="AD08"></a> | [OGC17-069r3, OGC API - Features - Part 1: Core](https://docs.opengeospatial.org/is/17-069r3/17-069r3.html) | 
-| `AD09` <a name="AD09"></a> | [OGC17-079r1, OGC API - Features - Part 3: Filtering](https://docs.opengeospatial.org/DRAFTS/19-079r1.html)  | 
-| `AD10` <a name="AD10"></a> | [OGC21-065, Common Query Language (CQL2)](https://docs.ogc.org/DRAFTS/21-065.html)  | 
+| `AD09` <a name="AD09"></a> | [OGC17-079r2, OGC API - Features - Part 3: Filtering](https://docs.ogc.org/is/19-079r2/19-079r2.html)  | 
+| `AD10` <a name="AD10"></a> | [OGC21-065r2, Common Query Language (CQL2)](https://docs.ogc.org/is/21-065r2/21-065r2.html)  | 
 | `AD11` <a name="AD11"></a> | [RFC 7946 - The GeoJSON Format](https://datatracker.ietf.org/doc/html/rfc7946) | 
 | `AD12` <a name="AD12"></a>| [JSON Schema: A Media Type for Describing JSON Documents, draft-handrews-json-schema-02](https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02) |
 | `AD13` <a name="AD13"></a>| [STAC Scientific Citation Extension Specification, v1.0.0](https://github.com/stac-extensions/scientific) |
