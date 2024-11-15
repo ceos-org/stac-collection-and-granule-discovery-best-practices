@@ -99,7 +99,7 @@ The following chapters present Best Practices for one particular topic:
 | `AD21` <a name="AD21"></a>| [STAC Processing Extension Specification, v1.1.0](https://github.com/stac-extensions/processing) |
 | `AD22` <a name="AD22"></a>| [STAC Hyperspectral Imagery Extension Specification, draft](https://github.com/stac-extensions/hsi) |
 | `AD23` <a name="AD23"></a>| [STAC Landsat Extension Specification, v1.1.1](https://landsat.usgs.gov/stac/landsat-extension/v1.1.1/schema.json) |
-| `AD24` <a name="AD24"></a>| [STAC Alternate Assets Extension Specification, v1.1.0](https://github.com/stac-extensions/alternate-assets) |
+| `AD24` <a name="AD24"></a>| [STAC Alternate Assets Extension Specification, v1.2.0](https://github.com/stac-extensions/alternate-assets) |
 | `AD25` <a name="AD25"></a>| [STAC Item Assets Definition Extension Specification, v1.0.0](https://github.com/stac-extensions/item-assets) |
 | `AD26` <a name="AD26"></a>| [STAC Web Map Links Extension Specification, v1.2.0](https://github.com/stac-extensions/web-map-links) |
 | `AD27` <a name="AD27"></a> |[STAC API - Free Text Search](https://github.com/stac-api-extensions/freetext-search)|
