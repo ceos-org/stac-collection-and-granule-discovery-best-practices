@@ -65,6 +65,7 @@ The following chapters present Best Practices for one particular topic:
 | `JSON` | JavaScript Object Notation  | 
 | `OGC` | Open Geospatial Consortium  | 
 | `OSDD` | OpenSearch Description Document  |
+| `S3` | Simple Storage Service  |
 | `STAC` | Spatiotemporal Asset Catalog  |
 | `WGISS` | Working Group on Information Systems and Services  | 
 
@@ -83,8 +84,8 @@ The following chapters present Best Practices for one particular topic:
 | `AD06` <a name="AD06"></a> | [STAC API - Filter Extension](https://github.com/stac-api-extensions/filter) |
 | `AD07` <a name="AD07"></a>| [STAC API - Collection Search](https://github.com/stac-api-extensions/collection-search) |
 | `AD08` <a name="AD08"></a> | [OGC17-069r3, OGC API - Features - Part 1: Core](https://docs.opengeospatial.org/is/17-069r3/17-069r3.html) | 
-| `AD09` <a name="AD09"></a> | [OGC17-079r1, OGC API - Features - Part 3: Filtering](https://docs.opengeospatial.org/DRAFTS/19-079r1.html)  | 
-| `AD10` <a name="AD10"></a> | [OGC21-065, Common Query Language (CQL2)](https://docs.ogc.org/DRAFTS/21-065.html)  | 
+| `AD09` <a name="AD09"></a> | [OGC17-079r2, OGC API - Features - Part 3: Filtering](https://docs.ogc.org/is/19-079r2/19-079r2.html)  | 
+| `AD10` <a name="AD10"></a> | [OGC21-065r2, Common Query Language (CQL2)](https://docs.ogc.org/is/21-065r2/21-065r2.html)  | 
 | `AD11` <a name="AD11"></a> | [RFC 7946 - The GeoJSON Format](https://datatracker.ietf.org/doc/html/rfc7946) | 
 | `AD12` <a name="AD12"></a>| [JSON Schema: A Media Type for Describing JSON Documents, draft-handrews-json-schema-02](https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02) |
 | `AD13` <a name="AD13"></a>| [STAC Scientific Citation Extension Specification, v1.0.0](https://github.com/stac-extensions/scientific) |
@@ -98,14 +99,15 @@ The following chapters present Best Practices for one particular topic:
 | `AD21` <a name="AD21"></a>| [STAC Processing Extension Specification, v1.1.0](https://github.com/stac-extensions/processing) |
 | `AD22` <a name="AD22"></a>| [STAC Hyperspectral Imagery Extension Specification, draft](https://github.com/stac-extensions/hsi) |
 | `AD23` <a name="AD23"></a>| [STAC Landsat Extension Specification, v1.1.1](https://landsat.usgs.gov/stac/landsat-extension/v1.1.1/schema.json) |
-| `AD24` <a name="AD24"></a>| [STAC Alternate Assets Extension Specification, v1.1.0](https://github.com/stac-extensions/alternate-assets) |
+| `AD24` <a name="AD24"></a>| [STAC Alternate Assets Extension Specification, v1.2.0](https://github.com/stac-extensions/alternate-assets) |
 | `AD25` <a name="AD25"></a>| [STAC Item Assets Definition Extension Specification, v1.0.0](https://github.com/stac-extensions/item-assets) |
 | `AD26` <a name="AD26"></a>| [STAC Web Map Links Extension Specification, v1.2.0](https://github.com/stac-extensions/web-map-links) |
-| `AD27` <a name="AD27"></a> |[STAC API - Free Text Search](https://github.com/cedadev/stac-freetext-search)|
+| `AD27` <a name="AD27"></a> |[STAC API - Free Text Search](https://github.com/stac-api-extensions/freetext-search)|
 | `AD28` <a name="AD28"></a>| [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) |
 | `AD29` <a name="AD29"></a>| [STAC Themes Extension Specification, v1.0.0](https://github.com/stac-extensions/themes) |
 | `AD30` <a name="AD30"></a>| [CEOS-ARD Product Family Specifications](https://ceos.org/ard) |
 | `AD31` <a name="AD31"></a>| [STAC Product Extension Specification, v0.1.0](https://github.com/stac-extensions/product) |
+| `AD32` <a name="AD32"></a>| [STAC Authentication Extension Specification, v1.1.0](https://github.com/stac-extensions/authentication) |
 
 
 ### 1.4.2 Reference documents
