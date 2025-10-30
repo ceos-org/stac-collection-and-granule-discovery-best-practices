@@ -108,7 +108,7 @@ The following chapters present Best Practices for one particular topic:
 | `AD30` <a name="AD30"></a>| [CEOS-ARD Product Family Specifications](https://ceos.org/ard) |
 | `AD31` <a name="AD31"></a>| [STAC Product Extension Specification, v0.1.0](https://github.com/stac-extensions/product) |
 | `AD32` <a name="AD32"></a>| [STAC Authentication Extension Specification, v1.1.0](https://github.com/stac-extensions/authentication) |
-| `AD32` <a name="AD33"></a>| [STAC Grid Extension Specification, v1.1.0](https://github.com/stac-extensions/grid) |
+| `AD33` <a name="AD33"></a>| [STAC Grid Extension Specification, v1.1.0](https://github.com/stac-extensions/grid) |
 
 
 ### 1.4.2 Reference documents
