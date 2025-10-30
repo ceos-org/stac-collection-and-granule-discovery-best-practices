@@ -278,6 +278,25 @@ Example: Asset object for Zarr data
     }
 }
 ```
+> **CEOS-STAC-REC-6420 - WMTS Offering [Recommendation]**<a name="BP-6420"></a>
+>
+> STAC implementations should indicate available data access via WMTS using a STAC Web Map Link as defined in [[AD26]](./introduction.md#AD26).
+
+.Example: Use of WMTS Web Map Link Extension
+```json
+{
+  "rel": "wmts",
+  "wmts:layer": ["TROPFOREST"],
+  "href": "https://eocat.esa.int/wmts08/1.0.0/TROPFOREST/{style}/{time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpgpng",
+  "type": "image/jpgpng",
+  "title": "TropForest product",
+  "wmts:dimensions": {
+    "TileMatrixSet": "WGS84",
+    "style": "default",
+    "time": "2009-08-12T13:51:29Z--2009-08-12T13:51:29Z"
+  }
+}
+```
 
 ## 6.5 Facilitating catalog federation
 
