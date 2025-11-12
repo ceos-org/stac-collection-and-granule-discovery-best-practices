@@ -20,6 +20,12 @@ The requirements and recommendations provided relate to:
 >
 > A(n EO) Collection metadata record shall be represented as a STAC Collection according to version v1.0.0 of the "STAC Collection Specification" [[AD02]](./introduction.md#AD02).
 
+> **CEOS-STAC-REQ-7212 - Collection title [Requirement]**<a name="BP-7212"></a>
+>
+> A Collection metadata record shall contain a meaningful `title` field.
+
+The above requirement is added as the `title` is optional in the STAC Collection specification.
+
 > **CEOS-STAC-REC-7215 - Collection metadata dates [Recommendation]**<a name="BP-7215"></a>
 >
 > A(n EO) Collection metadata record should encode metadata dates using the `$.created`, `$.updated` and `$.published` properties according to the "STAC Timestamps Extension Specification" [[AD20]](./introduction.md#AD20).
