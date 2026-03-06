@@ -90,7 +90,7 @@ The following chapters present Best Practices for one particular topic:
 | `AD12` <a name="AD12"></a>| [JSON Schema: A Media Type for Describing JSON Documents, draft-handrews-json-schema-02](https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02) |
 | `AD13` <a name="AD13"></a>| [STAC Scientific Citation Extension Specification, v1.0.0](https://github.com/stac-extensions/scientific) |
 | `AD14` <a name="AD14"></a>| [STAC Electro-Optical Extension Specification, v1.1.0](https://github.com/stac-extensions/eo) |
-| `AD15` <a name="AD15"></a>| [STAC SAR Extension Specification, v1.0.0](https://github.com/stac-extensions/sar) |
+| `AD15` <a name="AD15"></a>| [STAC SAR Extension Specification, v1.3.0](https://github.com/stac-extensions/sar) |
 | `AD16` <a name="AD16"></a>| [STAC Satellite Extension Specification, v1.0.0](https://github.com/stac-extensions/sat) |
 | `AD17` <a name="AD17"></a>| [STAC Versioning Indicators Extension Specification, v1.2.0](https://github.com/stac-extensions/version) |
 | `AD18` <a name="AD18"></a>| [STAC View Geometry Extension Specification, v1.0.0](https://github.com/stac-extensions/view) |
