@@ -90,24 +90,26 @@ The following chapters present Best Practices for one particular topic:
 | `AD12` <a name="AD12"></a>| [JSON Schema: A Media Type for Describing JSON Documents, draft-handrews-json-schema-02](https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02) |
 | `AD13` <a name="AD13"></a>| [STAC Scientific Citation Extension Specification, v1.0.0](https://github.com/stac-extensions/scientific) |
 | `AD14` <a name="AD14"></a>| [STAC Electro-Optical Extension Specification, v1.1.0](https://github.com/stac-extensions/eo) |
-| `AD15` <a name="AD15"></a>| [STAC SAR Extension Specification, v1.0.0](https://github.com/stac-extensions/sar) |
+| `AD15` <a name="AD15"></a>| [STAC SAR Extension Specification, v1.3.0](https://github.com/stac-extensions/sar) |
 | `AD16` <a name="AD16"></a>| [STAC Satellite Extension Specification, v1.0.0](https://github.com/stac-extensions/sat) |
 | `AD17` <a name="AD17"></a>| [STAC Versioning Indicators Extension Specification, v1.2.0](https://github.com/stac-extensions/version) |
 | `AD18` <a name="AD18"></a>| [STAC View Geometry Extension Specification, v1.0.0](https://github.com/stac-extensions/view) |
 | `AD19` <a name="AD19"></a>| [STAC Projection Extension Specification, v1.0.0](https://github.com/stac-extensions/projectionw) |
 | `AD20` <a name="AD20"></a>| [STAC Timestamps Extension Specification, v1.0.0](https://github.com/stac-extensions/timestamps) |
-| `AD21` <a name="AD21"></a>| [STAC Processing Extension Specification, v1.1.0](https://github.com/stac-extensions/processing) |
+| `AD21` <a name="AD21"></a>| [STAC Processing Extension Specification, v1.2.0](https://github.com/stac-extensions/processing) |
 | `AD22` <a name="AD22"></a>| [STAC Hyperspectral Imagery Extension Specification, draft](https://github.com/stac-extensions/hsi) |
 | `AD23` <a name="AD23"></a>| [STAC Landsat Extension Specification, v1.1.1](https://landsat.usgs.gov/stac/landsat-extension/v1.1.1/schema.json) |
 | `AD24` <a name="AD24"></a>| [STAC Alternate Assets Extension Specification, v1.2.0](https://github.com/stac-extensions/alternate-assets) |
 | `AD25` <a name="AD25"></a>| [STAC Item Assets Definition Extension Specification, v1.0.0](https://github.com/stac-extensions/item-assets) |
-| `AD26` <a name="AD26"></a>| [STAC Web Map Links Extension Specification, v1.2.0](https://github.com/stac-extensions/web-map-links) |
+| `AD26` <a name="AD26"></a>| [STAC Web Map Links Extension Specification, v1.3.0](https://github.com/stac-extensions/web-map-links) |
 | `AD27` <a name="AD27"></a> |[STAC API - Free Text Search](https://github.com/stac-api-extensions/freetext-search)|
 | `AD28` <a name="AD28"></a>| [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) |
 | `AD29` <a name="AD29"></a>| [STAC Themes Extension Specification, v1.0.0](https://github.com/stac-extensions/themes) |
 | `AD30` <a name="AD30"></a>| [CEOS-ARD Product Family Specifications](https://ceos.org/ard) |
-| `AD31` <a name="AD31"></a>| [STAC Product Extension Specification, v0.1.0](https://github.com/stac-extensions/product) |
+| `AD31` <a name="AD31"></a>| [STAC Product Extension Specification, v1.0.0](https://github.com/stac-extensions/product) |
 | `AD32` <a name="AD32"></a>| [STAC Authentication Extension Specification, v1.1.0](https://github.com/stac-extensions/authentication) |
+| `AD33` <a name="AD33"></a>| [STAC Grid Extension Specification, v1.1.0](https://github.com/stac-extensions/grid) |
+| `AD34` <a name="AD34"></a>| [STAC File Extension Specification, v2.1.0](https://github.com/stac-extensions/file) |
 
 
 ### 1.4.2 Reference documents
