@@ -191,6 +191,7 @@ Example: Asset object for Cloud Optimized GeoTIFF data
           "data"
       ],
       "href": "https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif",
+      "file:size": 352818,
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "4-Band Analytic"
   }
@@ -213,11 +214,14 @@ Example: Asset object for Zarr data
  }
 ```
 
+> **CEOS-STAC-REC-6335 - File size [Recommendation]**<a name="BP-6335"></a>
+>
+> STAC implementations should provide the size of the granule file accessible via an Asset object with role=`data` using the file:size property of the "STAC File Extension Specification" [[AD33]](./introduction.md#AD33)..
+
 
 > **CEOS-STAC-REC-6340 - Data access to multiple files [Recommendation]**<a name="BP-6340"></a>
 >
 > When data access to a granule in a granule search response is to be provided in multiple physical files, each file should be linked to via a separate Asset object with role=`data`.
-
 
 
 > **CEOS-STAC-REC-6360 - Alternate locations [Recommendation]**<a name="BP-6360"></a>
