@@ -109,9 +109,9 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
   "collection": "ALOS.AVNIR-2.L1C",
   "type": "Feature",
   "stac_extensions": [
-    "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+    "https://stac-extensions.github.io/sar/v1.3.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/product/v1.0.0/schema.json",
     "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json"
@@ -191,6 +191,7 @@ Example: Asset object for Cloud Optimized GeoTIFF data
           "data"
       ],
       "href": "https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif",
+      "file:size": 352818,
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "4-Band Analytic"
   }
@@ -213,11 +214,14 @@ Example: Asset object for Zarr data
  }
 ```
 
+> **CEOS-STAC-REC-6335 - File size [Recommendation]**<a name="BP-6335"></a>
+>
+> STAC implementations should provide the size of the granule file accessible via an Asset object with role=`data` using the file:size property of the "STAC File Extension Specification" [[AD33]](./introduction.md#AD33)..
+
 
 > **CEOS-STAC-REC-6340 - Data access to multiple files [Recommendation]**<a name="BP-6340"></a>
 >
 > When data access to a granule in a granule search response is to be provided in multiple physical files, each file should be linked to via a separate Asset object with role=`data`.
-
 
 
 > **CEOS-STAC-REC-6360 - Alternate locations [Recommendation]**<a name="BP-6360"></a>
@@ -276,6 +280,20 @@ Example: Asset object for Zarr data
     "wms:dimensions": {
         "time": "2023-10-04T01:04:20.174Z,2023-10-04T01:58:21.418Z",
     }
+}
+```
+> **CEOS-STAC-REC-6420 - WMTS Offering [Recommendation]**<a name="BP-6420"></a>
+>
+> STAC implementations should indicate available data access via WMTS using a STAC Web Map Link as defined in [[AD26]](./introduction.md#AD26).
+
+.Example: Use of WMTS Web Map Link Extension
+```json
+{
+  "wmts:encoding": "rest",
+  "uriTemplate": "https://eocat.esa.int/wmts08/1.0.0/PROBA1-CHRIS/default/2003-03-12T11:19:00Z--2003-03-12T11:23:00Z/WGS84/{TileMatrix}/{TileRow}/{TileCol}.jpgpng",
+  "rel": "wmts",
+  "wmts:layer": "PROBA1-CHRIS",
+  "href": "https://eocat.esa.int/wmts08/1.0.0/WMTSCapabilities.xml"
 }
 ```
 
