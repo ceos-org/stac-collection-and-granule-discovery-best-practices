@@ -242,4 +242,19 @@ The CEOS-ARD specifications are available as specification text and it doesn't p
 A community-lead project aims at providing a mapping between the CEOS-ARD requirements and existing STAC extensions, which can be used as a guideline for STAC implementations that aim for CEOS-ARD compliance.
 See the [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensions/ceos-ard) [[AD28]](./introduction.md#AD28) and its Optical and Radar profiles for details.
 
+> **CEOS-STAC-REC-7610 - CEOS-ARD PFS [Recommendation]**<a name="BP-7610"></a>
+>
+> The CEOS-ARD Product Family of a collection, if available, shall be encoded according to the STAC CEOS-ARD Extension Specification, i.e. using the `ceosard:specification` and `ceosard:specification_version` properties [[AD28]](./introduction.md#AD28).
+
+```json
+  "stac_extensions": [
+    "https://stac-extensions.github.io/ceos-ard/v0.2.0/schema.json"
+  ],
+  "title": "PROBA-V S10 TOC NDVI 333 m COG - Collection 2",
+  "type": "Collection",
+  "ceosard:specification": "SR",
+  "ceosard:specification_version": "5.0",
+  "ceosard:type": "optical"
+```
+
 [Previous](granule-metadata.md) | [Table of contents](README.md) | [Next](federation.md)
