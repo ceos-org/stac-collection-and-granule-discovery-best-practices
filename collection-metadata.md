@@ -132,7 +132,7 @@ If there is a need to advertise the provider email address then an `email` prope
   ]
 ```
 
-> **CEOS-STAC-REC-7270 - DOI [Recommendation]**<a name="BP-7270"></a>
+> **CEOS-STAC-REC-7270 - Processing Level [Recommendation]**<a name="BP-7270"></a>
 >
 > The processing level of a collection, if available, shall be encoded according to the Processing Extension Specification, i.e. using the `processing:level` property [[AD21]](./introduction.md#AD21).
 
