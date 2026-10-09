@@ -63,7 +63,7 @@ The `bbox` item property is mandatory according to the STAC Item specification u
 | [[AD23]](./introduction.md#AD23)  | [Landsat Extension](https://landsat.usgs.gov/stac/landsat-extension/schema.json)  | landsat:wrs_path, landsat:wrs_row |
 | [[AD21]](./introduction.md#AD21)  | [Processing Extension](https://github.com/stac-extensions/processing)  | processing:level, processing:facility, ... |
 | [[AD22]](./introduction.md#AD22)  | [Hyperspectral Extension](https://github.com/stac-extensions/hsi)  | hsi:wavelength_min, hsi:wavelength_max |
-| [[AD31]](./introduction.md#AD31)  | [Product Extension](https://github.com/stac-extensions/product)  | product:type |
+| [[AD31]](./introduction.md#AD31)  | [Product Extension](https://github.com/stac-extensions/product)  | product:acquisition_type, product:status, product:type |
 
 
 Additional guidance on how to encode OGC17-003r2 metadata properties with the above extensions is available in ["Mapping from OGC EO Dataset Metadata GeoJSON(-LD) Encoding Standard to STAC"](https://github.com/stac-utils/stac-crosswalks/tree/master/OGC_17-003r2). 
@@ -111,7 +111,7 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
   "stac_extensions": [
     "https://stac-extensions.github.io/sar/v1.3.0/schema.json",
     "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
-    "https://stac-extensions.github.io/product/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/product/v1.1.0/schema.json",
     "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json"
@@ -132,6 +132,8 @@ Additional guidance on how to encode OGC17-003r2 metadata properties with the ab
     ],
     "constellation": "ALOS",
     "product:type": "AV2_OBS_1C",
+    "product:status": "archived",
+    "product:acquisition_type": "nominal",
     "sat:orbit_state": "DESCENDING",
     "processing:software": {
       "AVNIR-2": "04.10"
