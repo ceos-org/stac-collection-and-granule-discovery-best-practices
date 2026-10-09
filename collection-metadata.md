@@ -244,7 +244,7 @@ See the [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensio
 
 > **CEOS-STAC-REC-7610 - CEOS-ARD PFS [Recommendation]**<a name="BP-7610"></a>
 >
-> The CEOS-ARD Product Family of a collection, if available, should be encoded according to the STAC CEOS-ARD Extension Specification, i.e. using the `ceosard:specification` and `ceosard:specification_version` properties [[AD28]](./introduction.md#AD28).
+> The CEOS-ARD Product Family Specification a collection is compliant with, should be encoded according to the STAC CEOS-ARD Extension Specification, i.e. using the `ceosard:specification` and `ceosard:specification_version` properties [[AD28]](./introduction.md#AD28).
 
 ```json
   "stac_extensions": [
