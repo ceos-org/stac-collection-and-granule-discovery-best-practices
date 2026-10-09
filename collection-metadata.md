@@ -134,7 +134,7 @@ If there is a need to advertise the provider email address then an `email` prope
 
 > **CEOS-STAC-REC-7270 - Processing Level [Recommendation]**<a name="BP-7270"></a>
 >
-> The processing level of a collection, if available, shall be encoded according to the Processing Extension Specification, i.e. using the `processing:level` property [[AD21]](./introduction.md#AD21).
+> The processing level of a collection, if available, should be encoded according to the Processing Extension Specification, i.e. using the `processing:level` property [[AD21]](./introduction.md#AD21).
 
 ```json
   "id": "BiomassLevel1a",
@@ -244,7 +244,7 @@ See the [STAC CEOS-ARD Extension Specification](https://github.com/stac-extensio
 
 > **CEOS-STAC-REC-7610 - CEOS-ARD PFS [Recommendation]**<a name="BP-7610"></a>
 >
-> The CEOS-ARD Product Family of a collection, if available, shall be encoded according to the STAC CEOS-ARD Extension Specification, i.e. using the `ceosard:specification` and `ceosard:specification_version` properties [[AD28]](./introduction.md#AD28).
+> The CEOS-ARD Product Family of a collection, if available, should be encoded according to the STAC CEOS-ARD Extension Specification, i.e. using the `ceosard:specification` and `ceosard:specification_version` properties [[AD28]](./introduction.md#AD28).
 
 ```json
   "stac_extensions": [
