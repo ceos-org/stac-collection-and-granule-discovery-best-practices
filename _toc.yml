@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+#  - caption: ESA Thesauri
+#    chapters:
+#    - file: thesauri
+  - caption: STAC Collection and Granule Discovery Best Practices
+    chapters:
+    - file: introduction.md 
+    - file: objectives-needs.md
+    - file: best-practices.md  
+    - file: granule-catalogs.md
+    - file: collection-catalogs.md
+    - file: granule-metadata.md
+    - file: collection-metadata.md
+    - file: federation.md

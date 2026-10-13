@@ -1,0 +1,5 @@
+# Jupyter Book 2.x (Nov 2025) is a different, mystmd-based tool and does not
+# read this book's _config.yml / _toc.yml. Stay on the 1.x line until the book
+# is migrated to a myst.yml project.
+jupyter-book<2
+pandas
