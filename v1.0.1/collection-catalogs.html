@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Collection Catalog Best Practices &#8212; CEOS Collection and Granule Discovery Best Practices</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'collection-catalogs';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Granule Metadata Best Practices" href="granule-metadata.html" />
+    <link rel="prev" title="4 Granule Catalog Best Practices" href="granule-catalogs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">STAC Collection and Granule Discovery Best Practices</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objectives-needs.html">2. Objectives and needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices.html">3. Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="granule-catalogs.html">4 Granule Catalog Best Practices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Collection Catalog Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="granule-metadata.html">6. Granule Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection-metadata.html">7. Collection Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="federation.html">8. Federation Best Practices</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ceos-org/stac-collection-and-granule-discovery-best-practices" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/collection-catalogs.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Collection Catalog Best Practices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">5.1 Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-catalog-without-search-interface">5.2 Collection catalog without search interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-catalog-with-search-interface">5.3 Collection catalog with search interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-search-request">5.3.1 Collection search request</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#search-parameters">Search parameters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-search-response">5.3.2 Collection search response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-step-search">5.3.3 Two-step search</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a class="reference internal" href="granule-catalogs.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="granule-metadata.html"><span class="std std-doc">Next</span></a></p>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="collection-catalog-best-practices">
+<h1>5. Collection Catalog Best Practices<a class="headerlink" href="#collection-catalog-best-practices" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>5.1 Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>STAC implementations may provide the corresponding collection metadata information as a static collection catalog (landing page with a hierarchy of collections referenced with rel=”child”), as a flat list of collections (rel=”data”) or via a collection catalog with collection search interface.  The current chapter presents the requirements and recommendations that apply to STAC collection catalogs in addition to the general catalog requirements presented in <a class="reference internal" href="best-practices.html#32-catalog-best-practices"><span class="std std-ref">Catalog Best Practices</span></a>.</p>
+</section>
+<section id="collection-catalog-without-search-interface">
+<h2>5.2 Collection catalog without search interface<a class="headerlink" href="#collection-catalog-without-search-interface" title="Link to this heading">#</a></h2>
+<p>EO collections represented as STAC collections can be made available as a STAC Catalog in different ways as depicted below:</p>
+<ul class="simple">
+<li><p>Through a hierarchy of catalogs or collections with the rel=”child” relation.</p></li>
+<li><p>As a list of collections available via the rel=”data” relation.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Hierarchy of catalogs and collections" src="_images/objects-collection-catalog-child.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><em>Method 1: Using rel=”child”</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="List of collectio" src="_images/objects-collection-catalog-data.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><em>Method 2: Using rel=”data”</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Implementations may combine both mechanisms and allow the same EO collection to be found via the collection hierarchy or the collection list.
+Implementations intending to support collection search are to support at least Method 2 and the corresponding endpoint.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5210 - Collection access [Requirement]</strong><a name="BP-5210"></a></p>
+<p>A CEOS STAC catalog shall support access to collection metadata from the catalog landing page using the rel=”child” or rel=”data” approach depicted above or both approaches combined.</p>
+</div></blockquote>
+<p>Note: When publishing a single collection, the collection and the landing page may be combined in a single JSON file.</p>
+</section>
+<section id="collection-catalog-with-search-interface">
+<h2>5.3 Collection catalog with search interface<a class="headerlink" href="#collection-catalog-with-search-interface" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>CEOS-STAC-CREQ-5320 - Collections endpoint [Conditional]</strong><a name="BP-5320"></a></p>
+<p>A CEOS STAC catalog supporting collection search shall advertise the search endpoint for collections in the landing page with rel=”data” (most often <code class="docutils literal notranslate"><span class="pre">/collections</span></code>), type=”application/json” and declare the corresponding collection search conformance classes in the landing page.  See “STAC API Collection Search” <a class="reference internal" href="introduction.html#AD07"><span class="std std-ref">[AD07]</span></a>.</p>
+</div></blockquote>
+<p>The above endpoint is further referred to as the <code class="docutils literal notranslate"><span class="pre">collections</span> <span class="pre">endpoint</span></code>.</p>
+<p>Conformance encoding example</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;conformsTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+
+<span class="w">    </span><span class="s2">&quot;http://www.opengis.net/spec/ogcapi_common-2/1.0/conf/collections&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;http://www.opengis.net/spec/ogcapi-records-1/1.0/req/cql-filter&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://api.stacspec.org/v1.0.0-rc.2/collection-search&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://api.stacspec.org/v1.0.0-rc.2/collection-search#filter&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://api.stacspec.org/v1.0.0-rc.1/collection-search#free-text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;http://www.opengis.net/spec/cql2/1.0/conf/cql2-text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;http://www.opengis.net/spec/cql2/1.0/conf/basic-cql2&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="collection-search-request">
+<h3>5.3.1 Collection search request<a class="headerlink" href="#collection-search-request" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5330 - Collection search method [Requirement]</strong><a name="BP-5330"></a></p>
+<p>A CEOS STAC collection catalog shall support collection searches at the <code class="docutils literal notranslate"><span class="pre">collections</span> <span class="pre">endpoint</span></code> (rel=”data”) using the HTTP <code class="docutils literal notranslate"><span class="pre">GET</span></code> method.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">/collections</span></code> is typically used for the above endpoint, but this is not required.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-5335 - Collection search endpoint [Recommendation]</strong><a name="BP-5335"></a></p>
+<p>A CEOS STAC collection catalog should make its <code class="docutils literal notranslate"><span class="pre">collections</span> <span class="pre">endpoint</span></code> (rel=”data”) available at ‘/collections’.</p>
+</div></blockquote>
+<section id="search-parameters">
+<h4>Search parameters<a class="headerlink" href="#search-parameters" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5340 - Supported search parameters [Requirement]</strong><a name="BP-5340"></a></p>
+<p>The STAC-API and OGC API-Features specifications define a list of fundamental search parameters.  From these specifications, a CEOS STAC collection catalog shall support the following minimum set of search parameters for “collection” search at the collections endpoint:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bbox</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></li>
+</ul>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5360 - Free text search [Requirement]</strong><a name="BP-5360"></a></p>
+<p>For supporting free text searches, a CEOS STAC collection catalog shall advertise support for the HTTP query parameter <code class="docutils literal notranslate"><span class="pre">q</span></code> as in “STAC API Collection Search” <a class="reference internal" href="introduction.html#AD07"><span class="std std-ref">[AD07]</span></a>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-CREQ-5370 - Collection queryables [Conditional]</strong><a name="BP-5370"></a></p>
+<p>A CEOS STAC collection catalog supporting additional queryables for collection search shall return the link to the Queryables object with the list of queryables that can be used in a filter expression via a link object in the collection search response with rel=”<a class="reference external" href="http://www.opengis.net/def/rel/ogc/1.0/queryables">http://www.opengis.net/def/rel/ogc/1.0/queryables</a>” and type=”application/schema+json” (See also “STAC API Collection Search” <a class="reference internal" href="introduction.html#AD07"><span class="std std-ref">[AD07]</span></a>.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="collection-search-response">
+<h3>5.3.2 Collection search response<a class="headerlink" href="#collection-search-response" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5372 - Collection search response representation [Requirement]</strong><a name="BP-5372"></a></p>
+<p>A collection search response shall be represented as a JSON object according to the “STAC API - Collection Search” <a class="reference internal" href="introduction.html#AD07"><span class="std std-ref">[AD07]</span></a>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5373 - Allow for collection search-by-id [Requirement]</strong><a name="BP-5373"></a></p>
+<p>The $.collections[].id property in a collection search response shall allow to navigate to a single collection using the <code class="docutils literal notranslate"><span class="pre">id</span></code> as a path parameter appended to the collection search endpoint (rel=’data’) e.g. /collections/{id}.</p>
+</div></blockquote>
+<p>Search-by-id makes the following use cases possible:</p>
+<ul class="simple">
+<li><p>The ability to provide a link pointing to a single catalog item (using a URL) on a web page that illustrates a particular event (e.g. an earthquake in the Himalayas).</p></li>
+<li><p>The ability to bookmark and retrieve a single item.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5374 - Collection search response representation [Requirement]</strong><a name="BP-5374"></a></p>
+<p>Collections included in a collection search response shall be represented according to the <a class="reference internal" href="collection-metadata.html"><span class="std std-doc">“CEOS STAC Collection Metadata Best Practices”</span></a>.</p>
+</div></blockquote>
+</section>
+<section id="two-step-search">
+<h3>5.3.3 Two-step search<a class="headerlink" href="#two-step-search" title="Link to this heading">#</a></h3>
+<p>Traditionally, we have partitioned data into hierarchies for organizational purposes. The notion of datasets and files or collections and granules allows us to group similar assets to ease the archival and curation of data.</p>
+<p>This hierarchy can also be leveraged for discovery purposes. A general use case for discovery is to find a measurement (sea surface temperature, NDVI etc.) associated with a spatial and temporal area of interest. Querying a large archive in such a manner would potentially yield a large number of results with a low precision. This is because the measurement clause of our query can often yield low precision results.</p>
+<p>Generally, these query parameters map successfully to explicit parts of our data’s organizational hierarchy. Measurements are generally defined at the collection level and spatial and temporal extents at the granule level.</p>
+<p>Furthermore, measurement query precision is low while spatial-temporal querying of files is high.</p>
+<p>Example: A sea surface temperature query yields 100 possible collections and each one of those had 500 granules in the area of interest we have 50K results to assess. If only 10 of those collections had the correct form of sea surface temperature then we have 40K invalid results that need to be checked.</p>
+<p>If we break up the search into a collection search then a granule search then we have as follows,</p>
+<p>A sea surface temperature query yields 100 possible collections. Only 10 of those results are correct so only 90 invalid results nee to be checked. Then a granule search is performed for each of the 10 correct collections. Since spatio-temporal searching of files yields high precision the confidence in those results is also high.</p>
+<p>This is why many earth science search engines offer a two-step search mechanism. It decreases the risk of low precision results.</p>
+<p>For search federation we exploit the two-step mechanism in another way. Collection searches are resolved at a centralized repository that contains the collection-level metadata of all participating agencies and organizations. The results of such searches embed file-level search endpoints at the agency/organization responsible for the data of that collection.</p>
+<p>The collection search occurs at the centralized repository and the granule searches occur at the federated repositories.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-5380 - Support for two step search [Recommendation]</strong><a name="BP-5380"></a></p>
+<p>Support for a two-step search consisting of a collection level search followed by a corresponding granule level search is recommended.</p>
+</div></blockquote>
+<p>The two-step search consists of a collection level search and the subsequent granule level search
+(or file-level search).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Two step search" src="_images/two-step.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><em>Two Step Search</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In order to provide a well-defined search path from a collection of interest to granules associated
+with that collection, we advocate the use of two-step searching leveraging the following:</p>
+<ol class="arabic simple">
+<li><p>Link elements of relation items (rel=’items’) within collection entries. These links point
+to a granule-level endpoint specific to the collection entry.</p></li>
+<li><p>Link elements of relation queryables (rel=’queryables’) within collection entries. These links point
+to available granule-level search parameters specific to the collection entry.</p></li>
+<li><p>Granule level interface descriptions (i.e. endpoints and sets of search parameters) that can be tailored to a specific collection.</p></li>
+</ol>
+<p>The advantages of this approach are as follows:</p>
+<ul class="simple">
+<li><p>A client can navigate from collection to granule with only an understanding of the STAC specification.</p></li>
+<li><p>A server links between collections and granules exploiting the relation between a STAC Collection and a STAC Item.</p></li>
+<li><p>It allows the client to determine what search parameters are available to the user at the
+granule level using the /queryables response.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5390 - Support for granule search [Requirement]</strong><a name="BP-5390"></a></p>
+<p>Collections supporting two-step search shall contain a link with rel=”items” and type=”application/geo+json” in the STAC collection representation returned by the collection search.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-5392 - Support for granule search [Recommendation]</strong><a name="BP-5392"></a></p>
+<p>Collections supporting granule search should contain a link with rel=”<a class="reference external" href="http://www.opengis.net/def/rel/ogc/1.0/queryables">http://www.opengis.net/def/rel/ogc/1.0/queryables</a>” and type=”application/schema+json” in the STAC collection representation returned by the collection search.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5393 - Support for granule search [Requirement]</strong><a name="BP-5393"></a></p>
+<p>STAC Granule Catalogs shall advertise all “additional” collection specific search/filter parameters applicable for a granule search within a collection (if any) in the corresponding queryables object for that collection and not rely on a global set of queryables applicable to all collections made available via a link with rel=”<a class="reference external" href="http://www.opengis.net/def/rel/ogc/1.0/queryables">http://www.opengis.net/def/rel/ogc/1.0/queryables</a>” from the landing page (typically “/collections/{collectionId}/queryables” instead of “/queryables”), to be combined with a collection-specific set (which may be empty).</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-5395 - Support for granule search [Requirement]</strong><a name="BP-5395"></a></p>
+<p>Collections not supporting granule search shall not contain a link rel=”items” and type=”application/geo+json” in the STAC collection representation returned by the collection search.</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="granule-catalogs.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="granule-metadata.html"><span class="std std-doc">Next</span></a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="granule-catalogs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4 Granule Catalog Best Practices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="granule-metadata.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. Granule Metadata Best Practices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">5.1 Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-catalog-without-search-interface">5.2 Collection catalog without search interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-catalog-with-search-interface">5.3 Collection catalog with search interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-search-request">5.3.1 Collection search request</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#search-parameters">Search parameters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-search-response">5.3.2 Collection search response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-step-search">5.3.3 Two-step search</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By CEOS WGISS DAIG
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

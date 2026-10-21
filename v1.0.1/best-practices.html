@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Best Practices &#8212; CEOS Collection and Granule Discovery Best Practices</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'best-practices';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4 Granule Catalog Best Practices" href="granule-catalogs.html" />
+    <link rel="prev" title="2. Objectives and needs" href="objectives-needs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">STAC Collection and Granule Discovery Best Practices</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objectives-needs.html">2. Objectives and needs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="granule-catalogs.html">4 Granule Catalog Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection-catalogs.html">5. Collection Catalog Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="granule-metadata.html">6. Granule Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection-metadata.html">7. Collection Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="federation.html">8. Federation Best Practices</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ceos-org/stac-collection-and-granule-discovery-best-practices" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/best-practices.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3. Best Practices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">3.1 Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog-best-practices">3.2 Catalog Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advertising-additional-search-parameters">3.2.1 Advertising additional search parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-response">3.2.2 Search response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-best-practices">3.3 Metadata Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">3.3.1 Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-and-roles">3.3.2 Assets and roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links-and-relations">3.3.3 Links and relations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facilitating-catalog-federation">3.3.4 Facilitating catalog federation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a class="reference internal" href="objectives-needs.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="granule-catalogs.html"><span class="std std-doc">Next</span></a></p>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="best-practices">
+<h1>3. Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>3.1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>There are three different levels of obligation for the Best Practices presented in this document:</p>
+<ul class="simple">
+<li><p>“Requirements” (<code class="docutils literal notranslate"><span class="pre">REQ</span></code>) are mandatory and must be implemented,</p></li>
+<li><p>“Conditional requirements” (<code class="docutils literal notranslate"><span class="pre">CREQ</span></code>) are only mandatory in certain contexts or under certain conditions,</p></li>
+<li><p>“Recommendations” (<code class="docutils literal notranslate"><span class="pre">REC</span></code>) are optional, but strongly recommended for interoperability.</p></li>
+</ul>
+<p>In addition, “Permissions” (<code class="docutils literal notranslate"><span class="pre">PER</span></code>) indicate allowed deviations from one of more of the underlying specifications in cases where a subset of the original requirements is deemed sufficient in the context of CEOS.</p>
+</section>
+<section id="catalog-best-practices">
+<h2>3.2 Catalog Best Practices<a class="headerlink" href="#catalog-best-practices" title="Link to this heading">#</a></h2>
+<p>The Best Practices described in this section apply to both <code class="docutils literal notranslate"><span class="pre">CEOS</span> <span class="pre">STAC</span> <span class="pre">Collection</span> <span class="pre">Catalogs</span></code> and <code class="docutils literal notranslate"><span class="pre">CEOS</span> <span class="pre">STAC</span> <span class="pre">Granule</span> <span class="pre">Catalogs</span></code>.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-PER-3210 - API Feature paths [Permission]</strong><a name="BP-3210"></a></p>
+<p>A CEOS STAC catalog implementation is not required to use fixed paths to navigate from resource to resource. It shall support discovering the path via the proper relation (rel=”xyz”) in the corresponding resource’s representation.</p>
+</div></blockquote>
+<p>For example, the rel=”items” path for a collection is not necessarily collection path with “/items” appended but may be the path to a different API at a different location.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-PER-3220 - API Feature relations [Permission]</strong><a name="BP-3220"></a></p>
+<p>A CEOS STAC catalog implementation is not required to:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Support the /api path or provide an OpenAPI description of its interface</p></li>
+<li><p>Support the rel=”service-desc” from its landing page (root catalog)</p></li>
+<li><p>Support the /conformance path</p></li>
+<li><p>Support the rel=”conformance” from its landing page (root catalog)</p></li>
+</ul>
+<section id="advertising-additional-search-parameters">
+<h3>3.2.1 Advertising additional search parameters<a class="headerlink" href="#advertising-additional-search-parameters" title="Link to this heading">#</a></h3>
+<p>The STAC API and underlying OGC API specifications define the list of search parameters to be supported.  Catalog implementations may however support additional parameters the meaning/intepretation of which is not defined by these specifications.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-CREQ-3230 - Additional search parameters [Conditional]</strong><a name="BP-3230"></a></p>
+<p>A CEOS STAC collection/granule catalog supporting additional search parameters shall implement the “STAC API Filter Extension” <a class="reference internal" href="introduction.html#AD06"><span class="std std-ref">[AD06]</span></a>, i.e.:</p>
+<ul class="simple">
+<li><p>Advertise the additional filter parameters via the corresponding Queryables responses (JSON Schema),</p></li>
+<li><p>Use the additional filter parameters inside the filter expression passed via the <code class="docutils literal notranslate"><span class="pre">filter</span></code> (HTTP) query parameter.</p></li>
+</ul>
+</div></blockquote>
+<p>The endpoint to which the above additional parameters apply depends on the context: i.e. collection search, granule search via rel=”items” endpoint or granule search via the rel=”search” endpoint.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-3235 - Parameter Descriptions [Requirement]</strong><a name="BP-3235"></a></p>
+<p>The GET response for the rel=<code class="docutils literal notranslate"><span class="pre">queryables</span></code> endpoint in application/schema+json representation shall provide additional information about search parameters including:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> of the parameter (e.g. array, string, integer, number, …)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code> of the parameter providing a human readable title.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span></code> of the string parameter (e.g. “uri”, “date-time”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enum</span></code> to enumerate valid (string) values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minItems</span></code>, <code class="docutils literal notranslate"><span class="pre">maxItems</span></code> to constrain the size of arrays</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">maximum</span></code> to constrain the range of a numerical parameter</p></li>
+</ul>
+<p>It is not allowed to constrain the values of temporal search parameters using “minimum” and “maximum” in the JSON schema returned by the rel=<code class="docutils literal notranslate"><span class="pre">queryables</span></code> endpoint of a collection.  STAC client implementations are therefore recommended to constrain the range of the temporal search parameters using the temporal interval information advertised in the STAC collection metadata.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-CREQ-3240 - Additional search parameters [Conditional]</strong><a name="BP-3240"></a></p>
+<p>A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support the following additional query parameters and advertise the corresponding conformance classes in the landing page (See also “STAC API Filter Extension” <a class="reference internal" href="introduction.html#AD06"><span class="std std-ref">[AD06]</span></a>:</p>
+<ul class="simple">
+<li><p>filter</p></li>
+<li><p>filter-lang</p></li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-CREQ-3250 - CQL subset [Conditional]</strong><a name="BP-3250"></a></p>
+<p>A CEOS STAC collection/granule catalog supporting additional search parameters via a filter expression shall support at least the following conformance classes of CQL2 (See also “STAC API Filter Extension” <a class="reference internal" href="introduction.html#AD06"><span class="std std-ref">[AD06]</span></a> and “OGC21-065, Common Query Language (CQL2)” <a class="reference internal" href="introduction.html#AD10"><span class="std std-ref">[AD10]</span></a>:</p>
+<ul class="simple">
+<li><p>CQL2 Text</p></li>
+<li><p>Basic CQL2</p></li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3255 - Additional search parameter names [Recommendation]</strong><a name="BP-3255"></a></p>
+<p>A CEOS STAC collection/granule catalog supporting additional search parameters for collection search (e.g. search by platform, instrument, organisation) or granule search (e.g. by polarisation mode, orbit direction, orbit number, cloud cover, etc.) should, by preference, use names consistent with the names defined in the OpenSearch extension for Earth Observation OGC 13-026r9 <a class="reference internal" href="introduction.html#RD04"><span class="std std-ref">[RD04]</span></a>.</p>
+</div></blockquote>
+<p>To facilitate migration from OpenSearch Description Document implementations to the STAC Filter extension with Queryables, definitions of most OGC 13-026r9 search parameters in the format understood by the Filter extension are available as <a class="reference download internal" download="" href="_downloads/123ca5744727efbe6998869bf97943e3/opensearch-eo.yaml"><span class="xref download myst">queryable definitions in YAML format</span></a> (with additional comments) and <a class="reference download internal" download="" href="_downloads/45072a93136ba73c392e90266e304e42/opensearch-eo.json"><span class="xref download myst">queryable definitions in JSON format</span></a>.</p>
+<p>In principle, these definitions can be reused via the <code class="docutils literal notranslate"><span class="pre">$ref</span></code> field in a /queryables response as shown in the example below.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nt">&quot;acquisitionType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Used to distinguish the appropriateness of the acquisition for &#39;general&#39; use, whether the product is a nominal acquisition, special calibration product or other.&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#/properties/acquisitionType&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>However, the approach above is <a class="reference external" href="https://github.com/stac-api-extensions/filter/issues/12">known to complicate implementation of search clients</a>.   Therefore, the JSON schemas returned by servers should dereference such references and should return a complete, standalone JSON Schema instead.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3260 - Standalone JSON Schema [Recommendation]</strong><a name="BP-3260"></a></p>
+<p>CEOS STAC catalog server /queryables responses should contain a stand-alone JSON schema without <code class="docutils literal notranslate"><span class="pre">$ref</span></code>.</p>
+</div></blockquote>
+<p>The above definition of the acquisitionType (<code class="docutils literal notranslate"><span class="pre">http://a9.com/-/opensearch/extensions/eo/1.0/acquisitionType</span></code>) parameter with dereferenced reference then corresponds to the example below.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nt">&quot;acquisitionType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Used to distinguish the appropriateness of the acquisition for &#39;general&#39; use, whether the product is a nominal acquisition, special calibration product or other.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/ceos-wgiss/stac-best-practices/main/schemas/opensearch-eo.json#/properties/acquisitionType&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Acquisition type&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">         </span><span class="s2">&quot;NOMINAL&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="s2">&quot;CALIBRATION&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="s2">&quot;OTHER&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">$id</span></code> field is recommended to be included to have an explicit reference to the original definition of the parameter.  The <code class="docutils literal notranslate"><span class="pre">$id</span></code> allows federating clients to compare or group queryables offered by servers/collections from different providers, encourages data providers to refer to and reuse the same (OGC) definitions for EO search parameters with the same meaning, and allows servers to decouple the actual parameter name from the name included as the end of the <code class="docutils literal notranslate"><span class="pre">$id</span></code>.</p>
+</section>
+<section id="search-response">
+<h3>3.2.2 Search response<a class="headerlink" href="#search-response" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-3265 - numberMatched [Requirement]</strong><a name="BP-3265"></a></p>
+<p>A CEOS STAC catalog search response shall include the <code class="docutils literal notranslate"><span class="pre">numberMatched</span></code> property providing the number of items meeting the selection parameters, possibly estimated.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3270 - numberReturned [Recommendation]</strong><a name="BP-3270"></a></p>
+<p>A CEOS STAC catalog search response should include the <code class="docutils literal notranslate"><span class="pre">numberReturned</span></code> property.</p>
+</div></blockquote>
+<p>Both properties are optional in <a class="github reference external" href="https://github.com/radiantearth/stac-api-spec/blob/main/fragments/itemcollection/README.md">radiantearth/stac-api-spec</a>.
+The above Best Practices apply to all available search endpoints e.g. at rel=”data”, rel=”items” or rel=”search”.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-3280 - Result set navigation [Requirement]</strong><a name="BP-3280"></a></p>
+<p>The $.links array in a search response shall include Link objects for navigating the search result set when the result set is too large to fit a single response using hyperlinks rel=’next’.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3290 - Result set navigation [Recommendation]</strong><a name="BP-3290"></a></p>
+<p>The $.links array in a search response should include Link objects for navigating the search result set when the result set is too large to fit a single response using hyperlinks rel=’self’, rel=’prev’, rel=’first’, rel=’last’.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3295 - Result set navigation [Recommendation]</strong><a name="BP-3295"></a></p>
+<p>Implementations may decide to only implement forward traversal via navigation/paging links. The $.links array in a search response should include Link objects for navigating the search result set when the result set is too large to fit a single response using hyperlinks rel=’self’, rel=’prev’, rel=’next’, rel=’first’, rel=’last’ per result page as shown below.</p>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Use case</strong></p></th>
+<th class="head"><p><strong>first</strong></p></th>
+<th class="head"><p><strong>prev</strong></p></th>
+<th class="head"><p><strong>self</strong></p></th>
+<th class="head"><p><strong>next</strong></p></th>
+<th class="head"><p><strong>last</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>First page</p></td>
+<td><p>Optional</p></td>
+<td><p>Not allowed</p></td>
+<td><p>Mandatory</p></td>
+<td><p>Mandatory</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>Middle pages</p></td>
+<td><p>Optional</p></td>
+<td><p>Optional</p></td>
+<td><p>Mandatory</p></td>
+<td><p>Mandatory</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>Last page</p></td>
+<td><p>Optional</p></td>
+<td><p>Optional</p></td>
+<td><p>Mandatory</p></td>
+<td><p>Not allowed</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>Empty result set</p></td>
+<td><p>Not allowed</p></td>
+<td><p>Not allowed</p></td>
+<td><p>Mandatory</p></td>
+<td><p>Not allowed</p></td>
+<td><p>Not allowed</p></td>
+</tr>
+<tr class="row-even"><td><p>Single page</p></td>
+<td><p>Optional</p></td>
+<td><p>Not allowed</p></td>
+<td><p>Mandatory</p></td>
+<td><p>Not allowed</p></td>
+<td><p>Optional</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3297 - Exceptions [Recommendation]</strong><a name="BP-3297"></a></p>
+<p>A CEOS STAC catalog search response in case of exception shall return the applicable HTTP status code and a JSON response with the following members:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>“code” (string): mandatory.</p></li>
+<li><p>“description” (string): optional.</p></li>
+</ul>
+<p>Although this is only explicitly defined as <a class="reference external" href="https://api.stacspec.org/v1.0.0/item-search/#tag/Item-Search/operation/getItemSearch">exception response structure for the rel=”search” endpoint</a>, it is good practice to provide similar (JSON) response bodies at the other endpoints, including rel=”items” and rel=”data”.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3299 - Alternative response formats [Recommendation]</strong><a name="BP-3299"></a></p>
+<p>A CEOS STAC catalog supporting alternative response formats shall allow this via content negotiation and use common media types also used for assets and links as referenced in the current Best Practices document (See <a class="reference internal" href="#BP-3325"><span class="xref myst">Link and Asset type</span></a>).</p>
+</div></blockquote>
+</section>
+</section>
+<section id="metadata-best-practices">
+<h2>3.3 Metadata Best Practices<a class="headerlink" href="#metadata-best-practices" title="Link to this heading">#</a></h2>
+<p>The Best Practices described in this section apply to <a class="reference internal" href="collection-metadata.html"><span class="std std-doc">CEOS STAC Collection Metadata</span></a> and <a class="reference internal" href="granule-metadata.html"><span class="std std-doc">CEOS STAC Granule Metadata</span></a>.</p>
+<section id="properties">
+<h3>3.3.1 Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3305 - Common metadata [Recommendation]</strong><a name="BP-3305"></a></p>
+<p>CEOS implementations should encode the following <a class="reference external" href="https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#instrument">STAC common metadata properties</a> in granule or collection representations with a name corresponding to the preferred label defined in the corresponding GCMD keyword scheme:</p>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Field name</strong></p></th>
+<th class="head"><p><strong>GCMD keyword scheme</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>platform</p></td>
+<td><p><a class="reference external" href="https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms">GCMD platform</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>instruments[]</p></td>
+<td><p><a class="reference external" href="https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/instruments?gtm_scheme=instruments">GCMD instrument</a></p></td>
+</tr>
+<tr class="row-even"><td><p>constellation</p></td>
+<td><p><a class="reference external" href="https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms">GCMD platform</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>mission</p></td>
+<td><p><a class="reference external" href="https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/platforms?gtm_scheme=platforms">GCMD platform</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3308 - Controlled keywords [Recommendation]</strong><a name="BP-3308"></a></p>
+<p>CEOS implementations should encode controlled keywords in granule or collection representations using the STAC Themes Extension Specification <a class="reference internal" href="introduction.html#AD29"><span class="std std-ref">[AD29]</span></a>.</p>
+</div></blockquote>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;themes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;concepts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;35433dcc-ccdd-5b28-a777-52658c74367d&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Atmospheric Pressure&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://earth.esa.int/concept/35433dcc-ccdd-5b28-a777-52658c74367d&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;068e361e-639e-5823-8219-f8ee3e90c4d7&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Atmospheric Chemistry&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://earth.esa.int/concept/068e361e-639e-5823-8219-f8ee3e90c4d7&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://earth.esa.int/concepts/concept_scheme/earth-topics&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;concepts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b9c56939-c624-467d-b196-e56a5b660334&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ATMOSPHERIC CHEMISTRY&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://gcmd.earthdata.nasa.gov/kms/concept/b9c56939-c624-467d-b196-e56a5b660334&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="assets-and-roles">
+<h3>3.3.2 Assets and roles<a class="headerlink" href="#assets-and-roles" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-3310 - Resource associations [Requirement]</strong><a name="BP-3310"></a></p>
+<p>If a resource association can be encoded as Assets (e.g. role=”metadata”) or Link (e.g. rel=”icon”, rel=”alternate”), STAC implementations shall give precedence to the encoding as Asset.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-3320 - Metadata assets [Requirement]</strong><a name="BP-3320"></a></p>
+<p>CEOS STAC implementations shall provide a URL of the collection or granule metadata encoding in a particular standard representation (if available), via an Asset object with role=<code class="docutils literal notranslate"><span class="pre">metadata</span></code>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-3325 - Link and Asset type attributes [Requirement]</strong><a name="BP-3325"></a></p>
+<p>CEOS STAC implementations shall specify the media (MIME) type of the artifact
+associated with a resource by specifying the “type” attribute of the Link object or Asset object.  The media types (<code class="docutils literal notranslate"><span class="pre">type</span></code>) from the table below shall be used for assets/links to the corresponding resources.</p>
+</div></blockquote>
+<p>The table below lists some frequently used formats and the corresponding media type for metadata assets.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Format</strong></p></th>
+<th class="head"><p><strong>type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.earthdata.nasa.gov/esdis/esco/standards-and-practices/directory-interchange-format-dif-standard">DIF10</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/dif10+xml</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.iso.org/standard/32557.html">ISO19139</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/vnd.iso.19139+xml</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.iso.org/standard/57104.html">ISO19139-2</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/vnd.iso.19139-2+xml</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.iso.org/standard/32579.html">ISO19115-3</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/vnd.iso.19115-3+xml</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.iso.org/standard/66197.html">ISO19157-2</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/vnd.iso.19157-2+xml</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.opengeospatial.org/is/10-157r4/10-157r4.html">OGC 10-157r4</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/gml+xml;profile=http://www.opengis.net/spec/EOMPOM/1.1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.opengeospatial.org/is/17-003r2/17-003r2.html">OGC 17-003r2</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/geo+json;profile=http://www.opengis.net/spec/eo-geojson/1.0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.ogc.org/bp/17-084r1/17-084r1.html">OGC 17-084r1</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/geo+json;profile=http://www.opengis.net/spec/eoc-geojson/1.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.loc.gov/standards/sru/recordSchemas/dc-schema.xsd">Dublin Core</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/xml</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If additional media types are required, preference shall be given to the media types listed in <a class="reference external" href="https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#common-media-types-in-stac">Common Media Types Best Practices</a>.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3330 - Asset roles [Recommendation]</strong><a name="BP-3330"></a></p>
+<p>If additional asset roles are required (e.g. for cloud masks, snow masks etc), preference shall be given to the asset role names of the general  <a class="reference external" href="https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles">Asset Roles Best Practices</a>.</p>
+</div></blockquote>
+</section>
+<section id="links-and-relations">
+<h3>3.3.3 Links and relations<a class="headerlink" href="#links-and-relations" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3350 - Reference to metadata [Recommendation]</strong><a name="BP-3350"></a></p>
+<p>Implementations should use Link objects with rel=”alternate” or rel=”via” for referencing detailed representation of the metadata for a collection or granule. (The “via” relation should be preferred to convey the authoritative resource or the source of the information from where the Collection/Item is made.)</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3360 - Reference to documentation [Recommendation]</strong><a name="BP-3360"></a></p>
+<p>Implementations should use a Link object with rel=”describedby” to reference from a collection or granule to its documentation.</p>
+</div></blockquote>
+<p>The table below list some frequently used formats for documentation and their corresponding media type (<code class="docutils literal notranslate"><span class="pre">type</span></code>).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Format</strong></p></th>
+<th class="head"><p><strong>type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7763">Markdown</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">text/markdown</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/PDF">PDF</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/pdf</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="facilitating-catalog-federation">
+<h3>3.3.4 Facilitating catalog federation<a class="headerlink" href="#facilitating-catalog-federation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-3410 - Absolute links [Requirement]</strong><a name="BP-3410"></a></p>
+<p>“href” attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC collection or granule metadata records.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3420 - Root relation [Recommendation]</strong><a name="BP-3420"></a></p>
+<p>Implementations should not use the rel=”root” relation in STAC collection and item encodings as the original catalog/collections may be referenced or included in a federated catalog with a different root.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-3430 - Collection identifier [Recommendation]</strong><a name="BP-3430"></a></p>
+<p>Implementations should carefully choose the “identifier” used for a STAC collection <code class="docutils literal notranslate"><span class="pre">/collections/{identifier}</span></code> to minimize the risk of duplicate collection identifiers when federated with catalogs and collections from other providers.</p>
+</div></blockquote>
+<p>For additional guidance about data collection citations and identifiers, refer to the “WGISS Data Collections Management Practices White Paper” <a class="reference internal" href="introduction.html#RD05"><span class="std std-ref">[RD05]</span></a>.</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="objectives-needs.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="granule-catalogs.html"><span class="std std-doc">Next</span></a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="objectives-needs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2. Objectives and needs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="granule-catalogs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4 Granule Catalog Best Practices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">3.1 Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog-best-practices">3.2 Catalog Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advertising-additional-search-parameters">3.2.1 Advertising additional search parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-response">3.2.2 Search response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-best-practices">3.3 Metadata Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">3.3.1 Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-and-roles">3.3.2 Assets and roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links-and-relations">3.3.3 Links and relations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facilitating-catalog-federation">3.3.4 Facilitating catalog federation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By CEOS WGISS DAIG
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
