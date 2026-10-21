@@ -86,7 +86,8 @@ jobs:
           REMOTE: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           SOURCE_REF: ${{ github.ref_name }}@${{ github.sha }}
           GIT_SHA: ${{ github.sha }}
-          # Which version the site root redirects to
-          DEFAULT_VERSION: main
+          # Which version the site root redirects to; set the DEFAULT_VERSION
+          # repository variable (Settings > Secrets and variables > Actions)
+          DEFAULT_VERSION: ${{ vars.DEFAULT_VERSION || 'main' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: bash .github/scripts/publish-version.sh
