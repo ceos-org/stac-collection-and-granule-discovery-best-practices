@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Introduction &#8212; CEOS Collection and Granule Discovery Best Practices</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Objectives and needs" href="objectives-needs.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">STAC Collection and Granule Discovery Best Practices</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objectives-needs.html">2. Objectives and needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices.html">3. Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="granule-catalogs.html">4 Granule Catalog Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection-catalogs.html">5. Collection Catalog Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="granule-metadata.html">6. Granule Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection-metadata.html">7. Collection Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="federation.html">8. Federation Best Practices</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ceos-org/stac-collection-and-granule-discovery-best-practices" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/introduction.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1. Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-document">1.1 Purpose of document</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-overview">1.2 Document overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms-definitions-and-abbreviated-terms">1.3 Terms, definitions and abbreviated terms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terms-and-definitions">1.3.1 Terms and Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acronyms">1.3.2 Acronyms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.4 References</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applicable-documents">1.4.1 Applicable documents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-documents">1.4.2 Reference documents</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a class="reference internal" href="README.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="objectives-needs.html"><span class="std std-doc">Next</span></a></p>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>This document provides server implementation best practices for SpatioTemporal Asset Catalog (STAC) search and catalog services that allow for standardized and harmonized access to metadata and data for CEOS agencies, including CWIC and FedEO.</p>
+<p>STAC is a lightweight, JSON-based language that is asset-oriented, self-navigable and tailored towards the spatial and temporal domain.</p>
+<p>It also provides a framework for achieving federated discovery in much the same way as OpenSearch. Where STAC has an advantage over OpenSearch is its widespread adoption in the earth science informatics community.</p>
+<section id="purpose-of-document">
+<h2>1.1 Purpose of document<a class="headerlink" href="#purpose-of-document" title="Link to this heading">#</a></h2>
+<p>The STAC ecosystem comprises both API-related and metadata-related specifications.
+This document provides server implementation Best Practices for STAC-based metadata publication and related discovery services allowing for standardized and harmonized access to metadata and data for CEOS agencies.</p>
+<p>The purpose of this document is to achieve the following,</p>
+<ul class="simple">
+<li><p>Promote the use of the STAC standard as a means of data discovery for Earth Data providers</p></li>
+<li><p>Define the expectations and requirements of candidate STAC implementations</p></li>
+<li><p>Remove ambiguity in implementation where possible</p></li>
+<li><p>Facilitate the aggregation of results between disparate Earth Data providers via STAC common standards</p></li>
+<li><p>Allow for clients to access search engines via STAC capabilities with no a priori knowledge of specific implementations</p></li>
+<li><p>Facilitate smooth integration between related STAC implementations, such as a dataset resource collection that refers to granule resource collections from another provider</p></li>
+<li><p>Replace the existing <a class="reference external" href="https://ceos.org/ourwork/workinggroups/wgiss/access/cwic/">CEOSS WGISS Integrated Catalog</a> (CWIC) and <a class="reference external" href="https://ceos.org/ourwork/workinggroups/wgiss/access/connected-data-assets/">WGISS Connected Data Assets</a> (CDA) infrastructure, based on the <a class="reference external" href="https://github.com/dewitt/opensearch">OpenSearch API</a>, with the STAC API and STAC catalogs</p></li>
+</ul>
+</section>
+<section id="document-overview">
+<h2>1.2 Document overview<a class="headerlink" href="#document-overview" title="Link to this heading">#</a></h2>
+<p>The document is organized as follows:</p>
+<ul class="simple">
+<li><p>Chapter 1 is the introduction of the document.</p></li>
+<li><p><a class="reference internal" href="objectives-needs.html"><span class="std std-doc">Chapter 2: Objectives and needs</span></a> gives an overview of objectives and needs.</p></li>
+<li><p><a class="reference internal" href="best-practices.html"><span class="std std-doc">Chapter 3: Best Practices</span></a> introduces the categories of Best Practices and presents best practices for catalogs and metadata appicable to collections and granules.</p></li>
+</ul>
+<p>The following chapters present Best Practices for one particular topic:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="granule-catalogs.html"><span class="std std-doc">Chapter 4: Granule Catalog Best Practices</span></a></p></li>
+<li><p><a class="reference internal" href="collection-catalogs.html"><span class="std std-doc">Chapter 5: Collection Catalog Best Practices</span></a></p></li>
+<li><p><a class="reference internal" href="granule-metadata.html"><span class="std std-doc">Chapter 6: Granule Metadata Best Practices</span></a></p></li>
+<li><p><a class="reference internal" href="collection-metadata.html"><span class="std std-doc">Chapter 7: Collection Metadata Best Practices</span></a></p></li>
+<li><p><a class="reference internal" href="federation.html"><span class="std std-doc">Chapter 8. Federation Best Practices</span></a></p></li>
+</ul>
+</section>
+<section id="terms-definitions-and-abbreviated-terms">
+<h2>1.3 Terms, definitions and abbreviated terms<a class="headerlink" href="#terms-definitions-and-abbreviated-terms" title="Link to this heading">#</a></h2>
+<section id="terms-and-definitions">
+<h3>1.3.1 Terms and Definitions<a class="headerlink" href="#terms-and-definitions" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Ready</span> <span class="pre">Data</span></code></p></td>
+<td><p>Satellite data that have been processed to a minimum set of requirements and organized into a form that allows immediate analysis with a minimum of additional user effort and interoperability both through time and with other datasets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Granule</span></code></p></td>
+<td><p>A granule is the finest granularity of data that can be independently managed. A granule usually matches the individual file of EO satellite data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Collection</span></code></p></td>
+<td><p>A collection is an aggregation of granules sharing the same product specification. A collection typically corresponds to the series of products derived from data acquired by a sensor on board a satellite and having the same mode of operation. <a class="reference internal" href="#RD01"><span class="xref myst">[RD01]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Interface</span></code></p></td>
+<td><p>Named set of operations that characterize the behavior of an entity.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Metadata</span></code></p></td>
+<td><p>Information about a resource <a class="reference internal" href="#RD02"><span class="xref myst">[RD02]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Metadata</span> <span class="pre">element</span></code></p></td>
+<td><p>Discrete unit of metadata <a class="reference internal" href="#RD02"><span class="xref myst">[RD02]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="acronyms">
+<h3>1.3.2 Acronyms<a class="headerlink" href="#acronyms" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">API</span></code></p></td>
+<td><p>Application Programming Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ARD</span></code></p></td>
+<td><p>Analysis Ready Data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CEOS</span></code></p></td>
+<td><p>Committee on Earth Observation Satellites</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CQL</span></code></p></td>
+<td><p>Common Query Language</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DIF-10</span></code></p></td>
+<td><p>Directory Interchange Format Version 10</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EO</span></code></p></td>
+<td><p>Earth Observation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GCMD</span></code></p></td>
+<td><p>Global Change Master Directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HATEOAS</span></code></p></td>
+<td><p>Hypertext As The Engine Of Application State</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IDN</span></code></p></td>
+<td><p>International Directory Network</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">JSON</span></code></p></td>
+<td><p>JavaScript Object Notation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OGC</span></code></p></td>
+<td><p>Open Geospatial Consortium</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OSDD</span></code></p></td>
+<td><p>OpenSearch Description Document</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S3</span></code></p></td>
+<td><p>Simple Storage Service</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAC</span></code></p></td>
+<td><p>Spatiotemporal Asset Catalog</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WGISS</span></code></p></td>
+<td><p>Working Group on Information Systems and Services</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>1.4 References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<section id="applicable-documents">
+<h3>1.4.1 Applicable documents<a class="headerlink" href="#applicable-documents" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
+<th class="head"><p><strong>Title</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD01</span></code> <a name="AD01"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/radiantearth/stac-spec/blob/v1.0.0/catalog-spec/catalog-spec.md">STAC Catalog Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD02</span></code> <a name="AD02"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/radiantearth/stac-spec/tree/v1.0.0/collection-spec">STAC Collection Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD03</span></code> <a name="AD03"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/radiantearth/stac-spec/tree/v1.0.0/item-spec">STAC Item Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD04</span></code> <a name="AD04"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/radiantearth/stac-api-spec/tree/release/v1.0.0">STAC API Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD05</span></code> <a name="AD05"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/radiantearth/stac-api-spec/tree/release/v1.0.0/item-search">STAC API - Item Search, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD06</span></code> <a name="AD06"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-api-extensions/filter">STAC API - Filter Extension</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD07</span></code> <a name="AD07"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-api-extensions/collection-search">STAC API - Collection Search</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD08</span></code> <a name="AD08"></a></p></td>
+<td><p><a class="reference external" href="https://docs.opengeospatial.org/is/17-069r3/17-069r3.html">OGC17-069r3, OGC API - Features - Part 1: Core</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD09</span></code> <a name="AD09"></a></p></td>
+<td><p><a class="reference external" href="https://docs.ogc.org/is/19-079r2/19-079r2.html">OGC17-079r2, OGC API - Features - Part 3: Filtering</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD10</span></code> <a name="AD10"></a></p></td>
+<td><p><a class="reference external" href="https://docs.ogc.org/is/21-065r2/21-065r2.html">OGC21-065r2, Common Query Language (CQL2)</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD11</span></code> <a name="AD11"></a></p></td>
+<td><p><a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7946">RFC 7946 - The GeoJSON Format</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD12</span></code> <a name="AD12"></a></p></td>
+<td><p><a class="reference external" href="https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02">JSON Schema: A Media Type for Describing JSON Documents, draft-handrews-json-schema-02</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD13</span></code> <a name="AD13"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/scientific">STAC Scientific Citation Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD14</span></code> <a name="AD14"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/eo">STAC Electro-Optical Extension Specification, v1.1.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD15</span></code> <a name="AD15"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/sar">STAC SAR Extension Specification, v1.3.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD16</span></code> <a name="AD16"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/sat">STAC Satellite Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD17</span></code> <a name="AD17"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/version">STAC Versioning Indicators Extension Specification, v1.2.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD18</span></code> <a name="AD18"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/view">STAC View Geometry Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD19</span></code> <a name="AD19"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/projectionw">STAC Projection Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD20</span></code> <a name="AD20"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/timestamps">STAC Timestamps Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD21</span></code> <a name="AD21"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/processing">STAC Processing Extension Specification, v1.2.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD22</span></code> <a name="AD22"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/hsi">STAC Hyperspectral Imagery Extension Specification, draft</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD23</span></code> <a name="AD23"></a></p></td>
+<td><p><a class="reference external" href="https://landsat.usgs.gov/stac/landsat-extension/v1.1.1/schema.json">STAC Landsat Extension Specification, v1.1.1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD24</span></code> <a name="AD24"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/alternate-assets">STAC Alternate Assets Extension Specification, v1.2.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD25</span></code> <a name="AD25"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/item-assets">STAC Item Assets Definition Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD26</span></code> <a name="AD26"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/web-map-links">STAC Web Map Links Extension Specification, v1.3.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD27</span></code> <a name="AD27"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-api-extensions/freetext-search">STAC API - Free Text Search</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD28</span></code> <a name="AD28"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/ceos-ard">STAC CEOS-ARD Extension Specification</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD29</span></code> <a name="AD29"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/themes">STAC Themes Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD30</span></code> <a name="AD30"></a></p></td>
+<td><p><a class="reference external" href="https://ceos.org/ard">CEOS-ARD Product Family Specifications</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD31</span></code> <a name="AD31"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/product">STAC Product Extension Specification, v1.0.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD32</span></code> <a name="AD32"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/authentication">STAC Authentication Extension Specification, v1.1.0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AD33</span></code> <a name="AD33"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/grid">STAC Grid Extension Specification, v1.1.0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AD34</span></code> <a name="AD34"></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/file">STAC File Extension Specification, v2.1.0</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="reference-documents">
+<h3>1.4.2 Reference documents<a class="headerlink" href="#reference-documents" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
+<th class="head"><p><strong>Title</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RD01</span></code> <a name="RD01"></a></p></td>
+<td><p><a class="reference external" href="https://ceos.org/document_management/Working_Groups/WGISS/Documents/WGISS%20Best%20Practices/CEOS%20OpenSearch%20Best%20Practice.pdf">CEOS OpenSearch Best Practice Document, Version 1.0, CEOS-OPENSEARCH-BP-V1.3</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RD02</span></code> <a name="RD02"></a></p></td>
+<td><p><a class="reference external" href="https://www.iso.org/standard/53798.html">ISO 19115-1:2014, Geographic Information – Metadata – Part 1: Fundamentals, First Edition 2014-04-01</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RD03</span></code> <a name="RD03"></a></p></td>
+<td><p><a class="reference external" href="https://portal.ogc.org/files/?artifact_id=104980&amp;amp;version=1">OGC23-038, Best Practice for Common Band Names of Optical and Radar Sensors</a> - Not yet available.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RD04</span></code> <a name="RD04"></a></p></td>
+<td><p><a class="reference external" href="https://docs.ogc.org/is/13-026r9/13-026r9.html">OGC13-026r9, OpenSearch Extension for Earth Observation</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RD05</span></code> <a name="RD05"></a></p></td>
+<td><p><a class="reference external" href="https://ceos.org/ourwork/workinggroups/wgiss/documents/">WGISS Data Collections Management Practices White Paper</a> - Not yet available.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RD06</span></code> <a name="RD06"></a></p></td>
+<td><p><a class="reference external" href="https://ceos.org/document_management/Working_Groups/WGISS/Documents/WGISS%20Best%20Practices/CEOS%20Persistent%20Identifier%20Best%20Practice.pdf">CEOS WGISS Persistent Identifiers Best Practice, Version 1.4, CEOS/WGISS/DSIG/PIDBP</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><a class="reference internal" href="README.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="objectives-needs.html"><span class="std std-doc">Next</span></a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="objectives-needs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Objectives and needs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-document">1.1 Purpose of document</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-overview">1.2 Document overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms-definitions-and-abbreviated-terms">1.3 Terms, definitions and abbreviated terms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terms-and-definitions">1.3.1 Terms and Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acronyms">1.3.2 Acronyms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.4 References</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applicable-documents">1.4.1 Applicable documents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-documents">1.4.2 Reference documents</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By CEOS WGISS DAIG
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

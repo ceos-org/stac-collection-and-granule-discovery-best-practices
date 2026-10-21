@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. Granule Metadata Best Practices &#8212; CEOS Collection and Granule Discovery Best Practices</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'granule-metadata';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Collection Metadata Best Practices" href="collection-metadata.html" />
+    <link rel="prev" title="5. Collection Catalog Best Practices" href="collection-catalogs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="CEOS Collection and Granule Discovery Best Practices - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">STAC Collection and Granule Discovery Best Practices</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objectives-needs.html">2. Objectives and needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices.html">3. Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="granule-catalogs.html">4 Granule Catalog Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection-catalogs.html">5. Collection Catalog Best Practices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Granule Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection-metadata.html">7. Collection Metadata Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="federation.html">8. Federation Best Practices</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ceos-org/stac-collection-and-granule-discovery-best-practices" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/granule-metadata.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. Granule Metadata Best Practices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">6.1 Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">6.2 Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-and-roles">6.3 Assets and roles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links-and-relations">6.4 Links and relations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#facilitating-catalog-federation">6.5 Facilitating catalog federation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceos-ard">6.6 CEOS-ARD</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a class="reference internal" href="collection-catalogs.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="collection-metadata.html"><span class="std std-doc">Next</span></a></p>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="granule-metadata-best-practices">
+<h1>6. Granule Metadata Best Practices<a class="headerlink" href="#granule-metadata-best-practices" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>6.1 Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This chapter presents the requirements and recommendations that apply to STAC granule metadata representations (returned by a static or searchable catalog, in isolation or included in a search response) in addition to the general metadata requirements presented in <a class="reference internal" href="best-practices.html#33-metadata-best-practices"><span class="std std-ref">Metadata Best Practices</span></a>.</p>
+<p>The requirements and recommendations provided relate to:</p>
+<ul class="simple">
+<li><p>Properties</p></li>
+<li><p>Asset and roles</p></li>
+<li><p>Links and relations</p></li>
+<li><p>Facilitating federation</p></li>
+</ul>
+</section>
+<section id="properties">
+<h2>6.2 Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-6210 - Granule representation [Requirement]</strong><a name="BP-6210"></a></p>
+<p>A(n EO) Granule metadata record shall be represented as a STAC Item according to version v1.0.0 of the “STAC Item Specification” <a class="reference internal" href="introduction.html#AD03"><span class="std std-ref">[AD03]</span></a>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6220 - Temporal extents [Recommendation]</strong><a name="BP-6220"></a></p>
+<p>STAC implementations should represent temporal extents in Items with the <code class="docutils literal notranslate"><span class="pre">start_datetime</span></code> and <code class="docutils literal notranslate"><span class="pre">end_datetime</span></code> properties and include the value for <code class="docutils literal notranslate"><span class="pre">start_datetime</span></code> also as <code class="docutils literal notranslate"><span class="pre">datetime</span></code> property.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-6230 - Geographical extents [Requirement]</strong><a name="BP-6230"></a></p>
+<p>STAC implementations shall represent geographical extents of Items with the <code class="docutils literal notranslate"><span class="pre">geometry</span></code> property (GeoJSON Geometry object or null if not available).</p>
+</div></blockquote>
+<p>Geographical extents of Items are represented using GeoJSON geometry objects <a class="reference internal" href="#AD4"><span class="xref myst">RFC7946</span></a> in STAC item search responses.  This representation can natively represent multi-point, multi-line and multi-polygon geometries, thus no additional guidance similar to <code class="docutils literal notranslate"><span class="pre">CEOS-BP-014B</span></code>, <code class="docutils literal notranslate"><span class="pre">CEOS-BP-014C</span></code> and <code class="docutils literal notranslate"><span class="pre">CEOS-BP-014D</span></code> is required.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-6235 - Polygon geometry [Requirement]</strong><a name="BP-6235"></a></p>
+<p>The geographical extent of an Item represented as polygon shall follow the right-hand rule with respect to the area it bounds and in case of a polygon with more than one ring, the first shall be the exterior ring and the others shall be interior rings as required by the <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.6">GeoJSON specification</a>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-6240 - Minimum-bounding rectangle [Requirement]</strong><a name="BP-6240"></a></p>
+<p>CEOS implementations should render spatial extents using a minimum-bounding
+rectangle (MBR) with a GeoJSON <code class="docutils literal notranslate"><span class="pre">bbox</span></code> property <a class="reference internal" href="#AD4"><span class="xref myst">RFC7946</span></a> in addition to the native more accurate
+representation of that extent with the <code class="docutils literal notranslate"><span class="pre">geometry</span></code> property. The value of the bbox
+element must be an array of length 4 (two long/lat pairs), with the southwesterly point followed by the northeasterly point.</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">bbox</span></code> item property is mandatory according to the STAC Item specification unless <code class="docutils literal notranslate"><span class="pre">geometry</span></code> is null.</p>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-6250 - Granule representation  extension [Recommendation]</strong><a name="BP-6250"></a></p>
+<p>A(n EO) Granule metadata record represented as a STAC Item should use applicable properties defined by the following STAC extensions:</p>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Reference</strong></p></th>
+<th class="head"><p><strong>STAC Extension</strong></p></th>
+<th class="head"><p><strong>Example Properties</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="introduction.html#AD14"><span class="std std-ref">[AD14]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/eo">EO Extension</a></p></td>
+<td><p>eo:cloud_cover, eo:snow_cover, eo:bands</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="introduction.html#AD15"><span class="std std-ref">[AD15]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/sar">SAR Extension</a></p></td>
+<td><p>sar:instrument_mode, sar:polarizations, …</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="introduction.html#AD16"><span class="std std-ref">[AD16]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/sat">SAT Extension</a></p></td>
+<td><p>sat:orbit_state, sat:absolute_orbit, …</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="introduction.html#AD13"><span class="std std-ref">[AD13]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/scientific">Scientific Extension</a></p></td>
+<td><p>sci:doi</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="introduction.html#AD17"><span class="std std-ref">[AD17]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/version">Version Extension</a></p></td>
+<td><p>version</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="introduction.html#AD18"><span class="std std-ref">[AD18]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/view">View Extension</a></p></td>
+<td><p>view:azimuth, view:incidence_angle, …</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="introduction.html#AD19"><span class="std std-ref">[AD19]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/projection">Projection Extension</a></p></td>
+<td><p>proj:espg</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="introduction.html#AD20"><span class="std std-ref">[AD20]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/timestamps">Timestamps Extension</a></p></td>
+<td><p>published, expires</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="introduction.html#AD23"><span class="std std-ref">[AD23]</span></a></p></td>
+<td><p><a class="reference external" href="https://landsat.usgs.gov/stac/landsat-extension/schema.json">Landsat Extension</a></p></td>
+<td><p>landsat:wrs_path, landsat:wrs_row</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="introduction.html#AD21"><span class="std std-ref">[AD21]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/processing">Processing Extension</a></p></td>
+<td><p>processing:level, processing:facility, …</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="introduction.html#AD22"><span class="std std-ref">[AD22]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/hsi">Hyperspectral Extension</a></p></td>
+<td><p>hsi:wavelength_min, hsi:wavelength_max</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="introduction.html#AD31"><span class="std std-ref">[AD31]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/stac-extensions/product">Product Extension</a></p></td>
+<td><p>product:type</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Additional guidance on how to encode OGC17-003r2 metadata properties with the above extensions is available in <a class="reference external" href="https://github.com/stac-utils/stac-crosswalks/tree/master/OGC_17-003r2">“Mapping from OGC EO Dataset Metadata GeoJSON(-LD) Encoding Standard to STAC”</a>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">"stac_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL1_OESR_AV2_OBS_1C_20060613T100220_20060613T100232_002047_0307_2730_0410"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"bbox"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="mf">14.5302398</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">42.4746857</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">15.6508019</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">43.348489</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"geometry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">          </span><span class="mf">14.7799437</span><span class="p">,</span>
+<span class="w">          </span><span class="mf">43.348489</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">          </span><span class="mf">15.6508019</span><span class="p">,</span>
+<span class="w">          </span><span class="mf">43.1791444</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">          </span><span class="mf">15.3915014</span><span class="p">,</span>
+<span class="w">          </span><span class="mf">42.4746857</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">          </span><span class="mf">14.5302398</span><span class="p">,</span>
+<span class="w">          </span><span class="mf">42.6427013</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">          </span><span class="mf">14.7799437</span><span class="p">,</span>
+<span class="w">          </span><span class="mf">43.348489</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polygon"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALOS.AVNIR-2.L1C"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"stac_extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"https://stac-extensions.github.io/sar/v1.3.0/schema.json"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"https://stac-extensions.github.io/processing/v1.2.0/schema.json"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"https://stac-extensions.github.io/product/v1.0.0/schema.json"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"https://stac-extensions.github.io/projection/v1.1.0/schema.json"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"https://stac-extensions.github.io/sat/v1.0.0/schema.json"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"https://stac-extensions.github.io/view/v1.0.0/schema.json"</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"start_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006-06-13T10:02:20.948Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"end_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006-06-13T10:02:32.786Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"processing:facility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESR"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"view:sun_azimuth"</span><span class="p">:</span><span class="w"> </span><span class="mi">147</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL1_OESR_AV2_OBS_1C_20060613T100220_20060613T100232_002047_0307_2730_0410"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALOS"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"proj:epsg"</span><span class="p">:</span><span class="w"> </span><span class="mi">4326</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"view:sun_elevation"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006-06-13T10:02:20.948Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sar:instrument_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OBS"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"instruments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"AVNIR-2"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"constellation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALOS"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"product:type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AV2_OBS_1C"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sat:orbit_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCENDING"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"processing:software"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"AVNIR-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04.10"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-28T18:01:51Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sat:absolute_orbit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2047</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>CEOS-STAC-PER-6255 - Granule representation extension validation [Permission]</strong><a name="BP-6255"></a></p>
+<p>A CEOS STAC implementation may include a subset of properties in the item encoding defined by any of the above STAC extensions, even though the STAC extension may require additional properties to be included to pass the corresponding STAC extension JSON schema validation.</p>
+</div></blockquote>
+</section>
+<section id="assets-and-roles">
+<h2>6.3 Assets and roles<a class="headerlink" href="#assets-and-roles" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6310 - Browse image [Recommendation]</strong><a name="BP-6310"></a></p>
+<p>STAC implementations should provide a URL to the granule’s browse image when available, via an Asset object with role=<code class="docutils literal notranslate"><span class="pre">overview</span></code>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6320 - Thumbnail image [Recommendation]</strong><a name="BP-6320"></a></p>
+<p>STAC implementations should provide a URL to the granule’s thumbnail image (smaller than the browse image) when available, via an Asset object with role=<code class="docutils literal notranslate"><span class="pre">thumbnail</span></code>.</p>
+</div></blockquote>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"quicklook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"overview"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://tpm-ds.eo.esa.int/oads/meta/PROBA1-CHRIS/browse/PR1_OPER_CHR_MO2_1P_20020710T102800_N45-018_E012-003_0001.SIP.ZIP_BID.PNG"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QUICKLOOK"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"thumbnail"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://tpm-ds.eo.esa.int/oads/meta/PROBA1-CHRIS/thumbnail/PR1_OPER_CHR_MO2_1P_20020710T102800_N45-018_E012-003_0001.SIP.ZIP_TIMG.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THUMBNAIL"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6330 - Data access [Recommendation]</strong><a name="BP-6330"></a></p>
+<p>STAC implementations should provide the data access URL for the granule via an Asset object with role=<code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</div></blockquote>
+<p>Example: Asset object for Cloud Optimized GeoTIFF data</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"enclosure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">"data"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.googleapis.com/sample-cogs/cog/20210515_145754_03_245c_3B_AnalyticMS.tif"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"file:size"</span><span class="p">:</span><span class="w"> </span><span class="mi">352818</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/tiff; application=geotiff; profile=cloud-optimized"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4-Band Analytic"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example: Asset object for Zarr data</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"zmetadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"data"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"metadata"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"zarr-consolidated-metadata"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consolidated metadata file for Zarr store"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.sbg.cloud.ovh.net/v1/AUTH_d40770b0914c46bfb19434ae3e97ae19/hdsa-public/prisma_v2/20200410/.zmetadata"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6335 - File size [Recommendation]</strong><a name="BP-6335"></a></p>
+<p>STAC implementations should provide the size of the granule file accessible via an Asset object with role=<code class="docutils literal notranslate"><span class="pre">data</span></code> using the file:size property of the “STAC File Extension Specification” <a class="reference internal" href="introduction.html#AD33"><span class="std std-ref">[AD33]</span></a>..</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6340 - Data access to multiple files [Recommendation]</strong><a name="BP-6340"></a></p>
+<p>When data access to a granule in a granule search response is to be provided in multiple physical files, each file should be linked to via a separate Asset object with role=<code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6360 - Alternate locations [Recommendation]</strong><a name="BP-6360"></a></p>
+<p>When the same assets are available at multiple locations or via multiple protocols, they should be encoded as <code class="docutils literal notranslate"><span class="pre">alternate</span> <span class="pre">asset</span></code> as defined in the “STAC Alternate Assets Extension Specification” <a class="reference internal" href="introduction.html#AD24"><span class="std std-ref">[AD24]</span></a>.</p>
+</div></blockquote>
+<p>.Example: Use of alternate Asset object for data available on S3 storage</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.esa.int/store/TSX_OPER_SAR/2013/06/11/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100.zarr/.zmetadata"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zarr consolidated metadata"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="nt">"application/json"</span>
+<span class="w">      </span><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"data"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"metadata"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"zarr-consolidated-metadata"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"alternate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"s3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S3 Access"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3://storage.esa.int/store/TSX_OPER_SAR/2013/06/11/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100/TSX_OPER_SAR_SC_MGD_20130611T054228_N53-141_E011-048_0000_v0100.zarr/.zmetadata"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6370 - Common band names [Recommendation]</strong><a name="BP-6370"></a></p>
+<p>If access to individual bands is provided via assets, then <a class="reference external" href="https://github.com/stac-extensions/eo/blob/main/README.md#common-band-names">Common Band Names</a> should be used, preferably according to the forthcoming OGC Best Practice document <a class="reference internal" href="introduction.html#RD03"><span class="std std-ref">[RD03]</span></a>.</p>
+</div></blockquote>
+</section>
+<section id="links-and-relations">
+<h2>6.4 Links and relations<a class="headerlink" href="#links-and-relations" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6410 - WMS Offering [Recommendation]</strong><a name="BP-6410"></a></p>
+<p>STAC implementations should indicate available data access via WMS using a STAC Web Map Link as defined in <a class="reference internal" href="introduction.html#AD26"><span class="std std-ref">[AD26]</span></a>.</p>
+</div></blockquote>
+<p>.Example: Use of WMS Web Map Link Extension</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://10.23.12.4/v1/wmts"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wms"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"wms:transparent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Granule visualized via WMS"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"wms:layers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"SMOS_Open_V7:SMOS_Open_V7_MIR_OSUDP2_cog"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"SMOS_Open_V7:SMOS_Open_V7_MIR_SMUDP2_cog"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"wms:styles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"RAINBOW"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"wms:dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-04T01:04:20.174Z,2023-10-04T01:58:21.418Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>CEOS-STAC-REC-6420 - WMTS Offering [Recommendation]</strong><a name="BP-6420"></a></p>
+<p>STAC implementations should indicate available data access via WMTS using a STAC Web Map Link as defined in <a class="reference internal" href="introduction.html#AD26"><span class="std std-ref">[AD26]</span></a>.</p>
+</div></blockquote>
+<p>.Example: Use of WMTS Web Map Link Extension</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"wmts:encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rest"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"uriTemplate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://eocat.esa.int/wmts08/1.0.0/PROBA1-CHRIS/default/2003-03-12T11:19:00Z--2003-03-12T11:23:00Z/WGS84/{TileMatrix}/{TileRow}/{TileCol}.jpgpng"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wmts"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"wmts:layer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROBA1-CHRIS"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://eocat.esa.int/wmts08/1.0.0/WMTSCapabilities.xml"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="facilitating-catalog-federation">
+<h2>6.5 Facilitating catalog federation<a class="headerlink" href="#facilitating-catalog-federation" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>CEOS-STAC-REQ-6510 - Absolute links [Requirement]</strong><a name="BP-6510"></a></p>
+<p>“href” attributes in links or assets shall use absolute paths and not relative paths in CEOS STAC granule metadata records.</p>
+</div></blockquote>
+</section>
+<section id="ceos-ard">
+<h2>6.6 CEOS-ARD<a class="headerlink" href="#ceos-ard" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://ceos.org/ard/">CEOS-ARD</a> <a class="reference internal" href="introduction.html#AD30"><span class="std std-ref">[AD30]</span></a> publishes Product Family Specifications (PFS) that define recommendations and requirements to make certain types of data available as Analysis-Ready Data (ARD).</p>
+<p>The CEOS-ARD specifications are available as specification text and do not provide an official mapping to STAC.
+A community-lead project aims at providing a mapping between the CEOS-ARD requirements and existing STAC extensions, which can be used as a guideline for STAC implementations that aim for CEOS-ARD compliance.
+See the <a class="reference external" href="https://github.com/stac-extensions/ceos-ard">STAC CEOS-ARD Extension Specification</a> <a class="reference internal" href="introduction.html#AD28"><span class="std std-ref">[AD28]</span></a> and its Optical and Radar profiles for details.</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="collection-catalogs.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="README.html"><span class="std std-doc">Table of contents</span></a> | <a class="reference internal" href="collection-metadata.html"><span class="std std-doc">Next</span></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="collection-catalogs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5. Collection Catalog Best Practices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="collection-metadata.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7. Collection Metadata Best Practices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">6.1 Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">6.2 Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-and-roles">6.3 Assets and roles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links-and-relations">6.4 Links and relations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#facilitating-catalog-federation">6.5 Facilitating catalog federation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceos-ard">6.6 CEOS-ARD</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By CEOS WGISS DAIG
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
