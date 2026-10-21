@@ -27,7 +27,6 @@ execute:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/ceos-org/stac-collection-and-granule-discovery-best-practices  # Online location of your book
-  path_to_book: book  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
@@ -35,3 +34,4 @@ repository:
 html:
   use_issues_button: false
   use_repository_button: true
+  home_page_in_navbar: false  # root page (intro.md) only forwards to introduction.html

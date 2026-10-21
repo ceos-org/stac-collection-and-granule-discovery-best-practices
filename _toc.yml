@@ -9,7 +9,7 @@ parts:
 #    - file: thesauri
   - caption: STAC Collection and Granule Discovery Best Practices
     chapters:
-    - file: introduction.md 
+    - file: introduction.md
     - file: objectives-needs.md
     - file: best-practices.md  
     - file: granule-catalogs.md

@@ -1,0 +1,92 @@
+name: deploy-book
+
+# Publishes each ref to its own subpath of GitHub Pages, e.g.
+#   main   -> https://ceos-org.github.io/stac-collection-and-granule-discovery-best-practices/main/
+#   v1.0.0 -> https://ceos-org.github.io/stac-collection-and-granule-discovery-best-practices/v1.0.0/
+#
+# NOTE: no `paths:` filter here on purpose. A path filter is evaluated against
+# the pushed commit range, which is empty when a tag is pushed onto a commit
+# that is already on main -- the run would silently be skipped.
+on:
+  workflow_dispatch:
+    inputs:
+      subpath:
+        description: "Subpath to publish to (defaults to the branch/tag name)"
+        required: false
+      dry_run:
+        description: "Build and stage the commit, but do not push to gh-pages"
+        type: boolean
+        default: false
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - "v*"
+
+concurrency:
+  # Serialise pushes to gh-pages so two builds can't race on the same branch
+  group: gh-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # Resolve the Pages subpath for this ref. Branch names may contain "/",
+      # which would create nested directories, so flatten them.
+      - name: Resolve target subpath
+        id: target
+        env:
+          INPUT_SUBPATH: ${{ inputs.subpath }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          slug="${INPUT_SUBPATH:-$REF_NAME}"
+          slug="${slug//\//-}"
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "Publishing to /$slug/"
+
+      # Install dependencies
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # (optional) Cache your executed notebooks between runs
+      # if you have config:
+      # execute:
+      #   execute_notebooks: cache
+      - name: cache executed notebooks
+        uses: actions/cache@v4
+        with:
+          path: _build/.jupyter_cache
+          key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
+
+      # Build the book
+      - name: Build the HTML book
+        run: |
+          jupyter-book build .
+
+      # Copy the build into <subpath>/ on the gh-pages branch, leaving every
+      # other version untouched, and regenerate the root version index.
+      # Same script you can dry-run locally -- see .github/scripts/publish-version.sh
+      - name: Publish to gh-pages
+        env:
+          SLUG: ${{ steps.target.outputs.slug }}
+          BUILD_DIR: _build/html
+          REMOTE: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          SOURCE_REF: ${{ github.ref_name }}@${{ github.sha }}
+          GIT_SHA: ${{ github.sha }}
+          # Which version the site root redirects to
+          DEFAULT_VERSION: main
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: bash .github/scripts/publish-version.sh
